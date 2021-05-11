@@ -1,3 +1,9 @@
 <resources>
+    <!--  App  -->
     <string name="app_name">Rol Multi Sheet</string>
+
+    <!--  Main Activity Menu  -->
+    <string name="main_activity_menu_character">Personajes</string>
+    <string name="main_activity_menu_game">Juegos</string>
+    <string name="main_activity_menu_dice">Dados</string>
 </resources>
