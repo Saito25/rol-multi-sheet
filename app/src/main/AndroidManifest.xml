@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RolMultiSheet">
         <activity
-            android:name=".MainActivity"
+            android:name=".presentation.ActivityMain"
             android:theme="@style/Theme.RolMultiSheet.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
