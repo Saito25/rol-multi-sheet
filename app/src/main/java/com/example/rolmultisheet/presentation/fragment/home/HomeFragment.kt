@@ -7,14 +7,14 @@ import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.example.rolmultisheet.R
-import com.example.rolmultisheet.databinding.FragmentHomeBinding
+import com.example.rolmultisheet.databinding.HomeFragmentBinding
 import com.example.rolmultisheet.presentation.util.fragment.AppBarConfigurationOwner
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 
-class HomeFragment : Fragment(R.layout.fragment_home) {
+class HomeFragment : Fragment(R.layout.home_fragment) {
 
-    private val binding: FragmentHomeBinding by viewBinding {
-        FragmentHomeBinding.bind(it)
+    private val binding: HomeFragmentBinding by viewBinding {
+        HomeFragmentBinding.bind(it)
     }
     private val navController: NavController by lazy { findNavController() }
 
