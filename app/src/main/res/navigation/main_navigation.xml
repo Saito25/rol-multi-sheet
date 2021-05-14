@@ -9,5 +9,13 @@
         android:id="@+id/homeFragmentDirection"
         android:name="com.example.rolmultisheet.presentation.fragment.home.HomeFragment"
         android:label="@string/app_name"
-        tools:layout="@layout/home_fragment" />
+        tools:layout="@layout/home_fragment">
+        <action
+            android:id="@+id/showInfoFragmentDirection"
+            app:destination="@id/infoFragmentDirection" />
+    </fragment>
+    <fragment
+        android:id="@+id/infoFragmentDirection"
+        android:name="com.example.rolmultisheet.presentation.fragment.info.InfoFragment"
+        tools:layout="@layout/info_fragment" />
 </navigation>

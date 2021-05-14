@@ -1,6 +1,7 @@
 package com.example.rolmultisheet.presentation.fragment.home
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -54,7 +55,27 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                 (requireActivity() as AppBarConfigurationOwner).appBarConfiguration
             )
             inflateMenu(R.menu.main_nav)
+            setOnMenuItemClickListener {
+                onMenuItemClick(it)
+            }
         }
+    }
+
+    private fun onMenuItemClick(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menuGame -> navigateToEditGame()
+            R.id.menuGameInfo -> navigateToInfo()
+            else -> return false
+        }
+        return true
+    }
+
+    private fun navigateToEditGame() {
+        TODO("Not yet implemented")
+    }
+
+    private fun navigateToInfo() {
+
     }
 
     private fun setupRecyclerView() {
