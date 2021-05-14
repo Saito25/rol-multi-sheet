@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/labelHomeItemRoot"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:background="?android:attr/selectableItemBackground">
 
     <TextView
         android:id="@+id/labelHomeItemName"
@@ -12,10 +13,10 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/padding_x2"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:textSize="@dimen/item_title_size"
         app:layout_constraintBottom_toBottomOf="@+id/imageHomeItemAvatar"
         app:layout_constraintStart_toEndOf="@+id/imageHomeItemAvatar"
         app:layout_constraintTop_toTopOf="@+id/imageHomeItemAvatar"
-        android:textSize="@dimen/item_title_size"
         tools:text="Leunam" />
 
     <ImageView
