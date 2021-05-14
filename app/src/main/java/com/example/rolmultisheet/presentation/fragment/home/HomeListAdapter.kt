@@ -40,7 +40,7 @@ class HomeListAdapter : ListAdapter<Character, HomeListAdapter.ViewHolder>(Chara
 
         fun bind(item: Character) {
             binding.run {
-
+                labelHomeItemName.text = item.characterName
             }
         }
     }

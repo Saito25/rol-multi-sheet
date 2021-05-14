@@ -12,6 +12,8 @@ import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rolmultisheet.R
+import com.example.rolmultisheet.data.database.AppDatabase
+import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.HomeFragmentBinding
 import com.example.rolmultisheet.presentation.util.fragment.AppBarConfigurationOwner
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
@@ -22,7 +24,11 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         HomeFragmentBinding.bind(it)
     }
 
-    private val viewModel: HomeViewModel by viewModels()
+    private val viewModel: HomeViewModel by viewModels {
+        HomeViewModelFactory(
+            RoomRepository(AppDatabase.getInstance(requireContext()).appDao)
+        )
+    }
 
     private val listAdapter: HomeListAdapter by lazy {
         HomeListAdapter()
@@ -33,6 +39,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
+        observeViewModel()
     }
 
     private fun setupViews() {
@@ -60,4 +67,9 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         }
     }
 
+    private fun observeViewModel() {
+        viewModel.characters.observe(viewLifecycleOwner) {
+            listAdapter.submitList(it)
+        }
+    }
 }
