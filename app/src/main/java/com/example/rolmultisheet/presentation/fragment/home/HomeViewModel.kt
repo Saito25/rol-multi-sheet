@@ -1,8 +1,6 @@
 package com.example.rolmultisheet.presentation.fragment.home
 
 import androidx.lifecycle.ViewModel
-import androidx.viewbinding.ViewBinding
+import com.example.rolmultisheet.domain.repository.AppRepository
 
-class HomeViewModel : ViewModel() {
-
-}
+class HomeViewModel(private val appRepository: AppRepository) : ViewModel()
