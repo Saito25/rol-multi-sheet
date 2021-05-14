@@ -9,6 +9,6 @@ data class Character(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "character_id")
     val characterId: Long = 0,
-    @ColumnInfo(name = "character_id")
+    @ColumnInfo(name = "character_name")
     val characterName: String,
 )
