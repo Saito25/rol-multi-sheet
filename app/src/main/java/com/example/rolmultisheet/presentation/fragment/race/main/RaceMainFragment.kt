@@ -21,4 +21,8 @@ class RaceMainFragment : Fragment(R.layout.common_list_fragment) {
             )
         )
     }
+
+    private val listAdapter: RaceMainListAdapter by lazy {
+        RaceMainListAdapter()
+    }
 }
