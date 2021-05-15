@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.rolmultisheet.data.dao.AppDao
 import com.example.rolmultisheet.domain.model.Character
+import com.example.rolmultisheet.domain.model.Race
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
@@ -34,6 +35,9 @@ abstract class AppDatabase : RoomDatabase() {
                                     GlobalScope.launch {
                                         INSTANCE!!.appDao.insertCharacter(
                                             Character(0, "Leunam")
+                                        )
+                                        INSTANCE!!.appDao.insertRace(
+                                            Race(0, "Elf", 20, 1.9, 1000)
                                         )
                                     }
                                 }
