@@ -10,4 +10,8 @@
     <string name="home_item_avatar_image_description">Imagen representativa del personaje</string>
     <string name="home_item_actionable_image_description">Icono que muestra que el item es accionable</string>
 
+    <!--  Game host  -->
+    <string name="game_host_fab_description">Botón flotante para añadir elementos</string>
+    <string name="game_host_toolbar_name">Dungeons and Dragons</string>
+
 </resources>

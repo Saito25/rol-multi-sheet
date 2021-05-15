@@ -71,11 +71,13 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     }
 
     private fun navigateToEditGame() {
-        TODO("Not yet implemented")
+        val action = HomeFragmentDirections.showGameTabHostFragmentDirection()
+        navController.navigate(action)
     }
 
     private fun navigateToInfo() {
-
+        val action = HomeFragmentDirections.showInfoFragmentDirection()
+        navController.navigate(action)
     }
 
     private fun setupRecyclerView() {

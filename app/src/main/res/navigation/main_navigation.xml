@@ -13,9 +13,16 @@
         <action
             android:id="@+id/showInfoFragmentDirection"
             app:destination="@id/infoFragmentDirection" />
+        <action
+            android:id="@+id/showGameTabHostFragmentDirection"
+            app:destination="@id/gameTabHostFragmentDirection" />
     </fragment>
     <fragment
         android:id="@+id/infoFragmentDirection"
         android:name="com.example.rolmultisheet.presentation.fragment.info.InfoFragment"
         tools:layout="@layout/info_fragment" />
+    <fragment
+        android:id="@+id/gameTabHostFragmentDirection"
+        android:name="com.example.rolmultisheet.presentation.fragment.game.GameTabHostFragment"
+        android:label="@string/game_host_toolbar_name" />
 </navigation>
