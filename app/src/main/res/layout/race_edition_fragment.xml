@@ -15,20 +15,20 @@
         android:theme="@style/AppTheme.AppBarOverlay" />
 
     <androidx.core.widget.NestedScrollView
-        android:id="@+id/nsvInfoRaceScroller"
+        android:id="@+id/scrollRaceEdition"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/clInfoRaceInfo"
+            android:id="@+id/constraintRaceEdition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:visibility="visible"
             android:padding="@dimen/padding_x3">
 
             <androidx.cardview.widget.CardView
-                android:id="@+id/cvImageBackground"
+                android:id="@+id/cardRaceEditionBackground"
                 android:layout_width="match_parent"
                 android:layout_height="192dp"
                 android:alpha="0.7"
@@ -40,7 +40,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <ImageView
-                    android:id="@+id/ivInfoRaceAvatar"
+                    android:id="@+id/imageRaceEditionAvatar"
                     android:layout_width="match_parent"
                     android:layout_height="192dp"
                     android:contentDescription="@string/race_edition_image_description"
@@ -49,46 +49,46 @@
             </androidx.cardview.widget.CardView>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilInfoRaceDecorationName"
+                android:id="@+id/inputDecoratorRaceEditionName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
                 app:helperText="@string/race_edition_name"
-                app:layout_constraintStart_toStartOf="@+id/cvImageBackground"
-                app:layout_constraintTop_toBottomOf="@+id/cvImageBackground">
+                app:layout_constraintStart_toStartOf="@+id/cardRaceEditionBackground"
+                app:layout_constraintTop_toBottomOf="@+id/cardRaceEditionBackground">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tieInfoRaceFieldName"
+                    android:id="@+id/inputRaceEditionName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilInfoRaceDecorationVelocity"
+                android:id="@+id/inputDecoratorRaceEditionVelocity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
                 app:helperText="@string/race_edition_velocity"
-                app:layout_constraintEnd_toEndOf="@+id/tilInfoRaceDecorationName"
-                app:layout_constraintStart_toStartOf="@+id/tilInfoRaceDecorationName"
-                app:layout_constraintTop_toBottomOf="@+id/tilInfoRaceDecorationName">
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorRaceEditionName"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorRaceEditionName"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorRaceEditionName">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tieInfoRaceFieldVelocity"
+                    android:id="@+id/inputRaceEditionVelocity"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilInfoRaceDecorationHeight"
+                android:id="@+id/inputDecoratorRaceEditionHeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
                 app:helperText="@string/race_edition_length"
-                app:layout_constraintEnd_toEndOf="@+id/tilInfoRaceDecorationName"
-                app:layout_constraintStart_toStartOf="@+id/tilInfoRaceDecorationName"
-                app:layout_constraintTop_toBottomOf="@+id/tilInfoRaceDecorationVelocity">
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorRaceEditionName"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorRaceEditionName"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorRaceEditionVelocity">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/tieInfoRaceFieldHeight"
@@ -98,17 +98,17 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/tilInfoRaceDecorationAge"
+                android:id="@+id/inputDecoratorRaceEditionAge"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
                 app:helperText="@string/race_edition_age"
-                app:layout_constraintEnd_toEndOf="@+id/tilInfoRaceDecorationName"
-                app:layout_constraintStart_toStartOf="@+id/tilInfoRaceDecorationName"
-                app:layout_constraintTop_toBottomOf="@+id/tilInfoRaceDecorationHeight">
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorRaceEditionName"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorRaceEditionName"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorRaceEditionHeight">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/tieInfoRaceFieldAge"
+                    android:id="@+id/inputRaceEditionAge"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />

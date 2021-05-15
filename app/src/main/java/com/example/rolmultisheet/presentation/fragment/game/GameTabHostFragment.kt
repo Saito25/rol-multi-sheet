@@ -9,15 +9,21 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.databinding.GameTabHostFragmentBinding
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
+import com.example.rolmultisheet.presentation.util.tab.PageContainer
+import com.example.rolmultisheet.presentation.util.tab.PageFragment
 import com.google.android.material.tabs.TabLayoutMediator
+import java.lang.ref.WeakReference
 
-class GameTabHostFragment : Fragment(R.layout.game_tab_host_fragment) {
+class GameTabHostFragment : Fragment(R.layout.game_tab_host_fragment), PageContainer {
 
     private val binding: GameTabHostFragmentBinding by viewBinding {
         GameTabHostFragmentBinding.bind(it)
     }
 
     private val navController: NavController by lazy { findNavController() }
+
+    override var currentPage: WeakReference<PageFragment>? = null
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -28,6 +34,7 @@ class GameTabHostFragment : Fragment(R.layout.game_tab_host_fragment) {
         setupToolBar()
         setupViewPager()
         setupTabLayoutMediator()
+        setupFab()
     }
 
     private fun setupToolBar() {
@@ -47,7 +54,11 @@ class GameTabHostFragment : Fragment(R.layout.game_tab_host_fragment) {
         }.attach()
     }
 
-    private fun onFabClick() {
+    private fun setupFab() {
+        binding.fabGameTabHost.setOnClickListener { onFabClick() }
+    }
 
+    private fun onFabClick() {
+        currentPage?.get()?.onFabClick()
     }
 }
