@@ -2,25 +2,25 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/labelHomeItemRoot"
+    android:id="@+id/labelCommonItemRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="?android:attr/selectableItemBackground">
 
     <TextView
-        android:id="@+id/labelHomeItemName"
+        android:id="@+id/labelCommonItemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/padding_x2"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="@dimen/item_title_size"
-        app:layout_constraintBottom_toBottomOf="@+id/imageHomeItemAvatar"
-        app:layout_constraintStart_toEndOf="@+id/imageHomeItemAvatar"
-        app:layout_constraintTop_toTopOf="@+id/imageHomeItemAvatar"
+        app:layout_constraintBottom_toBottomOf="@+id/imageCommonItemAvatar"
+        app:layout_constraintStart_toEndOf="@+id/imageCommonItemAvatar"
+        app:layout_constraintTop_toTopOf="@+id/imageCommonItemAvatar"
         tools:text="Leunam" />
 
     <ImageView
-        android:id="@+id/imageHomeItemAvatar"
+        android:id="@+id/imageCommonItemAvatar"
         android:layout_width="64dp"
         android:layout_height="64dp"
         android:layout_marginStart="@dimen/padding_x2"
@@ -33,7 +33,7 @@
         app:srcCompat="@drawable/ic_character_black_24dp" />
 
     <ImageView
-        android:id="@+id/imageHomeItemRow"
+        android:id="@+id/imageCommonItemRow"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginEnd="@dimen/padding_x3"
