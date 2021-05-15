@@ -25,5 +25,18 @@
         android:id="@+id/gameTabHostFragmentDirection"
         android:name="com.example.rolmultisheet.presentation.fragment.game.GameTabHostFragment"
         android:label="@string/game_host_toolbar_name"
-        tools:layout="@layout/game_tab_host_fragment" />
+        tools:layout="@layout/game_tab_host_fragment">
+        <action
+            android:id="@+id/showRaceEditionFragment"
+            app:destination="@id/raceEditionFragmentDirection" />
+    </fragment>
+    <fragment
+        android:id="@+id/raceEditionFragmentDirection"
+        android:name="com.example.rolmultisheet.presentation.fragment.race.edition.RaceEditionFragment"
+        tools:layout="@layout/race_edition_fragment">
+        <argument
+            android:name="raceId"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
 </navigation>
