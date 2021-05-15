@@ -13,5 +13,9 @@
     <!--  Game host  -->
     <string name="game_host_fab_description">Botón flotante para añadir elementos</string>
     <string name="game_host_toolbar_name">Dungeons and Dragons</string>
+    <string name="game_host_race_name">Razas</string>
+    <string name="game_host_class_name">Clases</string>
+    <string name="game_host_spell_name">Hechizos</string>
+    <string name="game_host_item_name">Objetos</string>
 
 </resources>

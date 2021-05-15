@@ -24,5 +24,6 @@
     <fragment
         android:id="@+id/gameTabHostFragmentDirection"
         android:name="com.example.rolmultisheet.presentation.fragment.game.GameTabHostFragment"
-        android:label="@string/game_host_toolbar_name" />
+        android:label="@string/game_host_toolbar_name"
+        tools:layout="@layout/game_tab_host_fragment" />
 </navigation>
