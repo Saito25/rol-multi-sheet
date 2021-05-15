@@ -15,6 +15,7 @@
 
         <!-- ToolBar -->
         <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
+
     </style>
 
     <!-- ToolBar -->
@@ -33,6 +34,4 @@
 
     <style name="AppTheme.AppBarOverlay"
         parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
-
-
 </resources>

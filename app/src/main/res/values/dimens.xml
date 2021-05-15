@@ -1,8 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!--  Padding / margin  -->
     <dimen name="padding_x1">8dp</dimen>
     <dimen name="padding_x2">16dp</dimen>
     <dimen name="padding_x3">24dp</dimen>
     <dimen name="padding_x4">32dp</dimen>
+
+    <!--  cards  -->
+    <dimen name="card_corner_radius_8dp">8dp</dimen>
+
+    <!--  Text  -->
     <dimen name="item_title_size">24sp</dimen>
 </resources>
