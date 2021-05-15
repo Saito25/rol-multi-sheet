@@ -17,6 +17,9 @@ interface AppDao {
     @Query("SELECT * FROM race")
     fun queryAllRaces(): LiveData<List<Race>>
 
+    @Query("SELECT * FROM race WHERE race_id = :raceId")
+    fun queryRaceById(raceId: Long): LiveData<Race?>
+
     // Insert
     @Insert()
     suspend fun insertCharacter(character: Character)

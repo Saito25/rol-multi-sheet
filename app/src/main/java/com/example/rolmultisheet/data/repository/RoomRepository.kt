@@ -15,6 +15,8 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
     override fun queryAllRaces(): LiveData<List<Race>> =
         appDao.queryAllRaces()
 
+    override fun queryRaceById(raceId: Long): LiveData<Race?> =
+        appDao.queryRaceById(raceId)
 
     // Insert
     override suspend fun insertCharacter(character: Character) {
