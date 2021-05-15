@@ -61,6 +61,9 @@ class RaceEditionFragment : Fragment(R.layout.race_edition_fragment) {
     private fun printRaceInfo(race: Race) {
         binding.run {
             inputRaceEditionName.setText(race.raceName)
+            inputRaceEditionVelocity.setText(race.raceVelocity.toString())
+            inputRaceEditionHeight.setText(race.raceAvgHeight.toString())
+            inputRaceEditionAge.setText(race.raceAvgAge.toString())
         }
     }
 }

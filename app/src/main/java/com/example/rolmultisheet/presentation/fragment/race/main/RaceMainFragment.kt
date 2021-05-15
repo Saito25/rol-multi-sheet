@@ -13,6 +13,7 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CommonListFragmentBinding
+import com.example.rolmultisheet.domain.model.Race
 import com.example.rolmultisheet.presentation.fragment.game.GameTabHostFragmentDirections
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.tab.PageFragment
@@ -32,7 +33,11 @@ class RaceMainFragment : PageFragment(R.layout.common_list_fragment) {
     }
 
     private val listAdapter: RaceMainListAdapter by lazy {
-        RaceMainListAdapter()
+        RaceMainListAdapter().apply {
+            setOnItemClickListener { itemPosition ->
+                onItemClick(currentList[itemPosition])
+            }
+        }
     }
 
     private val navController: NavController by lazy { findNavController() }
@@ -63,8 +68,18 @@ class RaceMainFragment : PageFragment(R.layout.common_list_fragment) {
         }
     }
 
+    private fun onItemClick(race: Race) {
+        navigateToRaceEditionFragment(race.raceId)
+    }
+
     override fun onFabClick() {
-        val action = GameTabHostFragmentDirections.showRaceEditionFragment()
+        navigateToRaceEditionFragment()
+    }
+
+    private fun navigateToRaceEditionFragment(raceId: Long = 0) {
+        val action = GameTabHostFragmentDirections.showRaceEditionFragment().also {
+            it.raceId = raceId
+        }
         navController.navigate(action)
     }
 }
