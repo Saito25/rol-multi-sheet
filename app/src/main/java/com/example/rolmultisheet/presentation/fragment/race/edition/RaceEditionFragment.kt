@@ -52,10 +52,16 @@ class RaceEditionFragment : Fragment(R.layout.race_edition_fragment) {
 
     private fun observeViewModel() {
         viewModel.race.observe(viewLifecycleOwner) { race ->
+            setupToolBarName(race)
             if (race != null) {
                 printRaceInfo(race)
             }
         }
+    }
+
+    private fun setupToolBarName(race: Race?) {
+        binding.toolbarRaceEdition.title =
+            race?.raceName ?: getString(R.string.race_edition_toolbar_title)
     }
 
     private fun printRaceInfo(race: Race) {

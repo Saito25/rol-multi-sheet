@@ -19,6 +19,7 @@
     <string name="game_host_item_name">Objetos</string>
 
     <!--  Race edition  -->
+    <string name="race_edition_toolbar_title">Nueva raza</string>
     <string name="race_edition_image_description">Imagen representativa de la raza</string>
     <string name="race_edition_name">Nombre</string>
     <string name="race_edition_velocity">Velocidad</string>
