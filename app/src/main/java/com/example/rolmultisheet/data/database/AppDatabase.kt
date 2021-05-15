@@ -11,7 +11,7 @@ import com.example.rolmultisheet.domain.model.Race
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [Character::class], version = 1)
+@Database(entities = [Character::class, Race::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract val appDao: AppDao
