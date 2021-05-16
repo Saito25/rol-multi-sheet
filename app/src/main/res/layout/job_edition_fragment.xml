@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearJobEditionRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarJobEdition"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollJobEdition"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintJobEdition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:padding="@dimen/padding_x3">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardJobEditionBackground"
+                android:layout_width="match_parent"
+                android:layout_height="192dp"
+                android:alpha="0.7"
+                android:visibility="gone"
+                android:foreground="@color/black"
+                app:cardCornerRadius="@dimen/card_corner_radius_8dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <ImageView
+                    android:id="@+id/imageJobEditionAvatar"
+                    android:layout_width="match_parent"
+                    android:layout_height="192dp"
+                    android:contentDescription="@string/job_edition_image_description"
+                    tools:src="@drawable/ic_character_black_24dp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorJobEditionName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x2"
+                app:helperText="@string/job_edition_name"
+                app:layout_constraintStart_toStartOf="@+id/cardJobEditionBackground"
+                app:layout_constraintTop_toBottomOf="@+id/cardJobEditionBackground">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputJobEditionName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorJobEditionVelocity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x2"
+                app:helperText="@string/job_edition_velocity"
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorJobEditionName"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorJobEditionName"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorJobEditionName">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputJobEditionVelocity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorJobEditionHeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x2"
+                app:helperText="@string/job_edition_length"
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorJobEditionName"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorJobEditionName"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorJobEditionVelocity">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputJobEditionHeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorJobEditionAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x2"
+                app:helperText="@string/job_edition_age"
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorJobEditionName"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorJobEditionName"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorJobEditionHeight">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputJobEditionAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
+

@@ -41,4 +41,12 @@
     <!--  Job main  -->
     <string name="job_main_snackbar_title">Clase eliminada</string>
 
+    <!--  Job edition  -->
+    <string name="job_edition_toolbar_title">Nueva clase</string>
+    <string name="job_edition_image_description">Imagen representativa de la clase</string>
+    <string name="job_edition_name">Nombre</string>
+    <string name="job_edition_velocity">Dados de golpe</string>
+    <string name="job_edition_length">Características principales</string>
+    <string name="job_edition_age">Tiros de salvación</string>
+
 </resources>
