@@ -4,29 +4,29 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.rolmultisheet.domain.model.Race
+import com.example.rolmultisheet.domain.model.Job
 import com.example.rolmultisheet.domain.repository.AppRepository
 import com.example.rolmultisheet.presentation.util.event.Event
 import kotlinx.coroutines.launch
 
 class JobMainViewModel(private val appRepository: AppRepository) : ViewModel() {
 
-    val raceList = appRepository.queryAllRaces()
+    val jobList = appRepository.queryAllJobs()
 
-    private val _onDeleteRaceEvent: MutableLiveData<Event<Race>> = MutableLiveData()
-    val onDeleteRaceEvent: LiveData<Event<Race>>
-        get() = _onDeleteRaceEvent
+    private val _onDeleteJobEvent: MutableLiveData<Event<Job>> = MutableLiveData()
+    val onDeleteJobEvent: LiveData<Event<Job>>
+        get() = _onDeleteJobEvent
 
-    fun deleteRace(race: Race) {
+    fun deleteJob(job: Job) {
         viewModelScope.launch {
-            appRepository.deleteRace(race)
-            _onDeleteRaceEvent.value = Event(race)
+            appRepository.deleteJob(job)
+            _onDeleteJobEvent.value = Event(job)
         }
     }
 
-    fun recoveryRace(race: Race) {
+    fun recoveryJob(job: Job) {
         viewModelScope.launch {
-            appRepository.insertRace(race)
+            appRepository.insertJob(job)
         }
     }
 }

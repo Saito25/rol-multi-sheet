@@ -6,18 +6,18 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rolmultisheet.databinding.CommonFragmentItemBinding
-import com.example.rolmultisheet.domain.model.Race
+import com.example.rolmultisheet.domain.model.Job
 import com.example.rolmultisheet.presentation.util.recycler.OnItemClickListener
 
-object RaceDiffUtil : DiffUtil.ItemCallback<Race>() {
-    override fun areItemsTheSame(oldItem: Race, newItem: Race): Boolean =
-        oldItem.raceId == newItem.raceId
+object JobDiffUtil : DiffUtil.ItemCallback<Job>() {
+    override fun areItemsTheSame(oldItem: Job, newItem: Job): Boolean =
+        oldItem.jobId == newItem.jobId
 
-    override fun areContentsTheSame(oldItem: Race, newItem: Race): Boolean = oldItem == newItem
+    override fun areContentsTheSame(oldItem: Job, newItem: Job): Boolean = oldItem == newItem
 }
 
-class RaceMainListAdapter :
-    ListAdapter<Race, RaceMainListAdapter.ViewHolder>(RaceDiffUtil) {
+class JobMainListAdapter :
+    ListAdapter<Job, JobMainListAdapter.ViewHolder>(JobDiffUtil) {
 
     private var onItemClickListener: OnItemClickListener? = null
     fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
@@ -46,9 +46,9 @@ class RaceMainListAdapter :
             }
         }
 
-        fun bind(item: Race) {
+        fun bind(item: Job) {
             binding.run {
-                labelCommonItemName.text = item.raceName
+                labelCommonItemName.text = item.jobName
             }
         }
     }

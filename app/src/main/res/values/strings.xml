@@ -9,6 +9,9 @@
     <string name="home_menu_game">D&amp;D</string>
     <string name="home_menu_game_info">Información</string>
 
+    <!--  Snackbar  -->
+    <string name="snackbar_action">Deshacer</string>
+
     <!--  Save menu  -->
     <string name="save_menu_item">Guardar</string>
 
@@ -26,7 +29,6 @@
 
     <!--  Race main  -->
     <string name="race_main_snackbar_title">Raza eliminada</string>
-    <string name="race_main_snackbar_action">Deshacer</string>
 
     <!--  Race edition  -->
     <string name="race_edition_toolbar_title">Nueva raza</string>
@@ -37,6 +39,6 @@
     <string name="race_edition_age">Edad media</string>
 
     <!--  Job main  -->
-
+    <string name="job_main_snackbar_title">Clase eliminada</string>
 
 </resources>

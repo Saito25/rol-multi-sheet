@@ -82,7 +82,7 @@ class RaceMainFragment : PageFragment(R.layout.common_list_fragment) {
                 binding.root,
                 getString(R.string.race_main_snackbar_title),
                 Snackbar.LENGTH_LONG
-            ).setAction(R.string.race_main_snackbar_action) {
+            ).setAction(R.string.snackbar_action) {
                 viewModel.recoveryRace(race)
             }.show()
         }
