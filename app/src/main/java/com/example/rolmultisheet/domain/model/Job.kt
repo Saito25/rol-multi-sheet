@@ -8,7 +8,7 @@ import androidx.room.PrimaryKey
 @Entity(tableName = "job")
 data class Job(
     @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "job_id", index = true)
+    @ColumnInfo(name = "job_id")
     val jobId: Long = 0,
     @ColumnInfo(name = "job_name")
     val jobName: String,

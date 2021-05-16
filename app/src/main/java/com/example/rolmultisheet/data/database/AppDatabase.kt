@@ -7,11 +7,12 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.rolmultisheet.data.dao.AppDao
 import com.example.rolmultisheet.domain.model.Character
+import com.example.rolmultisheet.domain.model.Job
 import com.example.rolmultisheet.domain.model.Race
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [Character::class, Race::class], version = 1)
+@Database(entities = [Character::class, Race::class, Job::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract val appDao: AppDao
