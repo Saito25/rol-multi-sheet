@@ -28,6 +28,12 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
     }
 
     // Update
+    override suspend fun updateRace(race: Race) {
+        appDao.updateRace(race)
+    }
 
     // Delete
+    override suspend fun deleteRace(race: Race) {
+        appDao.deleteRace(race)
+    }
 }

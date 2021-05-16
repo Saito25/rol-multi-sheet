@@ -5,18 +5,18 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.*
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CommonListFragmentBinding
 import com.example.rolmultisheet.domain.model.Race
 import com.example.rolmultisheet.presentation.fragment.game.GameTabHostFragmentDirections
+import com.example.rolmultisheet.presentation.util.event.observeEvent
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
+import com.example.rolmultisheet.presentation.util.recycler.doOnSwiped
 import com.example.rolmultisheet.presentation.util.tab.PageFragment
+import com.google.android.material.snackbar.Snackbar
 
 class RaceMainFragment : PageFragment(R.layout.common_list_fragment) {
 
@@ -32,6 +32,8 @@ class RaceMainFragment : PageFragment(R.layout.common_list_fragment) {
         )
     }
 
+    private val navController: NavController by lazy { findNavController() }
+
     private val listAdapter: RaceMainListAdapter by lazy {
         RaceMainListAdapter().apply {
             setOnItemClickListener { itemPosition ->
@@ -40,12 +42,15 @@ class RaceMainFragment : PageFragment(R.layout.common_list_fragment) {
         }
     }
 
-    private val navController: NavController by lazy { findNavController() }
+    private fun onItemClick(race: Race) {
+        navigateToRaceEditionFragment(race.raceId)
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
         observeViewModel()
+        observeViewModelEvent()
     }
 
     private fun setupViews() {
@@ -59,6 +64,9 @@ class RaceMainFragment : PageFragment(R.layout.common_list_fragment) {
             addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
             itemAnimator = DefaultItemAnimator()
             adapter = listAdapter
+            doOnSwiped(swipeDirs = ItemTouchHelper.RIGHT) { viewHolder, _ ->
+                viewModel.deleteRace(listAdapter.currentList[viewHolder.adapterPosition])
+            }
         }
     }
 
@@ -68,8 +76,16 @@ class RaceMainFragment : PageFragment(R.layout.common_list_fragment) {
         }
     }
 
-    private fun onItemClick(race: Race) {
-        navigateToRaceEditionFragment(race.raceId)
+    private fun observeViewModelEvent() {
+        viewModel.onDeleteRaceEvent.observeEvent(viewLifecycleOwner) { race ->
+            Snackbar.make(
+                binding.root,
+                getString(R.string.race_main_snackbar_title),
+                Snackbar.LENGTH_LONG
+            ).setAction(R.string.race_main_snackbar_action) {
+                viewModel.recoveryRace(race)
+            }.show()
+        }
     }
 
     override fun onFabClick() {

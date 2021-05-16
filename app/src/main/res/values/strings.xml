@@ -2,6 +2,9 @@
     <!--  App  -->
     <string name="app_name">Rol Multi Sheet</string>
 
+    <!--  Form Exceptions  -->
+    <string name="form_null_blank_exception">No puede estar vacío</string>
+
     <!--  Home menu  -->
     <string name="home_menu_game">D&amp;D</string>
     <string name="home_menu_game_info">Información</string>
@@ -20,6 +23,10 @@
     <string name="game_host_class_name">Clases</string>
     <string name="game_host_spell_name">Hechizos</string>
     <string name="game_host_item_name">Objetos</string>
+
+    <!--  Race main  -->
+    <string name="race_main_snackbar_title">Raza eliminada</string>
+    <string name="race_main_snackbar_action">Deshacer</string>
 
     <!--  Race edition  -->
     <string name="race_edition_toolbar_title">Nueva raza</string>

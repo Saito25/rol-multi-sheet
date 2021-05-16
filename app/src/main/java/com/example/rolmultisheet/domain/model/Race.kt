@@ -14,11 +14,11 @@ data class Race(
     val raceName: String,
 
     @ColumnInfo(name = "race_velocity")
-    val raceVelocity: Int,
+    val raceVelocity: Int?,
 
     @ColumnInfo(name = "race_avg_height")
-    val raceAvgHeight: Double,
+    val raceAvgHeight: Double?,
 
     @ColumnInfo(name = "race_avg_age")
-    val raceAvgAge: Int,
+    val raceAvgAge: Int?,
 )

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
-        android:id="@+id/menu_save"
+        android:id="@+id/menuSave"
         android:title="@string/save_menu_item"
         android:icon="@drawable/ic_check_black_24dp"
         app:showAsAction="ifRoom" />

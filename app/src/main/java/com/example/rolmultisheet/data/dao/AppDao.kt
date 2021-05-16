@@ -1,9 +1,7 @@
 package com.example.rolmultisheet.data.dao
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Insert
-import androidx.room.Query
+import androidx.room.*
 import com.example.rolmultisheet.domain.model.Character
 import com.example.rolmultisheet.domain.model.Race
 
@@ -28,6 +26,10 @@ interface AppDao {
     suspend fun insertRace(race: Race)
 
     // Update
+    @Update()
+    suspend fun updateRace(race: Race)
 
     // Delete
+    @Delete()
+    suspend fun deleteRace(race: Race)
 }

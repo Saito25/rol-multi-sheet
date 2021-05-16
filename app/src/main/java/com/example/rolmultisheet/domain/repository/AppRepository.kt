@@ -16,6 +16,8 @@ interface AppRepository {
     suspend fun insertRace(race: Race)
 
     // Update
+    suspend fun updateRace(race: Race)
 
     // Delete
+    suspend fun deleteRace(race: Race)
 }
