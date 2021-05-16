@@ -6,6 +6,9 @@
     <string name="home_menu_game">D&amp;D</string>
     <string name="home_menu_game_info">Información</string>
 
+    <!--  Save menu  -->
+    <string name="save_menu_item">Guardar</string>
+
     <!--  Home item -->
     <string name="home_item_avatar_image_description">Imagen representativa del personaje</string>
     <string name="home_item_actionable_image_description">Icono que muestra que el item es accionable</string>
