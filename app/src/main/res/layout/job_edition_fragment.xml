@@ -5,7 +5,8 @@
     android:id="@+id/linearJobEditionRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".presentation.fragment.job.edition.RaceEditionFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbarJobEdition"
@@ -24,16 +25,16 @@
             android:id="@+id/constraintJobEdition"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="visible"
-            android:padding="@dimen/padding_x3">
+            android:padding="@dimen/padding_x3"
+            android:visibility="visible">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardJobEditionBackground"
                 android:layout_width="match_parent"
                 android:layout_height="192dp"
                 android:alpha="0.7"
-                android:visibility="gone"
                 android:foreground="@color/black"
+                android:visibility="gone"
                 app:cardCornerRadius="@dimen/card_corner_radius_8dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

@@ -29,6 +29,9 @@
         <action
             android:id="@+id/showRaceEditionFragment"
             app:destination="@id/raceEditionFragmentDirection" />
+        <action
+            android:id="@+id/showJobEditionFragment"
+            app:destination="@id/jobEditionFragmentDirection" />
     </fragment>
     <fragment
         android:id="@+id/raceEditionFragmentDirection"
@@ -39,4 +42,8 @@
             app:argType="long"
             android:defaultValue="0L" />
     </fragment>
+    <fragment
+        android:id="@+id/jobEditionFragmentDirection"
+        android:name="com.example.rolmultisheet.presentation.fragment.job.edition.RaceEditionFragment"
+        tools:layout="@layout/job_edition_fragment" />
 </navigation>
