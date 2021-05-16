@@ -40,6 +40,15 @@ abstract class AppDatabase : RoomDatabase() {
                                         INSTANCE!!.appDao.insertRace(
                                             Race(0, "Elf", 20, 1.9, 1000)
                                         )
+                                        INSTANCE!!.appDao.insertJob(
+                                            Job(
+                                                0,
+                                                "Warrior",
+                                                "1d6",
+                                                "Strenght, Agaility",
+                                                "Strenght"
+                                            )
+                                        )
                                     }
                                 }
                             })
