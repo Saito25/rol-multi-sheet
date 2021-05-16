@@ -48,7 +48,7 @@ class GameTabHostFragment : Fragment(R.layout.game_tab_host_fragment), PageConta
     }
 
     private fun setupTabLayoutMediator() {
-        val titleResIds = intArrayOf(R.string.game_host_race_name)
+        val titleResIds = intArrayOf(R.string.game_host_race_name, R.string.game_host_class_name)
         TabLayoutMediator(binding.tabGameTabHost, binding.pagerGameTabHost) { tab, position ->
             tab.setText(titleResIds[position])
         }.attach()
