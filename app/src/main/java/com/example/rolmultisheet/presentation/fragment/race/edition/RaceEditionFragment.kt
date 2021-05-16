@@ -13,6 +13,7 @@ import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.RaceEditionFragmentBinding
 import com.example.rolmultisheet.domain.model.Race
+import com.example.rolmultisheet.presentation.util.event.observeEvent
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 
 class RaceEditionFragment : Fragment(R.layout.race_edition_fragment) {
@@ -37,7 +38,7 @@ class RaceEditionFragment : Fragment(R.layout.race_edition_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
-        observeViewModel()
+        observeViewModelEvent()
     }
 
     private fun setupViews() {
@@ -47,11 +48,12 @@ class RaceEditionFragment : Fragment(R.layout.race_edition_fragment) {
     private fun setupToolBar() {
         binding.toolbarRaceEdition.run {
             setupWithNavController(navController)
+            inflateMenu(R.menu.save_manu)
         }
     }
 
-    private fun observeViewModel() {
-        viewModel.race.observe(viewLifecycleOwner) { race ->
+    private fun observeViewModelEvent() {
+        viewModel.race.observeEvent(viewLifecycleOwner) { race ->
             setupToolBarName(race)
             if (race != null) {
                 printRaceInfo(race)
