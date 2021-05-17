@@ -13,3 +13,4 @@
 .externalNativeBuild
 .cxx
 local.properties
+/app/schemas/com.example.rolmultisheet.data.database.AppDatabase/1.json
