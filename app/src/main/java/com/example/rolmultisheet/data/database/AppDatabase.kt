@@ -50,6 +50,7 @@ abstract class AppDatabase : RoomDatabase() {
                                                 "Strenght"
                                             )
                                         )
+
                                     }
                                 }
                             })
