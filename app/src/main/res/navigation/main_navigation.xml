@@ -44,6 +44,11 @@
     </fragment>
     <fragment
         android:id="@+id/jobEditionFragmentDirection"
-        android:name="com.example.rolmultisheet.presentation.fragment.job.edition.RaceEditionFragment"
-        tools:layout="@layout/job_edition_fragment" />
+        android:name="com.example.rolmultisheet.presentation.fragment.job.edition.JobEditionFragment"
+        tools:layout="@layout/job_edition_fragment">
+        <argument
+            android:name="jobId"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
 </navigation>

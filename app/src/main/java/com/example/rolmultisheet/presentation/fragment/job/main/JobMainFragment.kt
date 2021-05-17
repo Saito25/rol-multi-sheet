@@ -92,9 +92,9 @@ class JobMainFragment : PageFragment(R.layout.common_list_fragment) {
         navigateToJobEditionFragment()
     }
 
-    private fun navigateToJobEditionFragment(raceId: Long = 0) {
-        val action = GameTabHostFragmentDirections.showRaceEditionFragment().also {
-            it.raceId = raceId
+    private fun navigateToJobEditionFragment(jobId: Long = 0) {
+        val action = GameTabHostFragmentDirections.showJobEditionFragment().also {
+            it.jobId = jobId
         }
         navController.navigate(action)
     }

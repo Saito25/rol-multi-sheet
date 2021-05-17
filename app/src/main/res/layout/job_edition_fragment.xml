@@ -5,8 +5,7 @@
     android:id="@+id/linearJobEditionRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context=".presentation.fragment.job.edition.RaceEditionFragment">
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbarJobEdition"
@@ -65,7 +64,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorJobEditionVelocity"
+                android:id="@+id/inputDecoratorJobEditionHitDice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
@@ -75,44 +74,41 @@
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorJobEditionName">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputJobEditionVelocity"
+                    android:id="@+id/inputJobEditionHitDice"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number" />
+                    android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorJobEditionHeight"
+                android:id="@+id/inputDecoratorJobEditionFeature"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
                 app:helperText="@string/job_edition_length"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorJobEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorJobEditionName"
-                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorJobEditionVelocity">
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorJobEditionHitDice">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputJobEditionHeight"
+                    android:id="@+id/inputJobEditionFeature"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="numberDecimal" />
+                    android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorJobEditionAge"
+                android:id="@+id/inputDecoratorJobEditionSaveThrow"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
                 app:helperText="@string/job_edition_age"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorJobEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorJobEditionName"
-                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorJobEditionHeight">
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorJobEditionFeature">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputJobEditionAge"
+                    android:id="@+id/inputJobEditionSaveThrow"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:inputType="number" />
+                    android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
         </androidx.constraintlayout.widget.ConstraintLayout>

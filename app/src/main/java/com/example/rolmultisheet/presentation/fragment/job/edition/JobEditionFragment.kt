@@ -12,26 +12,25 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
-import com.example.rolmultisheet.databinding.RaceEditionFragmentBinding
-import com.example.rolmultisheet.domain.model.Race
-import com.example.rolmultisheet.presentation.fragment.race.edition.RaceEditionFragmentArgs
+import com.example.rolmultisheet.databinding.JobEditionFragmentBinding
+import com.example.rolmultisheet.domain.model.Job
 import com.example.rolmultisheet.presentation.util.event.observeEvent
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 
-class RaceEditionFragment : Fragment(R.layout.race_edition_fragment) {
+class JobEditionFragment : Fragment(R.layout.job_edition_fragment) {
 
-    private val binding: RaceEditionFragmentBinding by viewBinding {
-        RaceEditionFragmentBinding.bind(it)
+    private val binding: JobEditionFragmentBinding by viewBinding {
+        JobEditionFragmentBinding.bind(it)
     }
 
-    private val args: RaceEditionFragmentArgs by navArgs()
+    private val args: JobEditionFragmentArgs by navArgs()
 
-    private val viewModel: RaceEditionViewModel by viewModels {
-        RaceEditionViewModelFactory(
+    private val viewModel: JobEditionViewModel by viewModels {
+        JobEditionViewModelFactory(
             RoomRepository(
                 AppDatabase.getInstance(requireContext()).appDao
             ),
-            args.raceId
+            args.jobId
         )
     }
 
@@ -48,7 +47,7 @@ class RaceEditionFragment : Fragment(R.layout.race_edition_fragment) {
     }
 
     private fun setupToolBar() {
-        binding.toolbarRaceEdition.run {
+        binding.toolbarJobEdition.run {
             setupWithNavController(navController)
             inflateMenu(R.menu.save_manu)
             setOnMenuItemClickListener { onMenuItemClick(it) }
@@ -65,18 +64,18 @@ class RaceEditionFragment : Fragment(R.layout.race_edition_fragment) {
     }
 
     private fun setupToolbarNameIfNoRace() {
-        if (args.raceId == 0L) {
-            binding.toolbarRaceEdition.title = getString(R.string.race_edition_toolbar_title)
+        if (args.jobId == 0L) {
+            binding.toolbarJobEdition.title = getString(R.string.job_edition_toolbar_title)
         }
     }
 
     private fun validateTextFields() {
         binding.run {
             viewModel.validateTextFields(
-                inputRaceEditionName.text.toString(),
-                inputRaceEditionVelocity.text.toString(),
-                inputRaceEditionHeight.text.toString(),
-                inputRaceEditionAge.text.toString(),
+                inputJobEditionName.text.toString(),
+                inputJobEditionHitDice.text.toString(),
+                inputJobEditionFeature.text.toString(),
+                inputJobEditionSaveThrow.text.toString(),
             )
         }
 
@@ -86,37 +85,42 @@ class RaceEditionFragment : Fragment(R.layout.race_edition_fragment) {
     private fun observeViewModelEvent() {
         observeRaceEvent()
         observeOnInvalidNameEvent()
+        observeOnInvalidHidDiceEvent()
         observeOnSaveEvent()
         observeOnCloseEvent()
     }
 
     private fun observeRaceEvent() {
-        viewModel.race.observeEvent(viewLifecycleOwner) { race ->
-            if (race != null) {
-                setupToolBarName(race)
-                fillTextFieldsWithRaceInfo(race)
+        viewModel.job.observeEvent(viewLifecycleOwner) { job ->
+            if (job != null) {
+                setupToolBarName(job)
+                fillTextFieldsWithRaceInfo(job)
             }
         }
     }
 
-    private fun fillTextFieldsWithRaceInfo(race: Race) {
+    private fun fillTextFieldsWithRaceInfo(job: Job) {
         binding.run {
-            inputRaceEditionName.setText(race.raceName)
-            if (race.raceVelocity != null) {
-                inputRaceEditionVelocity.setText(race.raceVelocity.toString())
+            inputJobEditionName.setText(job.jobName)
+            inputJobEditionHitDice.setText(job.jobHit)
+            if (job.jobFeature != null) {
+                inputJobEditionFeature.setText(job.jobFeature)
             }
-            if (race.raceAvgHeight != null) {
-                inputRaceEditionHeight.setText(race.raceAvgHeight.toString())
-            }
-            if (race.raceAvgAge != null) {
-                inputRaceEditionAge.setText(race.raceAvgAge.toString())
+            if (job.jobSaveThrow != null) {
+                inputJobEditionSaveThrow.setText(job.jobSaveThrow)
             }
         }
     }
 
     private fun observeOnInvalidNameEvent() {
         viewModel.onInvalidName.observeEvent(viewLifecycleOwner) {
-            binding.inputRaceEditionName.error = getString(it.string)
+            binding.inputJobEditionName.error = getString(it.string)
+        }
+    }
+
+    private fun observeOnInvalidHidDiceEvent() {
+        viewModel.onInvalidHitDice.observeEvent(viewLifecycleOwner) {
+            binding.inputJobEditionHitDice.error = getString(it.string)
         }
     }
 
@@ -124,10 +128,10 @@ class RaceEditionFragment : Fragment(R.layout.race_edition_fragment) {
         viewModel.onSaveEvent.observeEvent(viewLifecycleOwner) {
             binding.run {
                 viewModel.save(
-                    inputRaceEditionName.text.toString(),
-                    inputRaceEditionVelocity.text.toString(),
-                    inputRaceEditionHeight.text.toString(),
-                    inputRaceEditionAge.text.toString(),
+                    inputJobEditionName.text.toString(),
+                    inputJobEditionHitDice.text.toString(),
+                    inputJobEditionFeature.text.toString(),
+                    inputJobEditionSaveThrow.text.toString(),
                 )
             }
         }
@@ -141,7 +145,7 @@ class RaceEditionFragment : Fragment(R.layout.race_edition_fragment) {
         }
     }
 
-    private fun setupToolBarName(race: Race) {
-        binding.toolbarRaceEdition.title = race.raceName
+    private fun setupToolBarName(job: Job) {
+        binding.toolbarJobEdition.title = job.jobName
     }
 }

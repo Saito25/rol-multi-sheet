@@ -15,7 +15,7 @@ data class Job(
     @ColumnInfo(name = "job_hit")
     val jobHit: String,
     @ColumnInfo(name = "job_feature")
-    val jobFeature: String,
+    val jobFeature: String?,
     @ColumnInfo(name = "job_save_throw")
-    val jobSaveThrow: String,
+    val jobSaveThrow: String?,
 )
