@@ -5,6 +5,7 @@ import com.example.rolmultisheet.data.dao.AppDao
 import com.example.rolmultisheet.domain.model.Character
 import com.example.rolmultisheet.domain.model.Job
 import com.example.rolmultisheet.domain.model.Race
+import com.example.rolmultisheet.domain.model.Spell
 import com.example.rolmultisheet.domain.repository.AppRepository
 
 class RoomRepository(private val appDao: AppDao) : AppRepository {
@@ -25,6 +26,9 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
     override fun queryJobById(jobId: Long): LiveData<Job?> =
         appDao.queryJobById(jobId)
 
+    override fun queryAllSpells(): LiveData<List<Spell>> =
+        appDao.queryAllSpells()
+
     // Insert
     override suspend fun insertCharacter(character: Character) {
         appDao.insertCharacter(character)
@@ -38,6 +42,10 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
         appDao.insertJob(job)
     }
 
+    override suspend fun insertSpell(spell: Spell) {
+        appDao.insertSpell(spell)
+    }
+
     // Update
     override suspend fun updateRace(race: Race) {
         appDao.updateRace(race)
@@ -47,6 +55,10 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
         appDao.updateJob(job)
     }
 
+    override suspend fun updateSpell(spell: Spell) {
+        appDao.updateSpell(spell)
+    }
+
     // Delete
     override suspend fun deleteRace(race: Race) {
         appDao.deleteRace(race)
@@ -54,5 +66,9 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
 
     override suspend fun deleteJob(job: Job) {
         appDao.deleteJob(job)
+    }
+
+    override suspend fun deleteSpell(spell: Spell) {
+        appDao.deleteSpell(spell)
     }
 }

@@ -5,6 +5,7 @@ import androidx.room.*
 import com.example.rolmultisheet.domain.model.Character
 import com.example.rolmultisheet.domain.model.Job
 import com.example.rolmultisheet.domain.model.Race
+import com.example.rolmultisheet.domain.model.Spell
 
 @Dao
 interface AppDao {
@@ -25,6 +26,9 @@ interface AppDao {
     @Query("SELECT * FROM job WHERE job_id = :jobId")
     fun queryJobById(jobId: Long): LiveData<Job?>
 
+    @Query("SELECT * FROM spell")
+    fun queryAllSpells(): LiveData<List<Spell>>
+
     // Insert
     @Insert()
     suspend fun insertCharacter(character: Character)
@@ -35,6 +39,9 @@ interface AppDao {
     @Insert()
     suspend fun insertJob(job: Job)
 
+    @Insert()
+    suspend fun insertSpell(spell: Spell)
+
     // Update
     @Update()
     suspend fun updateRace(race: Race)
@@ -42,10 +49,16 @@ interface AppDao {
     @Update()
     suspend fun updateJob(job: Job)
 
+    @Update()
+    suspend fun updateSpell(spell: Spell)
+
     // Delete
     @Delete()
     suspend fun deleteRace(race: Race)
 
     @Delete()
     suspend fun deleteJob(job: Job)
+
+    @Delete()
+    suspend fun deleteSpell(spell: Spell)
 }
