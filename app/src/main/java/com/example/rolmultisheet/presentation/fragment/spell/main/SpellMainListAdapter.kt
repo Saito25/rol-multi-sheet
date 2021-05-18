@@ -6,6 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.rolmultisheet.R
 import com.example.rolmultisheet.databinding.SpellMainItemFragmentBinding
 import com.example.rolmultisheet.domain.model.Spell
 import com.example.rolmultisheet.presentation.util.recycler.OnItemClickListener
@@ -44,8 +45,10 @@ class SpellMainListAdapter : ListAdapter<Spell, SpellMainListAdapter.ViewHolder>
             binding.spellMainItemAction.setOnClickListener {
                 if (binding.spellMainItemDescription.visibility == View.GONE) {
                     binding.spellMainItemDescription.visibility = View.VISIBLE
+                    binding.spellMainItemAction.setImageResource(R.drawable.ic_arrow_down_black_24dp)
                 } else {
                     binding.spellMainItemDescription.visibility = View.GONE
+                    binding.spellMainItemAction.setImageResource(R.drawable.ic_arrow_up_black_24dp)
                 }
             }
         }
