@@ -49,4 +49,7 @@
     <string name="job_edition_length">Características principales</string>
     <string name="job_edition_age">Tiros de salvación</string>
 
+    <!--  Spell main  -->
+    <string name="spell_main_snackbar_title">Hechizo eliminado</string>
+
 </resources>

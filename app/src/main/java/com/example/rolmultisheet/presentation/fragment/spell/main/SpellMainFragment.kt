@@ -2,7 +2,6 @@ package com.example.rolmultisheet.presentation.fragment.spell.main
 
 import android.os.Bundle
 import android.view.View
-import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
@@ -11,10 +10,13 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CommonListFragmentBinding
+import com.example.rolmultisheet.presentation.util.event.observeEvent
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.recycler.doOnSwiped
+import com.example.rolmultisheet.presentation.util.tab.PageFragment
+import com.google.android.material.snackbar.Snackbar
 
-class SpellMainFragment : Fragment(R.layout.common_list_fragment) {
+class SpellMainFragment : PageFragment(R.layout.common_list_fragment) {
 
     private val binding: CommonListFragmentBinding by viewBinding {
         CommonListFragmentBinding.bind(it)
@@ -38,6 +40,7 @@ class SpellMainFragment : Fragment(R.layout.common_list_fragment) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
         observeViewModel()
+        observeViewModelEvent()
     }
 
     private fun setupViews() {
@@ -64,6 +67,22 @@ class SpellMainFragment : Fragment(R.layout.common_list_fragment) {
     private fun observeSpellList() {
         viewModel.spellList.observe(viewLifecycleOwner) {
             listAdapter.submitList(it)
+        }
+    }
+
+    override fun onFabClick() {
+        // Todo: implement
+    }
+
+    private fun observeViewModelEvent() {
+        viewModel.onDeleteSpellEvent.observeEvent(viewLifecycleOwner) { spell ->
+            Snackbar.make(
+                binding.root,
+                getString(R.string.spell_main_snackbar_title),
+                Snackbar.LENGTH_LONG
+            ).setAction(R.string.snackbar_action) {
+                viewModel.recoverySpell(spell)
+            }.show()
         }
     }
 }

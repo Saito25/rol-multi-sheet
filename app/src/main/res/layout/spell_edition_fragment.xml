@@ -1,13 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearSpellEditionRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragment.spell.edition.SpellEditionFragment">
+    android:orientation="vertical">
 
-    <TextView
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarSpellEdition"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollSpellEdition"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Hello" />
+        android:fillViewport="true">
 
-</FrameLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintSpellEdition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_x3"
+            android:visibility="visible">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorSpellEditionName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:helperText="@string/spell_edition_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputSpellEditionName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorSpellEditionVelocity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x2"
+                app:helperText="@string/spell_edition_velocity"
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorSpellEditionName"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorSpellEditionName"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorSpellEditionName">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputSpellEditionVelocity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorSpellEditionHeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x2"
+                app:helperText="@string/spell_edition_length"
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorSpellEditionName"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorSpellEditionName"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorSpellEditionVelocity">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputSpellEditionHeight"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorSpellEditionAge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x2"
+                app:helperText="@string/spell_edition_age"
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorSpellEditionName"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorSpellEditionName"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorSpellEditionHeight">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputSpellEditionAge"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
