@@ -52,4 +52,12 @@
     <!--  Spell main  -->
     <string name="spell_main_snackbar_title">Hechizo eliminado</string>
 
+    <!--  Spell edition  -->
+    <string name="spell_edition_toolbar_title">Nuevo hechizo</string>
+    <string name="spell_edition_name">Nombre</string>
+    <string name="spell_edition_duration">Duración</string>
+    <string name="spell_edition_cast_time">Tiempo de lanzamiento</string>
+    <string name="spell_edition_scope">Alcance</string>
+    <string name="spell_edition_description">Descripción</string>
+
 </resources>

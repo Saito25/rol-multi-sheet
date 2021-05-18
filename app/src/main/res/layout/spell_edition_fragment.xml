@@ -42,51 +42,68 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorSpellEditionVelocity"
+                android:id="@+id/inputDecoratorSpellEditionDuration"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/spell_edition_velocity"
+                app:helperText="@string/spell_edition_duration"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorSpellEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorSpellEditionName"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorSpellEditionName">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputSpellEditionVelocity"
+                    android:id="@+id/inputSpellEditionDuration"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorSpellEditionHeight"
+                android:id="@+id/inputDecoratorSpellEditionCastTime"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/spell_edition_length"
+                app:helperText="@string/spell_edition_cast_time"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorSpellEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorSpellEditionName"
-                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorSpellEditionVelocity">
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorSpellEditionDuration">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputSpellEditionHeight"
+                    android:id="@+id/inputSpellEditionCastTime"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorSpellEditionAge"
+                android:id="@+id/inputDecoratorSpellEditionScope"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/spell_edition_age"
+                app:helperText="@string/spell_edition_scope"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorSpellEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorSpellEditionName"
-                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorSpellEditionHeight">
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorSpellEditionCastTime">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputSpellEditionAge"
+                    android:id="@+id/inputSpellEditionScope"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorSpellEditionDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x2"
+                app:helperText="@string/spell_edition_description"
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorSpellEditionScope"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorSpellEditionScope"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorSpellEditionScope">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputSpellEditionDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
