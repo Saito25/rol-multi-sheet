@@ -50,6 +50,15 @@ abstract class AppDatabase : RoomDatabase() {
                                                 "Strenght"
                                             )
                                         )
+                                        INSTANCE!!.appDao.insertSpell(
+                                            Spell(
+                                                0,
+                                                "Invisibilidad",
+                                                "instantáneo",
+                                                "usuario",
+                                                "Durante 2 turnos, el usuario es invisible"
+                                            )
+                                        )
                                     }
                                 }
                             })

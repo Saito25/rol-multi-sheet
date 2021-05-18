@@ -2,43 +2,44 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/commonItemRoot"
+    android:id="@+id/spellMainItemRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:paddingVertical="@dimen/padding_x2"
+    android:animateLayoutChanges="true"
     android:background="?android:attr/selectableItemBackground">
 
     <TextView
-        android:id="@+id/labelCommonItemName"
+        android:id="@+id/spellMainItemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/padding_x2"
+        android:layout_marginStart="@dimen/padding_x3"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="@dimen/item_title_size"
-        app:layout_constraintBottom_toBottomOf="@+id/imageCommonItemAvatar"
-        app:layout_constraintStart_toEndOf="@+id/imageCommonItemAvatar"
-        app:layout_constraintTop_toTopOf="@+id/imageCommonItemAvatar"
-        tools:text="Leunam" />
-
-    <ImageView
-        android:id="@+id/imageCommonItemAvatar"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginStart="@dimen/padding_x2"
-        android:layout_marginTop="@dimen/padding_x2"
-        android:layout_marginBottom="@dimen/padding_x2"
-        android:contentDescription="@string/home_item_avatar_image_description"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_character_black_24dp" />
+        tools:text="spell name" />
+
+    <TextView
+        android:id="@+id/spellMainItemDescription"
+        android:layout_width="0dp"
+        android:layout_height="64dp"
+        android:layout_marginTop="@dimen/padding_x1"
+        android:layout_marginBottom="@dimen/padding_x2"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/spellMainItemAction"
+        app:layout_constraintStart_toStartOf="@+id/spellMainItemName"
+        app:layout_constraintTop_toBottomOf="@+id/spellMainItemName"
+        android:visibility="gone"
+        tools:text="Description" />
 
     <ImageView
-        android:id="@+id/imageCommonItemAction"
+        android:id="@+id/spellMainItemAction"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginEnd="@dimen/padding_x3"
         android:contentDescription="@string/home_item_actionable_image_description"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_arrow_right_black_24dp" />
