@@ -7,18 +7,19 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rolmultisheet.R
-import com.example.rolmultisheet.databinding.ItemMainItemFragmentBinding
-import com.example.rolmultisheet.domain.model.Item
+import com.example.rolmultisheet.databinding.ArmourMainItemFragmentBinding
+import com.example.rolmultisheet.domain.model.Armour
 import com.example.rolmultisheet.presentation.util.recycler.OnItemClickListener
 
-object ItemDiffUtil : DiffUtil.ItemCallback<Item>() {
-    override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean =
-        oldItem.itemId == newItem.itemId
+object ArmourDiffUtil : DiffUtil.ItemCallback<Armour>() {
+    override fun areItemsTheSame(oldItem: Armour, newItem: Armour): Boolean =
+        oldItem.armourId == newItem.armourId
 
-    override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean = oldItem == newItem
+    override fun areContentsTheSame(oldItem: Armour, newItem: Armour): Boolean = oldItem == newItem
 }
 
-class ItemMainListAdapter : ListAdapter<Item, ItemMainListAdapter.ViewHolder>(ItemDiffUtil) {
+class ArmourMainListAdapter :
+    ListAdapter<Armour, ArmourMainListAdapter.ViewHolder>(ArmourDiffUtil) {
 
     private var onItemClickListener: OnItemClickListener? = null
     fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
@@ -27,7 +28,7 @@ class ItemMainListAdapter : ListAdapter<Item, ItemMainListAdapter.ViewHolder>(It
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
-            ItemMainItemFragmentBinding.inflate(
+            ArmourMainItemFragmentBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -38,7 +39,7 @@ class ItemMainListAdapter : ListAdapter<Item, ItemMainListAdapter.ViewHolder>(It
         holder.bind(currentList[position])
     }
 
-    inner class ViewHolder(private val binding: ItemMainItemFragmentBinding) :
+    inner class ViewHolder(private val binding: ArmourMainItemFragmentBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         init {
@@ -57,7 +58,7 @@ class ItemMainListAdapter : ListAdapter<Item, ItemMainListAdapter.ViewHolder>(It
             }
         }
 
-        fun bind(item: Item) {
+        fun bind(item: Armour) {
             binding.run {
                 itemMainItemName.text = item.itemName
                 itemMainItemDescription.text = item.itemDescription

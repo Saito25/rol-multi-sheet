@@ -12,20 +12,19 @@ import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CommonListFragmentBinding
 import com.example.rolmultisheet.domain.model.Item
 import com.example.rolmultisheet.presentation.fragment.game.GameTabHostFragmentDirections
-import com.example.rolmultisheet.presentation.util.event.observeEvent
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.recycler.doOnSwiped
 import com.example.rolmultisheet.presentation.util.tab.PageFragment
 import com.google.android.material.snackbar.Snackbar
 
-class ItemMainFragment : PageFragment(R.layout.common_list_fragment) {
+class ArmourMainFragment : PageFragment(R.layout.common_list_fragment) {
 
     private val binding: CommonListFragmentBinding by viewBinding {
         CommonListFragmentBinding.bind(it)
     }
 
-    private val viewModel: ItemMainViewModel by viewModels {
-        ItemMainViewModelFactory(
+    private val viewModel: ArmourMainViewModel by viewModels {
+        ArmourMainViewModelFactory(
             RoomRepository(
                 AppDatabase.getInstance(requireContext()).appDao
             )

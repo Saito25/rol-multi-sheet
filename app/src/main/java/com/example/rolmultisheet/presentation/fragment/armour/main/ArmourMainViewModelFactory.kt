@@ -4,13 +4,13 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.rolmultisheet.domain.repository.AppRepository
 
-class ItemMainViewModelFactory(private val appRepository: AppRepository) :
+class ArmourMainViewModelFactory(private val appRepository: AppRepository) :
     ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-        if (modelClass.isAssignableFrom(ItemMainViewModel::class.java)) {
-            ItemMainViewModel(appRepository) as T
+        if (modelClass.isAssignableFrom(ArmourMainViewModel::class.java)) {
+            ArmourMainViewModel(appRepository) as T
         } else {
             throw IllegalArgumentException("Wrong ViewModel class passed")
         }

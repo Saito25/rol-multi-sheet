@@ -52,7 +52,9 @@ class GameTabHostFragment : Fragment(R.layout.game_tab_host_fragment), PageConta
             R.string.game_host_race_name,
             R.string.game_host_class_name,
             R.string.game_host_spell_name,
-            R.string.game_host_item_name
+            R.string.game_host_item_name,
+            R.string.game_host_armour_name,
+            R.string.game_host_weapon_name,
         )
         TabLayoutMediator(binding.tabGameTabHost, binding.pagerGameTabHost) { tab, position ->
             tab.setText(titleResIds[position])
