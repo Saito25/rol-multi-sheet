@@ -66,7 +66,18 @@
     <!--  Item main Item -->
     <string name="item_main_item_price">%1$d $</string>
 
+    <!--  Item edition  -->
+    <string name="item_edition_name">Nombre</string>
+    <string name="item_edition_price">Precio</string>
+    <string name="item_edition_weigth">Peso</string>
+    <string name="item_edition_description">Descripción</string>
 
+    <!--  Spell main  -->
+    <!--  Spell main  -->
+    <!--  Spell main  -->
+    <!--  Spell main  -->
+    <!--  Spell main  -->
+    <!--  Spell main  -->
     <!--  Spell main  -->
 
 </resources>

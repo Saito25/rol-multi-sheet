@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/linearItemEditionRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbarItemEdition"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay" />
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/scrollItemEdition"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintItemEdition"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/padding_x3"
+            android:visibility="visible">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorItemEditionName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:helperText="@string/item_edition_name"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputItemEditionName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorItemEditionDuration"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x2"
+                app:helperText="@string/item_edition_price"
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorItemEditionName"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorItemEditionName"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorItemEditionName">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputItemEditionDuration"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorItemEditionCastTime"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x2"
+                app:helperText="@string/item_edition_weigth"
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorItemEditionName"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorItemEditionName"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorItemEditionDuration">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputItemEditionCastTime"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorItemEditionScope"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x2"
+                app:helperText="@string/item_edition_description"
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorItemEditionName"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorItemEditionName"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorItemEditionCastTime">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputItemEditionScope"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
