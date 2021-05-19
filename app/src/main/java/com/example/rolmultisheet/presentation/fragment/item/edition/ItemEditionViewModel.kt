@@ -3,8 +3,8 @@ package com.example.rolmultisheet.presentation.fragment.item.edition
 import androidx.lifecycle.*
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.domain.model.Item
+import com.example.rolmultisheet.domain.model.form.ItemFormValidator
 import com.example.rolmultisheet.domain.model.form.util.FormNameException
-import com.example.rolmultisheet.domain.model.form.util.ItemFormValidator
 import com.example.rolmultisheet.domain.repository.AppRepository
 import com.example.rolmultisheet.domain.valueObject.StringResource
 import com.example.rolmultisheet.presentation.util.event.Event

@@ -4,7 +4,7 @@ import androidx.lifecycle.*
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.domain.model.Job
 import com.example.rolmultisheet.domain.model.form.JobFormValidator
-import com.example.rolmultisheet.domain.model.form.util.FormHitDiceException
+import com.example.rolmultisheet.domain.model.form.util.FormHitDiceFormatException
 import com.example.rolmultisheet.domain.model.form.util.FormNameException
 import com.example.rolmultisheet.domain.repository.AppRepository
 import com.example.rolmultisheet.domain.valueObject.StringResource
@@ -48,7 +48,7 @@ class JobEditionViewModel(private val appRepository: AppRepository, private val 
             }
         } catch (e: FormNameException) {
             _onInvalidName.value = Event(StringResource(R.string.form_null_blank_exception))
-        } catch (e: FormHitDiceException) {
+        } catch (e: FormHitDiceFormatException) {
             _onInvalidHitDice.value = Event(StringResource(R.string.form_null_blank_exception))
         }
     }

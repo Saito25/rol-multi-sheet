@@ -1,6 +1,6 @@
 package com.example.rolmultisheet.domain.model.form
 
-import com.example.rolmultisheet.domain.model.form.util.FormHitDiceException
+import com.example.rolmultisheet.domain.model.form.util.FormHitDiceFormatException
 import com.example.rolmultisheet.domain.model.form.util.FormNameException
 import com.example.rolmultisheet.domain.model.form.util.ModelValidator
 
@@ -15,7 +15,7 @@ class JobFormValidator(
         if (validateIsNullOrEmpty(name)) {
             throw FormNameException("Invalid name")
         } else if (validateIsNullOrEmpty(hitDice)) {
-            throw FormHitDiceException("Invalid hit dice")
+            throw FormHitDiceFormatException("Invalid hit dice")
         }
 
         return true
