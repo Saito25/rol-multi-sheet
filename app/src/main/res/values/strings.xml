@@ -67,6 +67,7 @@
     <string name="item_main_item_price">%1$d $</string>
 
     <!--  Item edition  -->
+    <string name="item_edition_toolbar_title">Nuevo Objeto</string>
     <string name="item_edition_name">Nombre</string>
     <string name="item_edition_price">Precio</string>
     <string name="item_edition_weigth">Peso</string>

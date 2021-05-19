@@ -62,7 +62,7 @@ abstract class AppDatabase : RoomDatabase() {
                                         )
                                         INSTANCE!!.appDao.insertItem(
                                             Item(
-                                                0,
+                                                itemId = 0,
                                                 "Cuerda",
                                                 20,
                                                 1.0,

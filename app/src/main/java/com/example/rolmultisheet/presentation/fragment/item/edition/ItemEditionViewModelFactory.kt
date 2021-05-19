@@ -6,13 +6,13 @@ import com.example.rolmultisheet.domain.repository.AppRepository
 
 class ItemEditionViewModelFactory(
     private val appRepository: AppRepository,
-    private val spellId: Long
+    private val itemId: Long
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T =
         if (modelClass.isAssignableFrom(ItemEditionViewModel::class.java)) {
-            ItemEditionViewModel(appRepository, spellId) as T
+            ItemEditionViewModel(appRepository, itemId) as T
         } else {
             throw IllegalArgumentException("Wrong ViewModel class passed")
         }

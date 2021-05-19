@@ -17,8 +17,8 @@ data class Item(
     val itemPrice: Int = 0,
 
     @ColumnInfo(name = "item_weight")
-    val itemWight: Double = 0.0,
+    val itemWeight: Double = 0.0,
 
     @ColumnInfo(name = "item_description")
-    val itemDescription: String? = null,
+    val itemDescription: String?,
 )

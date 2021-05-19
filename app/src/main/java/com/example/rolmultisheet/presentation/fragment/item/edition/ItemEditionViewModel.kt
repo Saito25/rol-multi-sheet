@@ -2,20 +2,20 @@ package com.example.rolmultisheet.presentation.fragment.item.edition
 
 import androidx.lifecycle.*
 import com.example.rolmultisheet.R
-import com.example.rolmultisheet.domain.model.Spell
-import com.example.rolmultisheet.domain.model.form.SpellFormValidator
+import com.example.rolmultisheet.domain.model.Item
 import com.example.rolmultisheet.domain.model.form.util.FormNameException
+import com.example.rolmultisheet.domain.model.form.util.ItemFormValidator
 import com.example.rolmultisheet.domain.repository.AppRepository
 import com.example.rolmultisheet.domain.valueObject.StringResource
 import com.example.rolmultisheet.presentation.util.event.Event
 import kotlinx.coroutines.launch
 
-class ItemEditionViewModel(private val appRepository: AppRepository, private val spellId: Long) :
+class ItemEditionViewModel(private val appRepository: AppRepository, private val itemId: Long) :
     ViewModel() {
 
-    private val _spell: LiveData<Spell?> = appRepository.querySpellById(spellId)
+    private val _item: LiveData<Item?> = appRepository.queryItemById(itemId)
 
-    val spell: LiveData<Event<Spell?>> = _spell.map {
+    val item: LiveData<Event<Item?>> = _item.map {
         Event(it)
     }
 
@@ -33,13 +33,18 @@ class ItemEditionViewModel(private val appRepository: AppRepository, private val
 
     fun validateTextFields(
         name: String,
-        castTime: String,
-        duration: String,
-        scope: String,
+        price: String,
+        weight: String,
         description: String,
     ) {
         try {
-            if (SpellFormValidator(name, castTime, duration, scope, description).validate()) {
+            if (ItemFormValidator(
+                    name,
+                    price.toIntOrNull(),
+                    weight.toDoubleOrNull(),
+                    description,
+                ).validate()
+            ) {
                 _onSaveEvent.value = Event(true)
             }
         } catch (e: FormNameException) {
@@ -50,46 +55,43 @@ class ItemEditionViewModel(private val appRepository: AppRepository, private val
 
     fun save(
         name: String,
-        castTime: String,
-        duration: String,
-        scope: String,
+        price: String,
+        weight: String,
         description: String,
     ) {
-        val spell = formToSpell(name, castTime, duration, scope, description)
-        if (_spell.value == null) {
-            saveSpell(spell)
+        val item = formToItem(name, price, weight, description)
+        if (_item.value == null) {
+            saveItem(item)
         } else {
-            updateSpell(spell)
+            updateItem(item)
         }
     }
 
-    private fun formToSpell(
+    private fun formToItem(
         name: String,
-        castTime: String,
-        duration: String,
-        scope: String,
+        price: String,
+        weight: String,
         description: String,
-    ): Spell =
-        Spell(
-            spellId = spellId,
-            spellName = name,
-            spellCastTime = castTime,
-            spellDuration = duration,
-            spellScope = scope,
-            spellDescription = description
+    ): Item =
+        Item(
+            itemId = itemId,
+            itemName = name,
+            itemWeight = weight.toDoubleOrNull() ?: 0.0,
+            itemPrice = price.toIntOrNull() ?: 0,
+            itemDescription = description
         )
 
-    private fun saveSpell(spell: Spell) {
+    private fun saveItem(item: Item) {
         viewModelScope.launch {
-            appRepository.insertSpell(spell)
+            appRepository.insertItem(item)
             _onCloseEvent.value = Event(true)
         }
     }
 
 
-    private fun updateSpell(race: Spell) {
+    private fun updateItem(race: Item) {
         viewModelScope.launch {
-            appRepository.updateSpell(race)
+            appRepository.updateItem(race)
             _onCloseEvent.value = Event(true)
         }
     }

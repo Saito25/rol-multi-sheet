@@ -35,6 +35,9 @@
         <action
             android:id="@+id/showSpellEditionFragmentAction"
             app:destination="@id/spellEditionFragmentDirection" />
+        <action
+            android:id="@+id/showItemEditionAction"
+            app:destination="@id/itemEditionFragmentDirection" />
     </fragment>
     <fragment
         android:id="@+id/raceEditionFragmentDirection"
@@ -60,6 +63,15 @@
         android:label="SpellEditionFragment">
         <argument
             android:name="SpellId"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
+    <fragment
+        android:id="@+id/itemEditionFragmentDirection"
+        android:name="com.example.rolmultisheet.presentation.fragment.item.edition.ItemEditionFragment"
+        android:label="ItemEditionFragment">
+        <argument
+            android:name="itemId"
             app:argType="long"
             android:defaultValue="0L" />
     </fragment>

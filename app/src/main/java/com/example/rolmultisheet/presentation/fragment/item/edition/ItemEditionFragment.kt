@@ -12,26 +12,25 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
-import com.example.rolmultisheet.databinding.SpellEditionFragmentBinding
-import com.example.rolmultisheet.domain.model.Spell
-import com.example.rolmultisheet.presentation.fragment.spell.edition.SpellEditionFragmentArgs
+import com.example.rolmultisheet.databinding.ItemEditionFragmentBinding
+import com.example.rolmultisheet.domain.model.Item
 import com.example.rolmultisheet.presentation.util.event.observeEvent
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 
-class ItemEditionFragment : Fragment(R.layout.spell_edition_fragment) {
+class ItemEditionFragment : Fragment(R.layout.item_edition_fragment) {
 
-    private val binding: SpellEditionFragmentBinding by viewBinding {
-        SpellEditionFragmentBinding.bind(it)
+    private val binding: ItemEditionFragmentBinding by viewBinding {
+        ItemEditionFragmentBinding.bind(it)
     }
 
-    private val args: SpellEditionFragmentArgs by navArgs()
+    private val args: ItemEditionFragmentArgs by navArgs()
 
     private val viewModel: ItemEditionViewModel by viewModels {
         ItemEditionViewModelFactory(
             RoomRepository(
                 AppDatabase.getInstance(requireContext()).appDao
             ),
-            args.spellId
+            args.itemId
         )
     }
 
@@ -48,11 +47,11 @@ class ItemEditionFragment : Fragment(R.layout.spell_edition_fragment) {
     }
 
     private fun setupToolBar() {
-        binding.toolbarSpellEdition.run {
+        binding.toolbarItemEdition.run {
             setupWithNavController(navController)
             inflateMenu(R.menu.save_manu)
             setOnMenuItemClickListener { onMenuItemClick(it) }
-            setupToolbarNameIfNoSpell()
+            setupToolbarNameIfNoItem()
         }
     }
 
@@ -64,20 +63,19 @@ class ItemEditionFragment : Fragment(R.layout.spell_edition_fragment) {
         return true
     }
 
-    private fun setupToolbarNameIfNoSpell() {
-        if (args.spellId == 0L) {
-            binding.toolbarSpellEdition.title = getString(R.string.spell_edition_toolbar_title)
+    private fun setupToolbarNameIfNoItem() {
+        if (args.itemId == 0L) {
+            binding.toolbarItemEdition.title = getString(R.string.item_edition_toolbar_title)
         }
     }
 
     private fun validateTextFields() {
         binding.run {
             viewModel.validateTextFields(
-                inputSpellEditionName.text.toString(),
-                inputSpellEditionCastTime.text.toString(),
-                inputSpellEditionDuration.text.toString(),
-                inputSpellEditionScope.text.toString(),
-                inputSpellEditionDescription.text.toString(),
+                inputItemEditionName.text.toString(),
+                inputItemEditionPrice.text.toString(),
+                inputItemEditionWeight.text.toString(),
+                inputItemEditionDescription.text.toString(),
             )
         }
 
@@ -85,42 +83,34 @@ class ItemEditionFragment : Fragment(R.layout.spell_edition_fragment) {
 
 
     private fun observeViewModelEvent() {
-        observeSpellEvent()
+        observeItemEvent()
         observeOnInvalidNameEvent()
         observeOnSaveEvent()
         observeOnCloseEvent()
     }
 
-    private fun observeSpellEvent() {
-        viewModel.spell.observeEvent(viewLifecycleOwner) { spell ->
-            if (spell != null) {
-                setupToolBarName(spell)
-                fillTextFieldsWithSpellInfo(spell)
+    private fun observeItemEvent() {
+        viewModel.item.observeEvent(viewLifecycleOwner) { item ->
+            if (item != null) {
+                setupToolBarName(item)
+                fillTextFieldsWithItemInfo(item)
             }
         }
     }
 
-    private fun fillTextFieldsWithSpellInfo(spell: Spell) {
+    private fun fillTextFieldsWithItemInfo(item: Item) {
         binding.run {
-            inputSpellEditionName.setText(spell.spellName)
-            if (spell.spellCastTime != null) {
-                inputSpellEditionCastTime.setText(spell.spellCastTime)
-            }
-            if (spell.spellDuration != null) {
-                inputSpellEditionDuration.setText(spell.spellDuration)
-            }
-            if (spell.spellScope != null) {
-                inputSpellEditionScope.setText(spell.spellScope)
-            }
-            if (spell.spellDescription != null) {
-                inputSpellEditionDescription.setText(spell.spellDescription)
-            }
+            inputItemEditionName.setText(item.itemName)
+            inputItemEditionPrice.setText(item.itemPrice.toString())
+            inputItemEditionWeight.setText(item.itemWeight.toString())
+            inputItemEditionDescription.setText(item.itemDescription)
+
         }
     }
 
     private fun observeOnInvalidNameEvent() {
         viewModel.onInvalidName.observeEvent(viewLifecycleOwner) {
-            binding.inputSpellEditionName.error = getString(it.string)
+            binding.inputItemEditionName.error = getString(it.string)
         }
     }
 
@@ -128,11 +118,10 @@ class ItemEditionFragment : Fragment(R.layout.spell_edition_fragment) {
         viewModel.onSaveEvent.observeEvent(viewLifecycleOwner) {
             binding.run {
                 viewModel.save(
-                    inputSpellEditionName.text.toString(),
-                    inputSpellEditionCastTime.text.toString(),
-                    inputSpellEditionDuration.text.toString(),
-                    inputSpellEditionScope.text.toString(),
-                    inputSpellEditionDescription.text.toString(),
+                    inputItemEditionName.text.toString(),
+                    inputItemEditionPrice.text.toString(),
+                    inputItemEditionWeight.text.toString(),
+                    inputItemEditionDescription.text.toString(),
                 )
             }
         }
@@ -146,7 +135,7 @@ class ItemEditionFragment : Fragment(R.layout.spell_edition_fragment) {
         }
     }
 
-    private fun setupToolBarName(spell: Spell) {
-        binding.toolbarSpellEdition.title = spell.spellName
+    private fun setupToolBarName(item: Item) {
+        binding.toolbarItemEdition.title = item.itemName
     }
 }

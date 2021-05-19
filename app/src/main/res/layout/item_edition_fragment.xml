@@ -42,7 +42,7 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorItemEditionDuration"
+                android:id="@+id/inputDecoratorItemEditionWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
@@ -52,41 +52,41 @@
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorItemEditionName">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputItemEditionDuration"
+                    android:id="@+id/inputItemEditionWeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorItemEditionCastTime"
+                android:id="@+id/inputDecoratorItemEditionPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
                 app:helperText="@string/item_edition_weigth"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorItemEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorItemEditionName"
-                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorItemEditionDuration">
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorItemEditionWeight">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputItemEditionCastTime"
+                    android:id="@+id/inputItemEditionPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="numberDecimal" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorItemEditionScope"
+                android:id="@+id/inputDecoratorItemEditionDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
                 app:helperText="@string/item_edition_description"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorItemEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorItemEditionName"
-                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorItemEditionCastTime">
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorItemEditionPrice">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputItemEditionScope"
+                    android:id="@+id/inputItemEditionDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="number" />
