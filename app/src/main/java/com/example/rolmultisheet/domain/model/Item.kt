@@ -20,5 +20,5 @@ data class Item(
     val itemWight: Double = 0.0,
 
     @ColumnInfo(name = "item_description")
-    val itemDescription: String?,
+    val itemDescription: String? = null,
 )

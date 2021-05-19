@@ -60,4 +60,13 @@
     <string name="spell_edition_scope">Alcance</string>
     <string name="spell_edition_description">Descripción</string>
 
+    <!--  Item main  -->
+    <string name="item_main_snackbar_title">Objeto eliminado</string>
+
+    <!--  Item main Item -->
+    <string name="item_main_item_price">%1$d $</string>
+
+
+    <!--  Spell main  -->
+
 </resources>
