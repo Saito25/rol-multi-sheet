@@ -2,7 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/itemMainItemRoot"
+    android:id="@+id/armourMainItemRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:paddingVertical="@dimen/padding_x2"
@@ -10,7 +10,7 @@
     android:background="?android:attr/selectableItemBackground">
 
     <TextView
-        android:id="@+id/itemMainItemName"
+        android:id="@+id/armourMainItemName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/padding_x3"
@@ -18,24 +18,25 @@
         android:textSize="@dimen/item_title_size"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="item name" />
+        tools:text="Armour name" />
 
     <TextView
-        android:id="@+id/itemMainItemDescription"
+        android:id="@+id/armourMainItemDescription"
         android:layout_width="0dp"
         android:layout_height="64dp"
         android:layout_marginTop="@dimen/padding_x1"
         android:layout_marginBottom="@dimen/padding_x2"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/itemMainItemAction"
-        app:layout_constraintStart_toStartOf="@+id/itemMainItemName"
-        app:layout_constraintTop_toBottomOf="@+id/itemMainItemName"
         android:visibility="gone"
-        tools:text="Description" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/armourMainItemAction"
+        app:layout_constraintStart_toStartOf="@+id/armourMainItemName"
+        app:layout_constraintTop_toBottomOf="@+id/armourMainItemName"
+        tools:text="Description"
+        tools:visibility="visible" />
 
     <ImageView
-        android:id="@+id/itemMainItemAction"
+        android:id="@+id/armourMainItemAction"
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:layout_marginEnd="@dimen/padding_x3"
@@ -45,13 +46,13 @@
         app:srcCompat="@drawable/ic_arrow_up_black_24dp" />
 
     <TextView
-        android:id="@+id/labelItemMainItemPrice"
+        android:id="@+id/labelArmourMainItemPrice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/padding_x1"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintBottom_toBottomOf="@+id/itemMainItemAction"
-        app:layout_constraintEnd_toStartOf="@+id/itemMainItemAction"
+        app:layout_constraintBottom_toBottomOf="@+id/armourMainItemAction"
+        app:layout_constraintEnd_toStartOf="@+id/armourMainItemAction"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="@string/item_main_item_price" />
 </androidx.constraintlayout.widget.ConstraintLayout>
