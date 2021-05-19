@@ -35,10 +35,10 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
     override fun queryItemById(itemId: Long): LiveData<Item?> =
         appDao.queryItemById(itemId)
 
-    override fun queryAllArmours(): LiveData<List<Item>> =
+    override fun queryAllArmours(): LiveData<List<Armour>> =
         appDao.queryAllArmours()
 
-    override fun queryArmourById(armourId: Long): LiveData<Item?> =
+    override fun queryArmourById(armourId: Long): LiveData<Armour?> =
         appDao.queryArmourById(armourId)
 
     // Insert

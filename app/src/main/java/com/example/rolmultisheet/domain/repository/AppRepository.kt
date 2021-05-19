@@ -15,8 +15,8 @@ interface AppRepository {
     fun querySpellById(spellId: Long): LiveData<Spell?>
     fun queryAllItems(): LiveData<List<Item>>
     fun queryItemById(itemId: Long): LiveData<Item?>
-    fun queryAllArmours(): LiveData<List<Item>>
-    fun queryArmourById(armourId: Long): LiveData<Item?>
+    fun queryAllArmours(): LiveData<List<Armour>>
+    fun queryArmourById(armourId: Long): LiveData<Armour?>
 
     // Insert
     suspend fun insertCharacter(character: Character)

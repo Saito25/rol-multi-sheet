@@ -11,7 +11,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 @Database(
-    entities = [Character::class, Race::class, Job::class, Spell::class, Item::class],
+    entities = [Character::class, Race::class, Job::class, Spell::class, Item::class, Armour::class],
     version = 1
 )
 abstract class AppDatabase : RoomDatabase() {
@@ -67,6 +67,13 @@ abstract class AppDatabase : RoomDatabase() {
                                                 20,
                                                 1.0,
                                                 "Trozo de 5 metros de cuerda fina",
+                                            )
+                                        )
+                                        INSTANCE!!.appDao.insertArmour(
+                                            Armour(
+                                                armourId = 0,
+                                                armourName = "Armadura de mallas",
+                                                armourDescription = ""
                                             )
                                         )
                                     }

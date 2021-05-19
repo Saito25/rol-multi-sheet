@@ -36,10 +36,10 @@ interface AppDao {
     fun queryItemById(itemId: Long): LiveData<Item?>
 
     @Query("SELECT * FROM armour")
-    fun queryAllArmours(): LiveData<List<Item>>
+    fun queryAllArmours(): LiveData<List<Armour>>
 
     @Query("SELECT * FROM armour WHERE armour_id = :armourId")
-    fun queryArmourById(armourId: Long): LiveData<Item?>
+    fun queryArmourById(armourId: Long): LiveData<Armour?>
 
     // Insert
     @Insert
