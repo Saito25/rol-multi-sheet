@@ -47,26 +47,31 @@ class ArmourMainListAdapter :
                 onItemClickListener?.onItemClick(adapterPosition)
             }
 
-            binding.itemMainItemAction.setOnClickListener {
-                if (binding.itemMainItemDescription.visibility == View.GONE) {
-                    binding.itemMainItemDescription.visibility = View.VISIBLE
-                    binding.itemMainItemAction.setImageResource(R.drawable.ic_arrow_down_black_24dp)
+            binding.armourMainItemAction.setOnClickListener {
+                if (binding.armourMainItemDescription.visibility == View.GONE) {
+                    binding.armourMainItemDescription.visibility = View.VISIBLE
+                    binding.labelArmourMainItemClass.visibility = View.VISIBLE
+                    binding.imageArmourMainItemClass.visibility = View.VISIBLE
+                    binding.armourMainItemAction.setImageResource(R.drawable.ic_arrow_down_black_24dp)
                 } else {
-                    binding.itemMainItemDescription.visibility = View.GONE
-                    binding.itemMainItemAction.setImageResource(R.drawable.ic_arrow_up_black_24dp)
+                    binding.armourMainItemDescription.visibility = View.GONE
+                    binding.labelArmourMainItemClass.visibility = View.GONE
+                    binding.imageArmourMainItemClass.visibility = View.GONE
+                    binding.armourMainItemAction.setImageResource(R.drawable.ic_arrow_up_black_24dp)
                 }
             }
         }
 
         fun bind(item: Armour) {
             binding.run {
-                itemMainItemName.text = item.itemName
-                itemMainItemDescription.text = item.itemDescription
-                labelItemMainItemPrice.text =
+                armourMainItemName.text = item.armourName
+                armourMainItemDescription.text = item.armourDescription
+                labelArmourMainItemPrice.text =
                     binding.root.context.applicationContext.getString(
                         R.string.item_main_item_price,
-                        item.itemPrice
+                        item.armourPrice
                     )
+                labelArmourMainItemClass.text = item.armourClass.toString()
             }
         }
     }

@@ -59,20 +59,18 @@
     </fragment>
     <fragment
         android:id="@+id/spellEditionFragmentDirection"
-        android:name="com.example.rolmultisheet.presentation.fragment.spell.edition.SpellEditionFragment"
-        android:label="SpellEditionFragment">
+        android:name="com.example.rolmultisheet.presentation.fragment.spell.edition.SpellEditionFragment">
         <argument
             android:name="SpellId"
-            app:argType="long"
-            android:defaultValue="0L" />
+            android:defaultValue="0L"
+            app:argType="long" />
     </fragment>
     <fragment
         android:id="@+id/itemEditionFragmentDirection"
-        android:name="com.example.rolmultisheet.presentation.fragment.item.edition.ItemEditionFragment"
-        android:label="ItemEditionFragment">
+        android:name="com.example.rolmultisheet.presentation.fragment.item.edition.ItemEditionFragment">
         <argument
             android:name="itemId"
-            app:argType="long"
-            android:defaultValue="0L" />
+            android:defaultValue="0L"
+            app:argType="long" />
     </fragment>
 </navigation>

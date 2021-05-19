@@ -10,8 +10,8 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CommonListFragmentBinding
-import com.example.rolmultisheet.domain.model.Item
-import com.example.rolmultisheet.presentation.fragment.game.GameTabHostFragmentDirections
+import com.example.rolmultisheet.domain.model.Armour
+import com.example.rolmultisheet.presentation.util.event.observeEvent
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.recycler.doOnSwiped
 import com.example.rolmultisheet.presentation.util.tab.PageFragment
@@ -31,8 +31,8 @@ class ArmourMainFragment : PageFragment(R.layout.common_list_fragment) {
         )
     }
 
-    private val listAdapter: ItemMainListAdapter by lazy {
-        ItemMainListAdapter().apply {
+    private val listAdapter: ArmourMainListAdapter by lazy {
+        ArmourMainListAdapter().apply {
             setOnItemClickListener { itemPosition ->
                 onItemClick(currentList[itemPosition])
             }
@@ -60,7 +60,7 @@ class ArmourMainFragment : PageFragment(R.layout.common_list_fragment) {
             itemAnimator = DefaultItemAnimator()
             adapter = listAdapter
             doOnSwiped(swipeDirs = ItemTouchHelper.RIGHT) { viewHolder, _ ->
-                viewModel.deleteItem(listAdapter.currentList[viewHolder.adapterPosition])
+                viewModel.deleteArmour(listAdapter.currentList[viewHolder.adapterPosition])
             }
         }
     }
@@ -70,19 +70,19 @@ class ArmourMainFragment : PageFragment(R.layout.common_list_fragment) {
     }
 
     private fun observeItemList() {
-        viewModel.itemList.observe(viewLifecycleOwner) {
+        viewModel.armourList.observe(viewLifecycleOwner) {
             listAdapter.submitList(it)
         }
     }
 
     private fun observeViewModelEvent() {
-        viewModel.onDeleteItemEvent.observeEvent(viewLifecycleOwner) { item ->
+        viewModel.onDeleteArmourEvent.observeEvent(viewLifecycleOwner) { armour ->
             Snackbar.make(
                 binding.root,
                 getString(R.string.item_main_snackbar_title),
                 Snackbar.LENGTH_LONG
             ).setAction(R.string.snackbar_action) {
-                viewModel.recoveryItem(item)
+                viewModel.recoveryArmour(armour)
             }.show()
         }
     }
@@ -91,14 +91,14 @@ class ArmourMainFragment : PageFragment(R.layout.common_list_fragment) {
         navigateToItemEditionFragment()
     }
 
-    private fun onItemClick(item: Item) {
-        navigateToItemEditionFragment(item.itemId)
+    private fun onItemClick(armour: Armour) {
+        navigateToItemEditionFragment(armour.armourId)
     }
 
     private fun navigateToItemEditionFragment(itemId: Long = 0) {
-        val action = GameTabHostFragmentDirections.showItemEditionAction().also {
-            it.itemId = itemId
-        }
-        navController.navigate(action)
+//        val action = GameTabHostFragmentDirections.showItemEditionAction().also {
+//            it.itemId = itemId
+//        }
+//        navController.navigate(action)
     }
 }
