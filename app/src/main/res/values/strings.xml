@@ -75,7 +75,14 @@
     <string name="item_edition_weigth">Peso</string>
     <string name="item_edition_description">Descripción</string>
 
-    <!--  Spell main  -->
+    <!--  Armour main -->
+
+    <!--  Armour main item -->
+    <string name="armour_main_item_image_class_icon">Icono que representa que la clase de armadura</string>
+
+    <!--  Armour edit-->
+
+
     <!--  Spell main  -->
     <!--  Spell main  -->
     <!--  Spell main  -->
