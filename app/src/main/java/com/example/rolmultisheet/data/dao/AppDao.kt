@@ -35,45 +35,60 @@ interface AppDao {
     @Query("SELECT * FROM item WHERE item_id = :itemId")
     fun queryItemById(itemId: Long): LiveData<Item?>
 
+    @Query("SELECT * FROM armour")
+    fun queryAllArmours(): LiveData<List<Item>>
+
+    @Query("SELECT * FROM armour WHERE armour_id = :armourId")
+    fun queryArmourById(armourId: Long): LiveData<Item?>
+
     // Insert
-    @Insert()
+    @Insert
     suspend fun insertCharacter(character: Character)
 
-    @Insert()
+    @Insert
     suspend fun insertRace(race: Race)
 
-    @Insert()
+    @Insert
     suspend fun insertJob(job: Job)
 
-    @Insert()
+    @Insert
     suspend fun insertSpell(spell: Spell)
 
-    @Insert()
+    @Insert
     suspend fun insertItem(item: Item)
 
+    @Insert
+    suspend fun insertArmour(armour: Armour)
+
     // Update
-    @Update()
+    @Update
     suspend fun updateRace(race: Race)
 
-    @Update()
+    @Update
     suspend fun updateJob(job: Job)
 
-    @Update()
+    @Update
     suspend fun updateSpell(spell: Spell)
 
-    @Update()
+    @Update
     suspend fun updateItem(item: Item)
 
+    @Update
+    suspend fun updateArmour(armour: Armour)
+
     // Delete
-    @Delete()
+    @Delete
     suspend fun deleteRace(race: Race)
 
-    @Delete()
+    @Delete
     suspend fun deleteJob(job: Job)
 
-    @Delete()
+    @Delete
     suspend fun deleteSpell(spell: Spell)
 
-    @Delete()
+    @Delete
     suspend fun deleteItem(item: Item)
+
+    @Delete
+    suspend fun deleteArmour(armour: Armour)
 }

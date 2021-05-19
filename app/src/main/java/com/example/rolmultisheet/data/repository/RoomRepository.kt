@@ -35,6 +35,12 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
     override fun queryItemById(itemId: Long): LiveData<Item?> =
         appDao.queryItemById(itemId)
 
+    override fun queryAllArmours(): LiveData<List<Item>> =
+        appDao.queryAllArmours()
+
+    override fun queryArmourById(armourId: Long): LiveData<Item?> =
+        appDao.queryArmourById(armourId)
+
     // Insert
     override suspend fun insertCharacter(character: Character) {
         appDao.insertCharacter(character)
@@ -56,6 +62,10 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
         appDao.insertItem(item)
     }
 
+    override suspend fun insertArmour(armour: Armour) {
+        appDao.insertArmour(armour)
+    }
+
     // Update
     override suspend fun updateRace(race: Race) {
         appDao.updateRace(race)
@@ -73,6 +83,10 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
         appDao.updateItem(item)
     }
 
+    override suspend fun updateArmour(armour: Armour) {
+        appDao.updateArmour(armour)
+    }
+
     // Delete
     override suspend fun deleteRace(race: Race) {
         appDao.deleteRace(race)
@@ -88,5 +102,9 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
 
     override suspend fun deleteItem(item: Item) {
         appDao.deleteItem(item)
+    }
+
+    override suspend fun deleteArmour(armour: Armour) {
+        appDao.deleteArmour(armour)
     }
 }
