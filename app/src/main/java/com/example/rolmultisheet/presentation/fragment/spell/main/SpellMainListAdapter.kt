@@ -42,6 +42,10 @@ class SpellMainListAdapter : ListAdapter<Spell, SpellMainListAdapter.ViewHolder>
         RecyclerView.ViewHolder(binding.root) {
 
         init {
+            itemView.setOnClickListener {
+                onItemClickListener?.onItemClick(adapterPosition)
+            }
+
             binding.spellMainItemAction.setOnClickListener {
                 if (binding.spellMainItemDescription.visibility == View.GONE) {
                     binding.spellMainItemDescription.visibility = View.VISIBLE

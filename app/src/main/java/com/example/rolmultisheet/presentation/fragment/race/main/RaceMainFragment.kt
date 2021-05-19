@@ -42,10 +42,6 @@ class RaceMainFragment : PageFragment(R.layout.common_list_fragment) {
         }
     }
 
-    private fun onItemClick(race: Race) {
-        navigateToRaceEditionFragment(race.raceId)
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
@@ -90,6 +86,10 @@ class RaceMainFragment : PageFragment(R.layout.common_list_fragment) {
 
     override fun onFabClick() {
         navigateToRaceEditionFragment()
+    }
+
+    private fun onItemClick(race: Race) {
+        navigateToRaceEditionFragment(race.raceId)
     }
 
     private fun navigateToRaceEditionFragment(raceId: Long = 0) {

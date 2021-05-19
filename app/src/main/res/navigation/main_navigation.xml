@@ -32,6 +32,9 @@
         <action
             android:id="@+id/showJobEditionFragment"
             app:destination="@id/jobEditionFragmentDirection" />
+        <action
+            android:id="@+id/showSpellEditionFragmentAction"
+            app:destination="@id/spellEditionFragmentDirection" />
     </fragment>
     <fragment
         android:id="@+id/raceEditionFragmentDirection"
@@ -48,6 +51,15 @@
         tools:layout="@layout/job_edition_fragment">
         <argument
             android:name="jobId"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
+    <fragment
+        android:id="@+id/spellEditionFragmentDirection"
+        android:name="com.example.rolmultisheet.presentation.fragment.spell.edition.SpellEditionFragment"
+        android:label="SpellEditionFragment">
+        <argument
+            android:name="SpellId"
             app:argType="long"
             android:defaultValue="0L" />
     </fragment>

@@ -54,9 +54,10 @@ abstract class AppDatabase : RoomDatabase() {
                                             Spell(
                                                 0,
                                                 "Invisibilidad",
+                                                "2 turnos",
                                                 "instantáneo",
                                                 "usuario",
-                                                "Durante 2 turnos, el usuario es invisible"
+                                                "El usuario es invisible"
                                             )
                                         )
                                     }

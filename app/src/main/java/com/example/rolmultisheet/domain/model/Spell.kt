@@ -13,6 +13,9 @@ data class Spell(
     @ColumnInfo(name = "spell_name")
     val spellName: String,
 
+    @ColumnInfo(name = "spell_duration")
+    val spellDuration: String?,
+
     @ColumnInfo(name = "spell_cast_time")
     val spellCastTime: String?,
 

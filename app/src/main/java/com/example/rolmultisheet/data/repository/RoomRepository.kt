@@ -2,10 +2,7 @@ package com.example.rolmultisheet.data.repository
 
 import androidx.lifecycle.LiveData
 import com.example.rolmultisheet.data.dao.AppDao
-import com.example.rolmultisheet.domain.model.Character
-import com.example.rolmultisheet.domain.model.Job
-import com.example.rolmultisheet.domain.model.Race
-import com.example.rolmultisheet.domain.model.Spell
+import com.example.rolmultisheet.domain.model.*
 import com.example.rolmultisheet.domain.repository.AppRepository
 
 class RoomRepository(private val appDao: AppDao) : AppRepository {
@@ -29,6 +26,15 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
     override fun queryAllSpells(): LiveData<List<Spell>> =
         appDao.queryAllSpells()
 
+    override fun querySpellById(spellId: Long): LiveData<Spell?> =
+        appDao.querySpellById(spellId)
+
+    override fun queryAllItems(): LiveData<List<Item>> =
+        appDao.queryAllItems()
+
+    override fun queryItemById(itemId: Long): LiveData<Item?> =
+        appDao.queryItemById(itemId)
+
     // Insert
     override suspend fun insertCharacter(character: Character) {
         appDao.insertCharacter(character)
@@ -46,6 +52,10 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
         appDao.insertSpell(spell)
     }
 
+    override suspend fun insertItem(item: Item) {
+        appDao.insertItem(item)
+    }
+
     // Update
     override suspend fun updateRace(race: Race) {
         appDao.updateRace(race)
@@ -59,6 +69,10 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
         appDao.updateSpell(spell)
     }
 
+    override suspend fun updateItem(item: Item) {
+        appDao.updateItem(item)
+    }
+
     // Delete
     override suspend fun deleteRace(race: Race) {
         appDao.deleteRace(race)
@@ -70,5 +84,9 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
 
     override suspend fun deleteSpell(spell: Spell) {
         appDao.deleteSpell(spell)
+    }
+
+    override suspend fun deleteItem(item: Item) {
+        appDao.deleteItem(item)
     }
 }

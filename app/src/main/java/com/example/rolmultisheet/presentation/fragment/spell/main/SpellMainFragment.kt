@@ -10,6 +10,8 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CommonListFragmentBinding
+import com.example.rolmultisheet.domain.model.Spell
+import com.example.rolmultisheet.presentation.fragment.game.GameTabHostFragmentDirections
 import com.example.rolmultisheet.presentation.util.event.observeEvent
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.recycler.doOnSwiped
@@ -31,7 +33,11 @@ class SpellMainFragment : PageFragment(R.layout.common_list_fragment) {
     }
 
     private val listAdapter: SpellMainListAdapter by lazy {
-        SpellMainListAdapter()
+        SpellMainListAdapter().apply {
+            setOnItemClickListener { itemPosition ->
+                onItemClick(currentList[itemPosition])
+            }
+        }
     }
 
     private val navController: NavController by lazy { findNavController() }
@@ -70,10 +76,6 @@ class SpellMainFragment : PageFragment(R.layout.common_list_fragment) {
         }
     }
 
-    override fun onFabClick() {
-        // Todo: implement
-    }
-
     private fun observeViewModelEvent() {
         viewModel.onDeleteSpellEvent.observeEvent(viewLifecycleOwner) { spell ->
             Snackbar.make(
@@ -84,5 +86,20 @@ class SpellMainFragment : PageFragment(R.layout.common_list_fragment) {
                 viewModel.recoverySpell(spell)
             }.show()
         }
+    }
+
+    override fun onFabClick() {
+        navigateToSpellEditionFragment()
+    }
+
+    private fun onItemClick(spell: Spell) {
+        navigateToSpellEditionFragment(spell.spellId)
+    }
+
+    private fun navigateToSpellEditionFragment(spellId: Long = 0) {
+        val action = GameTabHostFragmentDirections.showSpellEditionFragmentAction().also {
+            it.spellId = spellId
+        }
+        navController.navigate(action)
     }
 }

@@ -1,10 +1,7 @@
 package com.example.rolmultisheet.domain.repository
 
 import androidx.lifecycle.LiveData
-import com.example.rolmultisheet.domain.model.Character
-import com.example.rolmultisheet.domain.model.Job
-import com.example.rolmultisheet.domain.model.Race
-import com.example.rolmultisheet.domain.model.Spell
+import com.example.rolmultisheet.domain.model.*
 
 interface AppRepository {
 
@@ -15,20 +12,27 @@ interface AppRepository {
     fun queryAllJobs(): LiveData<List<Job>>
     fun queryJobById(jobId: Long): LiveData<Job?>
     fun queryAllSpells(): LiveData<List<Spell>>
+    fun querySpellById(spellId: Long): LiveData<Spell?>
+    fun queryAllItems(): LiveData<List<Item>>
+    fun queryItemById(itemId: Long): LiveData<Item?>
 
     // Insert
     suspend fun insertCharacter(character: Character)
     suspend fun insertRace(race: Race)
     suspend fun insertJob(job: Job)
     suspend fun insertSpell(spell: Spell)
+    suspend fun insertItem(item: Item)
 
     // Update
     suspend fun updateRace(race: Race)
     suspend fun updateJob(job: Job)
     suspend fun updateSpell(spell: Spell)
+    suspend fun updateItem(item: Item)
 
     // Delete
     suspend fun deleteRace(race: Race)
     suspend fun deleteJob(job: Job)
     suspend fun deleteSpell(spell: Spell)
+    suspend fun deleteItem(item: Item)
+
 }

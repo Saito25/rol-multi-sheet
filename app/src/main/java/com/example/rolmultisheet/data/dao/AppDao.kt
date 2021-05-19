@@ -2,10 +2,7 @@ package com.example.rolmultisheet.data.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.example.rolmultisheet.domain.model.Character
-import com.example.rolmultisheet.domain.model.Job
-import com.example.rolmultisheet.domain.model.Race
-import com.example.rolmultisheet.domain.model.Spell
+import com.example.rolmultisheet.domain.model.*
 
 @Dao
 interface AppDao {
@@ -29,6 +26,15 @@ interface AppDao {
     @Query("SELECT * FROM spell")
     fun queryAllSpells(): LiveData<List<Spell>>
 
+    @Query("SELECT * FROM spell WHERE spell_id = :spellId")
+    fun querySpellById(spellId: Long): LiveData<Spell?>
+
+    @Query("SELECT * FROM item")
+    fun queryAllItems(): LiveData<List<Item>>
+
+    @Query("SELECT * FROM item WHERE item_id = :itemId")
+    fun queryItemById(itemId: Long): LiveData<Item?>
+
     // Insert
     @Insert()
     suspend fun insertCharacter(character: Character)
@@ -42,6 +48,9 @@ interface AppDao {
     @Insert()
     suspend fun insertSpell(spell: Spell)
 
+    @Insert()
+    suspend fun insertItem(item: Item)
+
     // Update
     @Update()
     suspend fun updateRace(race: Race)
@@ -52,6 +61,9 @@ interface AppDao {
     @Update()
     suspend fun updateSpell(spell: Spell)
 
+    @Update()
+    suspend fun updateItem(item: Item)
+
     // Delete
     @Delete()
     suspend fun deleteRace(race: Race)
@@ -61,4 +73,7 @@ interface AppDao {
 
     @Delete()
     suspend fun deleteSpell(spell: Spell)
+
+    @Delete()
+    suspend fun deleteItem(item: Item)
 }
