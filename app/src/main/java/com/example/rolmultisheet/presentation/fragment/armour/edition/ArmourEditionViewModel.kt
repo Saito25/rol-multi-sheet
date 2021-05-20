@@ -10,7 +10,7 @@ import com.example.rolmultisheet.domain.valueObject.StringResource
 import com.example.rolmultisheet.presentation.util.event.Event
 import kotlinx.coroutines.launch
 
-class RaceEditionViewModel(private val appRepository: AppRepository, private val raceId: Long) :
+class ArmourEditionViewModel(private val appRepository: AppRepository, private val raceId: Long) :
     ViewModel() {
 
     private val _race: LiveData<Race?> = appRepository.queryRaceById(raceId)

@@ -72,7 +72,7 @@
     <string name="item_edition_toolbar_title">Nuevo Objeto</string>
     <string name="item_edition_name">Nombre</string>
     <string name="item_edition_price">Precio</string>
-    <string name="item_edition_weigth">Peso</string>
+    <string name="item_edition_weight">Peso</string>
     <string name="item_edition_description">Descripción</string>
 
     <!--  Armour main -->
@@ -81,6 +81,17 @@
     <string name="armour_main_item_image_class_icon">Icono que representa que la clase de armadura</string>
 
     <!--  Armour edit-->
+    <string name="armour_edition_toolbar_title">Nueva armadura</string>
+    <string name="armour_edition_name">Nombre</string>
+    <string name="armour_edition_class">Clase de armadura</string>
+    <string name="armour_edition_bonus">Bono máximo (0 ilimitado)</string>
+    <string name="armour_edition_strength">Fuerza requerida (0 no requiere)</string>
+    <string name="armour_edition_stealth">Desventaja en sigilo</string>
+    <string name="armour_edition_stealth_yes">Sí</string>
+    <string name="armour_edition_stealth_no">No</string>
+    <string name="armour_edition_price">Precio</string>
+    <string name="armour_edition_weight">Peso</string>
+    <string name="armour_edition_description">Descripción</string>
 
 
     <!--  Spell main  -->

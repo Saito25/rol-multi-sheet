@@ -63,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/item_edition_weigth"
+                app:helperText="@string/item_edition_weight"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorItemEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorItemEditionName"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorItemEditionWeight">

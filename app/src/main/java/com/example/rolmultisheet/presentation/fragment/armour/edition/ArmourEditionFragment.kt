@@ -17,7 +17,8 @@ import com.example.rolmultisheet.domain.model.Race
 import com.example.rolmultisheet.presentation.util.event.observeEvent
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 
-class RaceEditionFragment : Fragment(R.layout.race_edition_fragment) {
+// todo: change all classes to work like armour
+class ArmourEditionFragment : Fragment(R.layout.race_edition_fragment) {
 
     private val binding: RaceEditionFragmentBinding by viewBinding {
         RaceEditionFragmentBinding.bind(it)
@@ -25,8 +26,8 @@ class RaceEditionFragment : Fragment(R.layout.race_edition_fragment) {
 
     private val args: RaceEditionFragmentArgs by navArgs()
 
-    private val viewModel: RaceEditionViewModel by viewModels {
-        RaceEditionViewModelFactory(
+    private val viewModel: ArmourEditionViewModel by viewModels {
+        ArmourEditionViewModelFactory(
             RoomRepository(
                 AppDatabase.getInstance(requireContext()).appDao
             ),
