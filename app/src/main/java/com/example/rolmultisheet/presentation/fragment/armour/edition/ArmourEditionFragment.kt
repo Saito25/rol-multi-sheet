@@ -1,6 +1,7 @@
 package com.example.rolmultisheet.presentation.fragment.armour.edition
 
 import android.os.Bundle
+import android.text.Editable
 import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -12,26 +13,25 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
-import com.example.rolmultisheet.databinding.RaceEditionFragmentBinding
-import com.example.rolmultisheet.domain.model.Race
+import com.example.rolmultisheet.databinding.ArmourEditionFragmentBinding
+import com.example.rolmultisheet.domain.model.Armour
 import com.example.rolmultisheet.presentation.util.event.observeEvent
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 
-// todo: change all classes to work like armour
-class ArmourEditionFragment : Fragment(R.layout.race_edition_fragment) {
+class ArmourEditionFragment : Fragment(R.layout.armour_edition_fragment) {
 
-    private val binding: RaceEditionFragmentBinding by viewBinding {
-        RaceEditionFragmentBinding.bind(it)
+    private val binding: ArmourEditionFragmentBinding by viewBinding {
+        ArmourEditionFragmentBinding.bind(it)
     }
 
-    private val args: RaceEditionFragmentArgs by navArgs()
+    private val args: ArmourEditionFragmentArgs by navArgs()
 
     private val viewModel: ArmourEditionViewModel by viewModels {
         ArmourEditionViewModelFactory(
             RoomRepository(
                 AppDatabase.getInstance(requireContext()).appDao
             ),
-            args.raceId
+            args.armourId
         )
     }
 
@@ -48,11 +48,11 @@ class ArmourEditionFragment : Fragment(R.layout.race_edition_fragment) {
     }
 
     private fun setupToolBar() {
-        binding.toolbarRaceEdition.run {
+        binding.toolbarArmourEdition.run {
             setupWithNavController(navController)
             inflateMenu(R.menu.save_manu)
             setOnMenuItemClickListener { onMenuItemClick(it) }
-            setupToolbarNameIfNoRace()
+            setupToolbarNameIfNoArmour()
         }
     }
 
@@ -64,59 +64,72 @@ class ArmourEditionFragment : Fragment(R.layout.race_edition_fragment) {
         return true
     }
 
-    private fun setupToolbarNameIfNoRace() {
-        if (args.raceId == 0L) {
-            binding.toolbarRaceEdition.title = getString(R.string.race_edition_toolbar_title)
+    private fun setupToolbarNameIfNoArmour() {
+        if (args.armourId == 0L) {
+            binding.toolbarArmourEdition.title = getString(R.string.armour_edition_toolbar_title)
         }
     }
 
+    // TODO: Create method o extension function to complete this statement
     private fun validateTextFields() {
         binding.run {
             viewModel.validateTextFields(
-                inputRaceEditionName.text.toString(),
-                inputRaceEditionVelocity.text.toString(),
-                inputRaceEditionHeight.text.toString(),
-                inputRaceEditionAge.text.toString(),
+                inputArmourEditionName.text.toString(),
+                getValueOrZero(inputArmourEditionClass.text),
+                getValueOrZero(inputArmourEditionBonus.text),
+                getValueOrZero(inputArmourEditionStrength.text),
+                checkArmourEditStealth.isChecked.toString(),
+                getValueOrZero(inputArmourEditionPrice.text),
+                getValueOrZero(inputArmourEditionWeight.text),
+                inputArmourEditionDescription.text.toString(),
             )
         }
 
     }
 
+    private fun getValueOrZero(editable: Editable?): String =
+        if (editable.isNullOrBlank()) "0" else editable.toString()
+
 
     private fun observeViewModelEvent() {
-        observeRaceEvent()
+        observeArmourEvent()
         observeOnInvalidNameEvent()
+        observeOnInvalidArmourClass()
         observeOnSaveEvent()
         observeOnCloseEvent()
     }
 
-    private fun observeRaceEvent() {
-        viewModel.race.observeEvent(viewLifecycleOwner) { race ->
-            if (race != null) {
-                setupToolBarName(race)
-                fillTextFieldsWithRaceInfo(race)
+    private fun observeOnInvalidArmourClass() {
+        viewModel.onInvalidArmourClass.observeEvent(viewLifecycleOwner) {
+            binding.inputArmourEditionClass.error = getString(it.string)
+        }
+    }
+
+    private fun observeArmourEvent() {
+        viewModel.armour.observeEvent(viewLifecycleOwner) { armour ->
+            if (armour != null) {
+                setupToolBarName(armour)
+                fillTextFieldsWithArmourInfo(armour)
             }
         }
     }
 
-    private fun fillTextFieldsWithRaceInfo(race: Race) {
+    private fun fillTextFieldsWithArmourInfo(armour: Armour) {
         binding.run {
-            inputRaceEditionName.setText(race.raceName)
-            if (race.raceVelocity != null) {
-                inputRaceEditionVelocity.setText(race.raceVelocity.toString())
-            }
-            if (race.raceAvgHeight != null) {
-                inputRaceEditionHeight.setText(race.raceAvgHeight.toString())
-            }
-            if (race.raceAvgAge != null) {
-                inputRaceEditionAge.setText(race.raceAvgAge.toString())
-            }
+            inputArmourEditionName.setText(armour.armourName)
+            inputArmourEditionClass.setText(armour.armourClass.toString())
+            inputArmourEditionBonus.setText(armour.armourMaxBonus.toString())
+            inputArmourEditionStrength.setText(armour.armourRequiredMinStrength.toString())
+            checkArmourEditStealth.isChecked = armour.armourStealthDisadvantage
+            inputArmourEditionPrice.setText(armour.armourPrice.toString())
+            inputArmourEditionWeight.setText(armour.armourWeight.toString())
+            inputArmourEditionDescription.setText(armour.armourDescription)
         }
     }
 
     private fun observeOnInvalidNameEvent() {
         viewModel.onInvalidName.observeEvent(viewLifecycleOwner) {
-            binding.inputRaceEditionName.error = getString(it.string)
+            binding.inputArmourEditionName.error = getString(it.string)
         }
     }
 
@@ -124,10 +137,14 @@ class ArmourEditionFragment : Fragment(R.layout.race_edition_fragment) {
         viewModel.onSaveEvent.observeEvent(viewLifecycleOwner) {
             binding.run {
                 viewModel.save(
-                    inputRaceEditionName.text.toString(),
-                    inputRaceEditionVelocity.text.toString(),
-                    inputRaceEditionHeight.text.toString(),
-                    inputRaceEditionAge.text.toString(),
+                    inputArmourEditionName.text.toString(),
+                    inputArmourEditionClass.text.toString(),
+                    inputArmourEditionBonus.text.toString(),
+                    inputArmourEditionStrength.text.toString(),
+                    checkArmourEditStealth.isChecked.toString(),
+                    inputArmourEditionPrice.text.toString(),
+                    inputArmourEditionWeight.text.toString(),
+                    inputArmourEditionDescription.text.toString()
                 )
             }
         }
@@ -141,7 +158,7 @@ class ArmourEditionFragment : Fragment(R.layout.race_edition_fragment) {
         }
     }
 
-    private fun setupToolBarName(race: Race) {
-        binding.toolbarRaceEdition.title = race.raceName
+    private fun setupToolBarName(armour: Armour) {
+        binding.toolbarArmourEdition.title = armour.armourName
     }
 }

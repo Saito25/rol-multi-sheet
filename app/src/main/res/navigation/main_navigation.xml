@@ -38,6 +38,9 @@
         <action
             android:id="@+id/showItemEditionAction"
             app:destination="@id/itemEditionFragmentDirection" />
+        <action
+            android:id="@+id/showArmourEditionFragment"
+            app:destination="@id/armourEditionFragmentDirection" />
     </fragment>
     <fragment
         android:id="@+id/raceEditionFragmentDirection"
@@ -72,5 +75,13 @@
             android:name="itemId"
             android:defaultValue="0L"
             app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/armourEditionFragmentDirection"
+        android:name="com.example.rolmultisheet.presentation.fragment.armour.edition.ArmourEditionFragment">
+        <argument
+            android:name="armourId"
+            app:argType="long"
+            android:defaultValue="0L" />
     </fragment>
 </navigation>

@@ -11,6 +11,7 @@ import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CommonListFragmentBinding
 import com.example.rolmultisheet.domain.model.Armour
+import com.example.rolmultisheet.presentation.fragment.game.GameTabHostFragmentDirections
 import com.example.rolmultisheet.presentation.util.event.observeEvent
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.recycler.doOnSwiped
@@ -95,10 +96,10 @@ class ArmourMainFragment : PageFragment(R.layout.common_list_fragment) {
         navigateToItemEditionFragment(armour.armourId)
     }
 
-    private fun navigateToItemEditionFragment(itemId: Long = 0) {
-//        val action = GameTabHostFragmentDirections.showItemEditionAction().also {
-//            it.itemId = itemId
-//        }
-//        navController.navigate(action)
+    private fun navigateToItemEditionFragment(armourId: Long = 0) {
+        val action = GameTabHostFragmentDirections.showArmourEditionFragment().also {
+            it.armourId = armourId
+        }
+        navController.navigate(action)
     }
 }

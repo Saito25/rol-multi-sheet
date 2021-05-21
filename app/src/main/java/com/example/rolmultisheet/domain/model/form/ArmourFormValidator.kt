@@ -1,4 +1,6 @@
-package com.example.rolmultisheet.domain.model.form.util
+package com.example.rolmultisheet.domain.model.form
+
+import com.example.rolmultisheet.domain.model.form.util.*
 
 class ArmourFormValidator(
     private val name: String?,

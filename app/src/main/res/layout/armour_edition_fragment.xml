@@ -20,7 +20,7 @@
         android:fillViewport="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/constraintArmourEdition"
+            android:id="@+id/constraintArmourWeight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="@dimen/padding_x3"
@@ -36,7 +36,7 @@
                 app:layout_constraintTop_toTopOf="parent">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputItemEditionName"
+                    android:id="@+id/inputArmourEditionName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -53,14 +53,14 @@
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorArmourEditionName">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputItemEditionClass"
+                    android:id="@+id/inputArmourEditionClass"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorArmourEditionName3"
+                android:id="@+id/inputDecoratorArmourEditionBonus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
@@ -70,23 +70,23 @@
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorArmourEditionClass">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputItemEditionName3"
+                    android:id="@+id/inputArmourEditionBonus"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorArmourEditionName4"
+                android:id="@+id/inputDecoratorArmourEditionStrength"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
                 app:helperText="@string/armour_edition_strength"
-                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorArmourEditionName3"
-                app:layout_constraintStart_toStartOf="@+id/inputDecoratorArmourEditionName3"
-                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorArmourEditionName3">
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorArmourEditionBonus"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorArmourEditionBonus"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorArmourEditionBonus">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputItemEditionName4"
+                    android:id="@+id/inputArmourEditionStrength"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
@@ -100,12 +100,12 @@
                 android:gravity="center|start"
                 android:layoutDirection="rtl"
                 android:text="@string/armour_edition_stealth"
-                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorArmourEditionName4"
-                app:layout_constraintStart_toStartOf="@+id/inputDecoratorArmourEditionName4"
-                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorArmourEditionName4" />
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorArmourEditionStrength"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorArmourEditionStrength"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorArmourEditionStrength" />
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorArmourEditionName6"
+                android:id="@+id/inputDecoratorArmourEditionPrice"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
@@ -115,39 +115,39 @@
                 app:layout_constraintTop_toBottomOf="@+id/checkArmourEditStealth">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputItemEditionName6"
+                    android:id="@+id/inputArmourEditionPrice"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorArmourEditionName7"
+                android:id="@+id/inputDecoratorArmourEditionWeight"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
                 app:helperText="@string/armour_edition_weight"
-                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorArmourEditionName6"
-                app:layout_constraintStart_toStartOf="@+id/inputDecoratorArmourEditionName6"
-                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorArmourEditionName6">
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorArmourEditionPrice"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorArmourEditionPrice"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorArmourEditionPrice">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputItemEditionName7"
+                    android:id="@+id/inputArmourEditionWeight"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorArmourEditionName8"
+                android:id="@+id/inputDecoratorArmourEditionDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
                 app:helperText="@string/armour_edition_description"
-                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorArmourEditionName7"
-                app:layout_constraintStart_toStartOf="@+id/inputDecoratorArmourEditionName7"
-                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorArmourEditionName7">
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorArmourEditionWeight"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorArmourEditionWeight"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorArmourEditionWeight">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputItemEditionName8"
+                    android:id="@+id/inputArmourEditionDescription"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
