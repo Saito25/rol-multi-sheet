@@ -41,6 +41,9 @@
         <action
             android:id="@+id/showArmourEditionFragment"
             app:destination="@id/armourEditionFragmentDirection" />
+        <action
+            android:id="@+id/showWeaponEditionFragmentAction"
+            app:destination="@id/weaponEditionFragmentDirection" />
     </fragment>
     <fragment
         android:id="@+id/raceEditionFragmentDirection"
@@ -81,6 +84,15 @@
         android:name="com.example.rolmultisheet.presentation.fragment.armour.edition.ArmourEditionFragment">
         <argument
             android:name="armourId"
+            app:argType="long"
+            android:defaultValue="0L" />
+    </fragment>
+    <fragment
+        android:id="@+id/weaponEditionFragmentDirection"
+        android:name="com.example.rolmultisheet.presentation.fragment.weapon.edition.WeaponEditionFragment"
+        android:label="WeaponEditionFragment">
+        <argument
+            android:name="weaponId"
             app:argType="long"
             android:defaultValue="0L" />
     </fragment>

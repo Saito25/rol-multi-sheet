@@ -88,14 +88,22 @@
     <string name="armour_edition_bonus">Bono máximo (0 ilimitado)</string>
     <string name="armour_edition_strength">Fuerza requerida (0 no requiere)</string>
     <string name="armour_edition_stealth">Desventaja en sigilo</string>
-    <string name="armour_edition_stealth_yes">Sí</string>
-    <string name="armour_edition_stealth_no">No</string>
     <string name="armour_edition_price">Precio</string>
     <string name="armour_edition_weight">Peso</string>
     <string name="armour_edition_description">Descripción</string>
 
+    <!--  Weapon edit  -->
+    <string name="weapon_edition_toolbar_title">Nueva arma</string>
+    <string name="weapon_edition_name">Nombre</string>
+    <string name="weapon_edition_damage">Daño</string>
+    <string name="weapon_edition_scope">Alcance</string>
+    <string name="weapon_edition_damage_type">Tipo de daño</string>
+    <string name="weapon_edition_two_hand">A dos manos</string>
+    <string name="weapon_edition_price">Precio</string>
+    <string name="weapon_edition_weight">Peso</string>
+    <string name="weapon_edition_description">Descripción</string>
 
-    <!--  Spell main  -->
+
     <!--  Spell main  -->
     <!--  Spell main  -->
     <!--  Spell main  -->
