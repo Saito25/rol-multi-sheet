@@ -1,9 +1,8 @@
-package com.example.rolmultisheet.presentation.fragment.armour.main
+package com.example.rolmultisheet.presentation.fragment.weapon.main
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.rolmultisheet.domain.repository.AppRepository
-import com.example.rolmultisheet.presentation.fragment.weapon.main.ArmourMainViewModel
 
 class ArmourMainViewModelFactory(private val appRepository: AppRepository) :
     ViewModelProvider.Factory {

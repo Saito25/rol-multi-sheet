@@ -1,4 +1,4 @@
-package com.example.rolmultisheet.presentation.fragment.armour.main
+package com.example.rolmultisheet.presentation.fragment.weapon.main
 
 import android.os.Bundle
 import android.view.View
@@ -12,9 +12,6 @@ import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CommonListFragmentBinding
 import com.example.rolmultisheet.domain.model.Armour
 import com.example.rolmultisheet.presentation.fragment.game.GameTabHostFragmentDirections
-import com.example.rolmultisheet.presentation.fragment.weapon.main.ArmourMainListAdapter
-import com.example.rolmultisheet.presentation.fragment.weapon.main.ArmourMainViewModel
-import com.example.rolmultisheet.presentation.fragment.weapon.main.ArmourMainViewModelFactory
 import com.example.rolmultisheet.presentation.util.event.observeEvent
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.recycler.doOnSwiped

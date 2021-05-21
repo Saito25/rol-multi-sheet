@@ -2,11 +2,11 @@ package com.example.rolmultisheet.presentation.fragment.game
 
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import com.example.rolmultisheet.presentation.fragment.armour.main.ArmourMainFragment
 import com.example.rolmultisheet.presentation.fragment.item.main.ItemMainFragment
 import com.example.rolmultisheet.presentation.fragment.job.main.JobMainFragment
 import com.example.rolmultisheet.presentation.fragment.race.main.RaceMainFragment
 import com.example.rolmultisheet.presentation.fragment.spell.main.SpellMainFragment
+import com.example.rolmultisheet.presentation.fragment.weapon.main.ArmourMainFragment
 
 private const val NUMBER_OF_FRAGMENTS = 5
 
