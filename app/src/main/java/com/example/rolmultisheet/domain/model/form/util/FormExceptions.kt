@@ -16,4 +16,8 @@ class FormPriceFormatException(message: String) : Exception(message)
 
 class FormWeightFormatException(message: String) : Exception(message)
 
-class FormDescriptionFormatException(message: String) : Exception(message)
+class FormWeaponDamageFormatException(message: String) : Exception(message)
+
+class FormWeaponScopeFormatException(message: String) : Exception(message)
+
+class FormWeaponTwoHandFormatException(message: String) : Exception(message)
