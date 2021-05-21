@@ -11,7 +11,7 @@ import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 @Database(
-    entities = [Character::class, Race::class, Job::class, Spell::class, Item::class, Armour::class],
+    entities = [Character::class, Race::class, Job::class, Spell::class, Item::class, Armour::class, Weapon::class],
     version = 1
 )
 abstract class AppDatabase : RoomDatabase() {

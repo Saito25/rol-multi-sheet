@@ -41,6 +41,12 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
     override fun queryArmourById(armourId: Long): LiveData<Armour?> =
         appDao.queryArmourById(armourId)
 
+    override fun queryAllWeapons(): LiveData<List<Weapon>> =
+        appDao.queryAllWeapons()
+
+    override fun queryWeaponById(weaponId: Long): LiveData<Weapon?> =
+        appDao.queryWeaponById(weaponId)
+
     // Insert
     override suspend fun insertCharacter(character: Character) {
         appDao.insertCharacter(character)
@@ -66,6 +72,10 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
         appDao.insertArmour(armour)
     }
 
+    override suspend fun insertWeapon(weapon: Weapon) {
+        appDao.insertWeapon(weapon)
+    }
+
     // Update
     override suspend fun updateRace(race: Race) {
         appDao.updateRace(race)
@@ -87,6 +97,10 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
         appDao.updateArmour(armour)
     }
 
+    override suspend fun updateWeapon(weapon: Weapon) {
+        updateWeapon(weapon)
+    }
+
     // Delete
     override suspend fun deleteRace(race: Race) {
         appDao.deleteRace(race)
@@ -106,5 +120,9 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
 
     override suspend fun deleteArmour(armour: Armour) {
         appDao.deleteArmour(armour)
+    }
+
+    override suspend fun deleteWeapon(weapon: Weapon) {
+        appDao.deleteWeapon(weapon)
     }
 }

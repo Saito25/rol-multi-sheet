@@ -17,6 +17,8 @@ interface AppRepository {
     fun queryItemById(itemId: Long): LiveData<Item?>
     fun queryAllArmours(): LiveData<List<Armour>>
     fun queryArmourById(armourId: Long): LiveData<Armour?>
+    fun queryAllWeapons(): LiveData<List<Weapon>>
+    fun queryWeaponById(weaponId: Long): LiveData<Weapon?>
 
     // Insert
     suspend fun insertCharacter(character: Character)
@@ -25,6 +27,7 @@ interface AppRepository {
     suspend fun insertSpell(spell: Spell)
     suspend fun insertItem(item: Item)
     suspend fun insertArmour(armour: Armour)
+    suspend fun insertWeapon(weapon: Weapon)
 
     // Update
     suspend fun updateRace(race: Race)
@@ -32,6 +35,7 @@ interface AppRepository {
     suspend fun updateSpell(spell: Spell)
     suspend fun updateItem(item: Item)
     suspend fun updateArmour(armour: Armour)
+    suspend fun updateWeapon(weapon: Weapon)
 
     // Delete
     suspend fun deleteRace(race: Race)
@@ -39,5 +43,7 @@ interface AppRepository {
     suspend fun deleteSpell(spell: Spell)
     suspend fun deleteItem(item: Item)
     suspend fun deleteArmour(armour: Armour)
+    suspend fun deleteWeapon(weapon: Weapon)
+
 
 }

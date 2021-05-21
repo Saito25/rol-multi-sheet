@@ -41,6 +41,12 @@ interface AppDao {
     @Query("SELECT * FROM armour WHERE armour_id = :armourId")
     fun queryArmourById(armourId: Long): LiveData<Armour?>
 
+    @Query("SELECT * FROM weapon")
+    fun queryAllWeapons(): LiveData<List<Weapon>>
+
+    @Query("SELECT * FROM weapon WHERE weapon_id = :weaponId")
+    fun queryWeaponById(weaponId: Long): LiveData<Weapon?>
+
     // Insert
     @Insert
     suspend fun insertCharacter(character: Character)
@@ -60,6 +66,9 @@ interface AppDao {
     @Insert
     suspend fun insertArmour(armour: Armour)
 
+    @Insert
+    suspend fun insertWeapon(weapon: Weapon)
+
     // Update
     @Update
     suspend fun updateRace(race: Race)
@@ -76,6 +85,9 @@ interface AppDao {
     @Update
     suspend fun updateArmour(armour: Armour)
 
+    @Update
+    suspend fun updateWeapon(weapon: Weapon)
+
     // Delete
     @Delete
     suspend fun deleteRace(race: Race)
@@ -91,4 +103,7 @@ interface AppDao {
 
     @Delete
     suspend fun deleteArmour(armour: Armour)
+
+    @Delete
+    suspend fun deleteWeapon(weapon: Weapon)
 }
