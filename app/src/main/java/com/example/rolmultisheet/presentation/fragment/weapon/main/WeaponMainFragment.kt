@@ -10,30 +10,29 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CommonListFragmentBinding
-import com.example.rolmultisheet.domain.model.Armour
-import com.example.rolmultisheet.presentation.fragment.game.GameTabHostFragmentDirections
+import com.example.rolmultisheet.domain.model.Weapon
 import com.example.rolmultisheet.presentation.util.event.observeEvent
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.recycler.doOnSwiped
 import com.example.rolmultisheet.presentation.util.tab.PageFragment
 import com.google.android.material.snackbar.Snackbar
 
-class ArmourMainFragment : PageFragment(R.layout.common_list_fragment) {
+class WeaponMainFragment : PageFragment(R.layout.common_list_fragment) {
 
     private val binding: CommonListFragmentBinding by viewBinding {
         CommonListFragmentBinding.bind(it)
     }
 
-    private val viewModel: ArmourMainViewModel by viewModels {
-        ArmourMainViewModelFactory(
+    private val viewModel: WeaponMainViewModel by viewModels {
+        WeaponMainViewModelFactory(
             RoomRepository(
                 AppDatabase.getInstance(requireContext()).appDao
             )
         )
     }
 
-    private val listAdapter: ArmourMainListAdapter by lazy {
-        ArmourMainListAdapter().apply {
+    private val listAdapter: WeaponMainListAdapter by lazy {
+        WeaponMainListAdapter().apply {
             setOnItemClickListener { itemPosition ->
                 onItemClick(currentList[itemPosition])
             }
@@ -61,7 +60,7 @@ class ArmourMainFragment : PageFragment(R.layout.common_list_fragment) {
             itemAnimator = DefaultItemAnimator()
             adapter = listAdapter
             doOnSwiped(swipeDirs = ItemTouchHelper.RIGHT) { viewHolder, _ ->
-                viewModel.deleteArmour(listAdapter.currentList[viewHolder.adapterPosition])
+                viewModel.deleteWeapon(listAdapter.currentList[viewHolder.adapterPosition])
             }
         }
     }
@@ -71,19 +70,19 @@ class ArmourMainFragment : PageFragment(R.layout.common_list_fragment) {
     }
 
     private fun observeItemList() {
-        viewModel.armourList.observe(viewLifecycleOwner) {
+        viewModel.weaponList.observe(viewLifecycleOwner) {
             listAdapter.submitList(it)
         }
     }
 
     private fun observeViewModelEvent() {
-        viewModel.onDeleteArmourEvent.observeEvent(viewLifecycleOwner) { armour ->
+        viewModel.onDeleteWeaponEvent.observeEvent(viewLifecycleOwner) { weapon ->
             Snackbar.make(
                 binding.root,
                 getString(R.string.item_main_snackbar_title),
                 Snackbar.LENGTH_LONG
             ).setAction(R.string.snackbar_action) {
-                viewModel.recoveryArmour(armour)
+                viewModel.recoveryWeapon(weapon)
             }.show()
         }
     }
@@ -92,14 +91,14 @@ class ArmourMainFragment : PageFragment(R.layout.common_list_fragment) {
         navigateToItemEditionFragment()
     }
 
-    private fun onItemClick(armour: Armour) {
-        navigateToItemEditionFragment(armour.armourId)
+    private fun onItemClick(weapon: Weapon) {
+        navigateToItemEditionFragment(weapon.weaponId)
     }
 
-    private fun navigateToItemEditionFragment(armourId: Long = 0) {
-        val action = GameTabHostFragmentDirections.showArmourEditionFragment().also {
-            it.armourId = armourId
-        }
-        navController.navigate(action)
+    private fun navigateToItemEditionFragment(weaponId: Long = 0) {
+//        val action = GameTabHostFragmentDirections.showWeaponEditionFragment().also {
+//            it.weaponId = weaponId
+//        }
+//        navController.navigate(action)
     }
 }

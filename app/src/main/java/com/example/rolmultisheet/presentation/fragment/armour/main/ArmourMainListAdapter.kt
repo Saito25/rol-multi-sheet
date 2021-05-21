@@ -9,8 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.databinding.ArmourMainItemFragmentBinding
 import com.example.rolmultisheet.domain.model.Armour
-import com.example.rolmultisheet.presentation.fragment.weapon.main.ArmourDiffUtil
-import com.example.rolmultisheet.presentation.fragment.weapon.main.ArmourMainListAdapter
 import com.example.rolmultisheet.presentation.util.recycler.OnItemClickListener
 
 object ArmourDiffUtil : DiffUtil.ItemCallback<Armour>() {

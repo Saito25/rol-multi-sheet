@@ -20,7 +20,7 @@ data class Weapon(
     val weaponScope: Int = 0,
 
     @ColumnInfo(name = "weapon_damage_type")
-    val weaponDameType: String?,
+    val weaponDameType: String = "",
 
     @ColumnInfo(name = "weapon_two_hand")
     val weaponIsTwoHand: Boolean = false,
@@ -32,5 +32,5 @@ data class Weapon(
     val weaponWeight: Double = 0.0,
 
     @ColumnInfo(name = "weapon_description")
-    val weaponDescription: String?,
+    val weaponDescription: String? = null,
 )

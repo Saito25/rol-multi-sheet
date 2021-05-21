@@ -76,6 +76,14 @@ abstract class AppDatabase : RoomDatabase() {
                                                 armourDescription = ""
                                             )
                                         )
+                                        INSTANCE!!.appDao.insertWeapon(
+                                            Weapon(
+                                                weaponId = 0,
+                                                weaponName = "Espada",
+                                                weaponDamage = "1d4",
+                                                weaponIsTwoHand = false,
+                                            )
+                                        )
                                     }
                                 }
                             })
