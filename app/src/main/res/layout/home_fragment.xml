@@ -29,12 +29,13 @@
         tools:listitem="@layout/common_fragment_item" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/fabHomeAddCharacter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/padding_x3"
         android:layout_marginBottom="@dimen/padding_x3"
         android:clickable="true"
+        app:tint="@color/white"
         android:src="@drawable/ic_add_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

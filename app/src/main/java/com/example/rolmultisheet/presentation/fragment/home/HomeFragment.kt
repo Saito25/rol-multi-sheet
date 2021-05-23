@@ -79,7 +79,14 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     }
 
     private fun setupFab() {
+        binding.fabHomeAddCharacter.setOnClickListener {
+            navigateToCreateCharacter()
+        }
+    }
 
+    private fun navigateToCreateCharacter() {
+        val action = HomeFragmentDirections.showCreationAction()
+        navController.navigate(action)
     }
 
     private fun onMenuItemClick(item: MenuItem): Boolean {
