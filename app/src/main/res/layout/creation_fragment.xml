@@ -1,13 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/clcreationRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.fragment.creation.CreationFragment">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Hello" />
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/tbCreation"
+        android:layout_width="0dp"
+        android:layout_height="?attr/actionBarSize"
+        android:background="?attr/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-</FrameLayout>
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputDecoratorCreationName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_x2"
+        android:layout_marginTop="@dimen/padding_x2"
+        android:layout_marginEnd="@dimen/padding_x2"
+        app:helperText="@string/item_edition_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tbCreation">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputCreationName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/labelCreationRace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_x2"
+        android:text="@string/creation_race_label"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/inputDecoratorCreationName"
+        app:layout_constraintTop_toBottomOf="@+id/inputDecoratorCreationName" />
+
+    <Spinner
+        android:id="@+id/spinnerCreation"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/inputDecoratorCreationName"
+        app:layout_constraintStart_toStartOf="@+id/labelCreationRace"
+        app:layout_constraintTop_toBottomOf="@+id/labelCreationRace"
+        tools:listitem="@android:layout/simple_dropdown_item_1line" />
+
+    <TextView
+        android:id="@+id/labelCreationJob"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_x2"
+        android:text="@string/creation_job_label"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/spinnerCreation"
+        app:layout_constraintTop_toBottomOf="@+id/spinnerCreation" />
+
+    <Spinner
+        android:id="@+id/spinner2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="@+id/spinnerCreation"
+        app:layout_constraintStart_toStartOf="@+id/labelCreationJob"
+        app:layout_constraintTop_toBottomOf="@+id/labelCreationJob"
+        tools:listitem="@android:layout/simple_dropdown_item_1line" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -105,6 +105,6 @@
     <fragment
         android:id="@+id/creationFragmentDirection"
         android:name="com.example.rolmultisheet.presentation.fragment.creation.CreationFragment"
-        android:label="creation_fragment"
+        android:label="@string/creation_toolbar_title"
         tools:layout="@layout/creation_fragment" />
 </navigation>

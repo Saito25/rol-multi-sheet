@@ -1,32 +1,24 @@
 package com.example.rolmultisheet.presentation.fragment.creation
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModelProvider
+import androidx.fragment.app.viewModels
 import com.example.rolmultisheet.R
+import com.example.rolmultisheet.data.database.AppDatabase
+import com.example.rolmultisheet.data.repository.RoomRepository
+import com.example.rolmultisheet.databinding.CreationFragmentBinding
+import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 
-class CreationFragment : Fragment() {
+class CreationFragment : Fragment(R.layout.creation_fragment) {
 
-    companion object {
-        fun newInstance() = CreationFragment()
+    private val binding: CreationFragmentBinding by viewBinding {
+        CreationFragmentBinding.bind(it)
     }
 
-    private lateinit var viewModel: CreationViewModel
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.creation_fragment, container, false)
+    private val viewModel: CreationViewModel by viewModels {
+        CreationViewModelFactory(
+            RoomRepository(
+                AppDatabase.getInstance(requireContext()).appDao
+            )
+        )
     }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(CreationViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
-
 }
