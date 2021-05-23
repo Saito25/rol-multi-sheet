@@ -46,6 +46,13 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     private fun setupViews() {
         setupToolBar()
         setupRecyclerView()
+        setupFab()
+    }
+
+    private fun observeViewModel() {
+        viewModel.characters.observe(viewLifecycleOwner) {
+            listAdapter.submitList(it)
+        }
     }
 
     private fun setupToolBar() {
@@ -59,6 +66,20 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                 onMenuItemClick(it)
             }
         }
+    }
+
+    private fun setupRecyclerView() {
+        binding.listHomeCharacters.run {
+            setHasFixedSize(true)
+            layoutManager = LinearLayoutManager(requireContext())
+            addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
+            itemAnimator = DefaultItemAnimator()
+            adapter = listAdapter
+        }
+    }
+
+    private fun setupFab() {
+
     }
 
     private fun onMenuItemClick(item: MenuItem): Boolean {
@@ -80,19 +101,4 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         navController.navigate(action)
     }
 
-    private fun setupRecyclerView() {
-        binding.listHomeCharacters.run {
-            setHasFixedSize(true)
-            layoutManager = LinearLayoutManager(requireContext())
-            addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
-            itemAnimator = DefaultItemAnimator()
-            adapter = listAdapter
-        }
-    }
-
-    private fun observeViewModel() {
-        viewModel.characters.observe(viewLifecycleOwner) {
-            listAdapter.submitList(it)
-        }
-    }
 }

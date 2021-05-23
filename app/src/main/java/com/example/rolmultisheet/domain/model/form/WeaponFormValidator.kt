@@ -3,21 +3,21 @@ package com.example.rolmultisheet.domain.model.form
 import com.example.rolmultisheet.domain.model.form.util.*
 
 class WeaponFormValidator(
-    val weaponName: String?,
-    val weaponDamage: String?,
-    val weaponScope: String?,
-    val weaponDameType: String?,
-    val weaponIsTwoHand: String?,
-    val weaponPrice: String?,
-    val weaponWeight: String?,
-    val weaponDescription: String?,
+    private val weaponName: String?,
+    private val weaponDamage: String?,
+    private val weaponScope: String?,
+    private val weaponDameType: String?,
+    private val weaponIsTwoHand: String?,
+    private val weaponPrice: String?,
+    private val weaponWeight: String?,
+    private val weaponDescription: String?,
 ) : ModelValidator {
 
 
     override fun validate(): Boolean {
         if (validateIsNullOrEmpty(weaponName)) {
             throw FormNameException("Invalid name")
-        } else if (!validateIsInteger(weaponDamage) || weaponDamage!!.toInt() < 0) {
+        } else if (validateIsNullOrEmpty(weaponDamage)) {
             throw FormWeaponDamageFormatException("Invalid damage range")
         } else if (!validateIsInteger(weaponScope) || weaponScope!!.toInt() < 0) {
             throw FormWeaponScopeFormatException("Invalid scope range")

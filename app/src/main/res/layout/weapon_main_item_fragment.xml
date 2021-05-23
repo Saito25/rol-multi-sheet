@@ -29,7 +29,7 @@
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="@+id/weaponMainItemAction"
         app:layout_constraintStart_toStartOf="@+id/weaponMainItemName"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
+        app:layout_constraintTop_toBottomOf="@+id/labelWeaponMainItemDamage"
         tools:text="Description"
         tools:visibility="visible" />
 

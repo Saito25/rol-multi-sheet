@@ -32,5 +32,5 @@ data class Weapon(
     val weaponWeight: Double = 0.0,
 
     @ColumnInfo(name = "weapon_description")
-    val weaponDescription: String? = null,
+    val weaponDescription: String?,
 )

@@ -98,7 +98,7 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
     }
 
     override suspend fun updateWeapon(weapon: Weapon) {
-        updateWeapon(weapon)
+        appDao.updateWeapon(weapon)
     }
 
     // Delete

@@ -16,6 +16,9 @@
     <!--  Save menu  -->
     <string name="save_menu_item">Guardar</string>
 
+    <!--  Home -->
+    <string name="home_fab_description">Botón flotante para añadir elementos</string>
+
     <!--  Home item -->
     <string name="home_item_avatar_image_description">Imagen representativa del personaje</string>
     <string name="home_item_actionable_image_description">Icono que muestra que el item es accionable</string>
@@ -77,6 +80,7 @@
     <string name="item_edition_description">Descripción</string>
 
     <!--  Armour main -->
+    <string name="armour_main_snackbar_title">Armadura eliminada</string>
 
     <!--  Armour main item -->
     <string name="armour_main_item_image_class_icon">Icono que representa que la clase de armadura</string>
@@ -92,6 +96,12 @@
     <string name="armour_edition_weight">Peso</string>
     <string name="armour_edition_description">Descripción</string>
 
+
+    <!--  weapon main -->
+    <string name="weapon_main_snackbar_title">Arma eliminada</string>
+
+    <!--  Weapon main item -->
+
     <!--  Weapon edit  -->
     <string name="weapon_edition_toolbar_title">Nueva arma</string>
     <string name="weapon_edition_name">Nombre</string>
@@ -103,8 +113,11 @@
     <string name="weapon_edition_weight">Peso</string>
     <string name="weapon_edition_description">Descripción</string>
 
+    <!--  Creation  -->
+    <string name="creation_toolbar_title">Nuevo personaje</string>
+    <string name="creation_race_label">Raza</string>
+    <string name="creation_job_label">Clase</string>
 
-    <!--  Spell main  -->
     <!--  Spell main  -->
     <!--  Spell main  -->
     <!--  Spell main  -->

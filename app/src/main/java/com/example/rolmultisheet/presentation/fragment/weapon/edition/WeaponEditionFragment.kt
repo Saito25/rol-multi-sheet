@@ -9,9 +9,11 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.ui.setupWithNavController
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
+import com.example.rolmultisheet.databinding.WeaponEditionFragmentBinding
 import com.example.rolmultisheet.domain.model.Weapon
 import com.example.rolmultisheet.presentation.util.event.observeEvent
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
@@ -68,15 +70,15 @@ class WeaponEditionFragment : Fragment(R.layout.weapon_edition_fragment) {
         }
     }
 
-    // TODO: Create method o extension function to complete this statement
     private fun validateTextFields() {
+        println("ValidateTextFields")
         binding.run {
             viewModel.validateTextFields(
                 inputWeaponEditionName.text.toString(),
-                getValueOrZero(inputWeaponEditionClass.text),
-                getValueOrZero(inputWeaponEditionBonus.text),
-                getValueOrZero(inputWeaponEditionStrength.text),
-                checkWeaponEditStealth.isChecked.toString(),
+                inputWeaponEditionDamage.text.toString(),
+                getValueOrZero(inputWeaponEditionScope.text),
+                inputWeaponEditionDamageType.text.toString(),
+                checkWeaponEditTwoHand.isChecked.toString(),
                 getValueOrZero(inputWeaponEditionPrice.text),
                 getValueOrZero(inputWeaponEditionWeight.text),
                 inputWeaponEditionDescription.text.toString(),
@@ -98,8 +100,8 @@ class WeaponEditionFragment : Fragment(R.layout.weapon_edition_fragment) {
     }
 
     private fun observeOnInvalidWeaponClass() {
-        viewModel.onInvalidWeaponClass.observeEvent(viewLifecycleOwner) {
-            binding.inputWeaponEditionClass.error = getString(it.string)
+        viewModel.onInvalidDamage.observeEvent(viewLifecycleOwner) {
+            binding.inputWeaponEditionDamage.error = getString(it.string)
         }
     }
 
@@ -115,10 +117,10 @@ class WeaponEditionFragment : Fragment(R.layout.weapon_edition_fragment) {
     private fun fillTextFieldsWithWeaponInfo(weapon: Weapon) {
         binding.run {
             inputWeaponEditionName.setText(weapon.weaponName)
-            inputWeaponEditionClass.setText(weapon.weaponClass.toString())
-            inputWeaponEditionBonus.setText(weapon.weaponMaxBonus.toString())
-            inputWeaponEditionStrength.setText(weapon.weaponRequiredMinStrength.toString())
-            checkWeaponEditStealth.isChecked = weapon.weaponStealthDisadvantage
+            inputWeaponEditionDamage.setText(weapon.weaponDamage)
+            inputWeaponEditionScope.setText(weapon.weaponScope.toString())
+            inputWeaponEditionDamageType.setText(weapon.weaponDameType)
+            checkWeaponEditTwoHand.isChecked = weapon.weaponIsTwoHand
             inputWeaponEditionPrice.setText(weapon.weaponPrice.toString())
             inputWeaponEditionWeight.setText(weapon.weaponWeight.toString())
             inputWeaponEditionDescription.setText(weapon.weaponDescription)
@@ -136,10 +138,10 @@ class WeaponEditionFragment : Fragment(R.layout.weapon_edition_fragment) {
             binding.run {
                 viewModel.save(
                     inputWeaponEditionName.text.toString(),
-                    inputWeaponEditionClass.text.toString(),
-                    inputWeaponEditionBonus.text.toString(),
-                    inputWeaponEditionStrength.text.toString(),
-                    checkWeaponEditStealth.isChecked.toString(),
+                    inputWeaponEditionDamage.text.toString(),
+                    inputWeaponEditionScope.text.toString(),
+                    inputWeaponEditionDamageType.text.toString(),
+                    checkWeaponEditTwoHand.isChecked.toString(),
                     inputWeaponEditionPrice.text.toString(),
                     inputWeaponEditionWeight.text.toString(),
                     inputWeaponEditionDescription.text.toString()

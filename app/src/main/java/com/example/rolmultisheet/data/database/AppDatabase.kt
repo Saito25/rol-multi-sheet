@@ -82,6 +82,7 @@ abstract class AppDatabase : RoomDatabase() {
                                                 weaponName = "Espada",
                                                 weaponDamage = "1d4",
                                                 weaponIsTwoHand = false,
+                                                weaponDescription = "",
                                             )
                                         )
                                     }

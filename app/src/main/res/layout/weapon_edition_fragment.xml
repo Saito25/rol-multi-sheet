@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/linearWeaponEditionRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context=".presentation.fragment.weapon.edition.WeaponEditionFragment">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/toolbarWeaponEdition"
@@ -43,7 +45,7 @@
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorWeaponEditionClass"
+                android:id="@+id/inputDecoratorWeaponEditionDamage"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
@@ -53,46 +55,46 @@
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorWeaponEditionName">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputWeaponEditionClass"
+                    android:id="@+id/inputWeaponEditionDamage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorWeaponEditionBonus"
+                android:id="@+id/inputDecoratorWeaponEditionScope"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
                 app:helperText="@string/weapon_edition_scope"
-                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorWeaponEditionClass"
-                app:layout_constraintStart_toStartOf="@+id/inputDecoratorWeaponEditionClass"
-                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorWeaponEditionClass">
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorWeaponEditionDamage"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorWeaponEditionDamage"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorWeaponEditionDamage">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputWeaponEditionBonus"
+                    android:id="@+id/inputWeaponEditionScope"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/inputDecoratorWeaponEditionStrength"
+                android:id="@+id/inputDecoratorWeaponEditionDamageType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
                 app:helperText="@string/weapon_edition_damage_type"
-                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorWeaponEditionBonus"
-                app:layout_constraintStart_toStartOf="@+id/inputDecoratorWeaponEditionBonus"
-                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorWeaponEditionBonus">
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorWeaponEditionScope"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorWeaponEditionScope"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorWeaponEditionScope">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/inputWeaponEditionStrength"
+                    android:id="@+id/inputWeaponEditionDamageType"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <CheckBox
-                android:id="@+id/checkWeaponEditStealth"
+                android:id="@+id/checkWeaponEditTwoHand"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
@@ -100,9 +102,9 @@
                 android:gravity="center|start"
                 android:layoutDirection="rtl"
                 android:text="@string/weapon_edition_two_hand"
-                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorWeaponEditionStrength"
-                app:layout_constraintStart_toStartOf="@+id/inputDecoratorWeaponEditionStrength"
-                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorWeaponEditionStrength" />
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorWeaponEditionDamageType"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorWeaponEditionDamageType"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorWeaponEditionDamageType" />
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/inputDecoratorWeaponEditionPrice"
@@ -110,9 +112,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
                 app:helperText="@string/weapon_edition_price"
-                app:layout_constraintEnd_toEndOf="@+id/checkWeaponEditStealth"
-                app:layout_constraintStart_toStartOf="@+id/checkWeaponEditStealth"
-                app:layout_constraintTop_toBottomOf="@+id/checkWeaponEditStealth">
+                app:layout_constraintEnd_toEndOf="@+id/checkWeaponEditTwoHand"
+                app:layout_constraintStart_toStartOf="@+id/checkWeaponEditTwoHand"
+                app:layout_constraintTop_toBottomOf="@+id/checkWeaponEditTwoHand">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/inputWeaponEditionPrice"

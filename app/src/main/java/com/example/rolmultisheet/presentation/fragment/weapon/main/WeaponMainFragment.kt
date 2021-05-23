@@ -11,6 +11,7 @@ import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CommonListFragmentBinding
 import com.example.rolmultisheet.domain.model.Weapon
+import com.example.rolmultisheet.presentation.fragment.game.GameTabHostFragmentDirections
 import com.example.rolmultisheet.presentation.util.event.observeEvent
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.recycler.doOnSwiped
@@ -79,7 +80,7 @@ class WeaponMainFragment : PageFragment(R.layout.common_list_fragment) {
         viewModel.onDeleteWeaponEvent.observeEvent(viewLifecycleOwner) { weapon ->
             Snackbar.make(
                 binding.root,
-                getString(R.string.item_main_snackbar_title),
+                getString(R.string.weapon_main_snackbar_title),
                 Snackbar.LENGTH_LONG
             ).setAction(R.string.snackbar_action) {
                 viewModel.recoveryWeapon(weapon)
@@ -96,9 +97,9 @@ class WeaponMainFragment : PageFragment(R.layout.common_list_fragment) {
     }
 
     private fun navigateToItemEditionFragment(weaponId: Long = 0) {
-//        val action = GameTabHostFragmentDirections.showWeaponEditionFragment().also {
-//            it.weaponId = weaponId
-//        }
-//        navController.navigate(action)
+        val action = GameTabHostFragmentDirections.showWeaponEditionFragmentAction().also {
+            it.weaponId = weaponId
+        }
+        navController.navigate(action)
     }
 }

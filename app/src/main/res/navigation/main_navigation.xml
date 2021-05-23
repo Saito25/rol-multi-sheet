@@ -16,6 +16,9 @@
         <action
             android:id="@+id/showGameTabHostFragmentDirection"
             app:destination="@id/gameTabHostFragmentDirection" />
+        <action
+            android:id="@+id/showCreationAction"
+            app:destination="@id/creationFragmentDirection" />
     </fragment>
     <fragment
         android:id="@+id/infoFragmentDirection"
@@ -65,7 +68,8 @@
     </fragment>
     <fragment
         android:id="@+id/spellEditionFragmentDirection"
-        android:name="com.example.rolmultisheet.presentation.fragment.spell.edition.SpellEditionFragment">
+        android:name="com.example.rolmultisheet.presentation.fragment.spell.edition.SpellEditionFragment"
+        tools:layout="@layout/spell_edition_fragment">
         <argument
             android:name="SpellId"
             android:defaultValue="0L"
@@ -73,7 +77,8 @@
     </fragment>
     <fragment
         android:id="@+id/itemEditionFragmentDirection"
-        android:name="com.example.rolmultisheet.presentation.fragment.item.edition.ItemEditionFragment">
+        android:name="com.example.rolmultisheet.presentation.fragment.item.edition.ItemEditionFragment"
+        tools:layout="@layout/item_edition_fragment">
         <argument
             android:name="itemId"
             android:defaultValue="0L"
@@ -81,19 +86,25 @@
     </fragment>
     <fragment
         android:id="@+id/armourEditionFragmentDirection"
-        android:name="com.example.rolmultisheet.presentation.fragment.armour.edition.ArmourEditionFragment">
+        android:name="com.example.rolmultisheet.presentation.fragment.armour.edition.ArmourEditionFragment"
+        tools:layout="@layout/armour_edition_fragment">
         <argument
             android:name="armourId"
-            app:argType="long"
-            android:defaultValue="0L" />
+            android:defaultValue="0L"
+            app:argType="long" />
     </fragment>
     <fragment
         android:id="@+id/weaponEditionFragmentDirection"
         android:name="com.example.rolmultisheet.presentation.fragment.weapon.edition.WeaponEditionFragment"
-        android:label="WeaponEditionFragment">
+        tools:layout="@layout/weapon_edition_fragment">
         <argument
             android:name="weaponId"
-            app:argType="long"
-            android:defaultValue="0L" />
+            android:defaultValue="0L"
+            app:argType="long" />
     </fragment>
+    <fragment
+        android:id="@+id/creationFragmentDirection"
+        android:name="com.example.rolmultisheet.presentation.fragment.creation.CreationFragment"
+        android:label="creation_fragment"
+        tools:layout="@layout/creation_fragment" />
 </navigation>

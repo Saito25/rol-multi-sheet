@@ -66,6 +66,8 @@ class WeaponEditionViewModel(private val appRepository: AppRepository, private v
         } catch (e: FormWeaponDamageFormatException) {
             _onInvalidDamage.value =
                 Event(StringResource(R.string.form_null_blank_exception))
+        } catch (e: Exception) {
+            println("Falló" + e.message)
         }
     }
 
@@ -127,6 +129,7 @@ class WeaponEditionViewModel(private val appRepository: AppRepository, private v
 
 
     private fun updateWeapon(weapon: Weapon) {
+        println("Entra en actualizar")
         viewModelScope.launch {
             appRepository.updateWeapon(weapon)
             _onCloseEvent.value = Event(true)

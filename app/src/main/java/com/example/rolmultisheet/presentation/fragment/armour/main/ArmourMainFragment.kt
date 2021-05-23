@@ -80,7 +80,7 @@ class ArmourMainFragment : PageFragment(R.layout.common_list_fragment) {
         viewModel.onDeleteArmourEvent.observeEvent(viewLifecycleOwner) { armour ->
             Snackbar.make(
                 binding.root,
-                getString(R.string.item_main_snackbar_title),
+                getString(R.string.armour_main_snackbar_title),
                 Snackbar.LENGTH_LONG
             ).setAction(R.string.snackbar_action) {
                 viewModel.recoveryArmour(armour)
