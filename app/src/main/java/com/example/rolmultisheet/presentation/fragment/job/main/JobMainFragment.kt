@@ -77,6 +77,11 @@ class JobMainFragment : PageFragment(R.layout.common_list_fragment) {
     }
 
     private fun observeViewModelEvent() {
+        observerOnDeleteJobEvent()
+        observerOnDeleteError()
+    }
+
+    private fun observerOnDeleteJobEvent() {
         viewModel.onDeleteJobEvent.observeEvent(viewLifecycleOwner) { job ->
             Snackbar.make(
                 binding.root,
@@ -85,6 +90,13 @@ class JobMainFragment : PageFragment(R.layout.common_list_fragment) {
             ).setAction(R.string.snackbar_action) {
                 viewModel.recoveryJob(job)
             }.show()
+        }
+    }
+
+    private fun observerOnDeleteError() {
+        viewModel.onDeleteError.observeEvent(viewLifecycleOwner) {
+            Snackbar.make(binding.root, getString(it.string), Snackbar.LENGTH_LONG).show()
+            listAdapter.notifyDataSetChanged()
         }
     }
 

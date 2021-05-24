@@ -21,4 +21,6 @@ data class Race(
 
     @ColumnInfo(name = "race_avg_age")
     val raceAvgAge: Int?,
-)
+) {
+    override fun toString(): String = raceName
+}

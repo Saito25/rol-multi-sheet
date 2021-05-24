@@ -73,6 +73,11 @@ class RaceMainFragment : PageFragment(R.layout.common_list_fragment) {
     }
 
     private fun observeViewModelEvent() {
+        observerOnDeleteRaceEvent()
+        observerOnDeleteError()
+    }
+
+    private fun observerOnDeleteRaceEvent() {
         viewModel.onDeleteRaceEvent.observeEvent(viewLifecycleOwner) { race ->
             Snackbar.make(
                 binding.root,
@@ -81,6 +86,13 @@ class RaceMainFragment : PageFragment(R.layout.common_list_fragment) {
             ).setAction(R.string.snackbar_action) {
                 viewModel.recoveryRace(race)
             }.show()
+        }
+    }
+
+    private fun observerOnDeleteError() {
+        viewModel.onDeleteError.observeEvent(viewLifecycleOwner) {
+            Snackbar.make(binding.root, getString(it.string), Snackbar.LENGTH_LONG).show()
+            listAdapter.notifyDataSetChanged()
         }
     }
 

@@ -106,4 +106,7 @@ interface AppDao {
 
     @Delete
     suspend fun deleteWeapon(weapon: Weapon)
+
+    @Delete
+    suspend fun deleteCharacter(character: Character)
 }

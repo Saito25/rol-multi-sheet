@@ -35,6 +35,7 @@
 
     <!--  Race main  -->
     <string name="race_main_snackbar_title">Raza eliminada</string>
+    <string name="race_main_delete_error">La raza tiene personajes asociados, no se puede borrar</string>
 
     <!--  Race edition  -->
     <string name="race_edition_toolbar_title">Nueva raza</string>
@@ -46,6 +47,7 @@
 
     <!--  Job main  -->
     <string name="job_main_snackbar_title">Clase eliminada</string>
+    <string name="job_main_delete_error">La clase tiene personajes asociados, no se puede borrar</string>
 
     <!--  Job edition  -->
     <string name="job_edition_toolbar_title">Nueva clase</string>
@@ -117,8 +119,12 @@
     <string name="creation_toolbar_title">Nuevo personaje</string>
     <string name="creation_race_label">Raza</string>
     <string name="creation_job_label">Clase</string>
+    <string name="creation_information_label">Información</string>
+    <string name="creation_velocity_label">Velocidad de movimiento: %1$d pies</string>
+    <string name="creation_hit_dice_label">Dado de golpe: %1$s</string>
+    <string name="creation_main_feature_label">Características principales %1$s</string>
+    <string name="creation_save_throw_label">Tiros de salvación: %1$s</string>
 
-    <!--  Spell main  -->
     <!--  Spell main  -->
     <!--  Spell main  -->
     <!--  Spell main  -->

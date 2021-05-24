@@ -1,77 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/clcreationRoot"
+    android:id="@+id/llCreationRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.fragment.creation.CreationFragment">
+    android:orientation="vertical">
 
     <com.google.android.material.appbar.MaterialToolbar
         android:id="@+id/tbCreation"
-        android:layout_width="0dp"
+        android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        android:theme="@style/AppTheme.AppBarOverlay"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:theme="@style/AppTheme.AppBarOverlay" />
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/inputDecoratorCreationName"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/padding_x2"
-        android:layout_marginTop="@dimen/padding_x2"
-        android:layout_marginEnd="@dimen/padding_x2"
-        app:helperText="@string/item_edition_name"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tbCreation">
+    <androidx.core.widget.NestedScrollView
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/inputCreationName"
+        android:id="@+id/nestedCreation"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        tools:context=".presentation.fragment.creation.CreationFragment">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clCreationRoot"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-    </com.google.android.material.textfield.TextInputLayout>
+            android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/labelCreationRace"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_x2"
-        android:text="@string/creation_race_label"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintStart_toStartOf="@+id/inputDecoratorCreationName"
-        app:layout_constraintTop_toBottomOf="@+id/inputDecoratorCreationName" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorCreationName"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_x3"
+                android:layout_marginTop="@dimen/padding_x3"
+                android:layout_marginEnd="@dimen/padding_x3"
+                android:hint="@string/item_edition_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-    <Spinner
-        android:id="@+id/spinnerCreation"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/inputDecoratorCreationName"
-        app:layout_constraintStart_toStartOf="@+id/labelCreationRace"
-        app:layout_constraintTop_toBottomOf="@+id/labelCreationRace"
-        tools:listitem="@android:layout/simple_dropdown_item_1line" />
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputCreationName"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-    <TextView
-        android:id="@+id/labelCreationJob"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_x2"
-        android:text="@string/creation_job_label"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-        app:layout_constraintStart_toStartOf="@+id/spinnerCreation"
-        app:layout_constraintTop_toBottomOf="@+id/spinnerCreation" />
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputCreationRace"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x2"
+                android:hint="@string/creation_race_label"
+                android:labelFor="@+id/autoCompletedCreationRace"
+                app:layout_constraintEnd_toEndOf="@+id/inputDecoratorCreationName"
+                app:layout_constraintStart_toStartOf="@+id/inputDecoratorCreationName"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorCreationName">
 
-    <Spinner
-        android:id="@+id/spinner2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="@+id/spinnerCreation"
-        app:layout_constraintStart_toStartOf="@+id/labelCreationJob"
-        app:layout_constraintTop_toBottomOf="@+id/labelCreationJob"
-        tools:listitem="@android:layout/simple_dropdown_item_1line" />
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompletedCreationRace"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/textInputCreationJob"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x2"
+                android:hint="@string/creation_job_label"
+                android:labelFor="@+id/autoCompletedCreationJob"
+                app:layout_constraintEnd_toEndOf="@+id/textInputCreationRace"
+                app:layout_constraintStart_toStartOf="@+id/textInputCreationRace"
+                app:layout_constraintTop_toBottomOf="@+id/textInputCreationRace">
+
+                <AutoCompleteTextView
+                    android:id="@+id/autoCompletedCreationJob"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="none" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/labelCreationInformation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x3"
+                android:text="@string/creation_information_label"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintStart_toStartOf="@+id/textInputCreationJob"
+                app:layout_constraintTop_toBottomOf="@+id/textInputCreationJob" />
+
+            <TextView
+                android:id="@+id/labelCreationVelocity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_x1"
+                android:layout_marginTop="@dimen/padding_x1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toEndOf="@+id/textInputCreationJob"
+                app:layout_constraintStart_toStartOf="@+id/labelCreationInformation"
+                app:layout_constraintTop_toBottomOf="@+id/labelCreationInformation"
+                tools:text="Velocidad de movimiento: 30 pies" />
+
+            <TextView
+                android:id="@+id/labelCreationHitDice"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toEndOf="@+id/textInputCreationJob"
+                app:layout_constraintStart_toStartOf="@+id/labelCreationVelocity"
+                app:layout_constraintTop_toBottomOf="@+id/labelCreationVelocity"
+                tools:text="Dado de golpe: 1d6" />
+
+            <TextView
+                android:id="@+id/labelCreationMainFeatures"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+
+                android:layout_marginTop="@dimen/padding_x1"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintEnd_toEndOf="@+id/textInputCreationJob"
+                app:layout_constraintStart_toStartOf="@+id/labelCreationVelocity"
+                app:layout_constraintTop_toBottomOf="@+id/labelCreationHitDice"
+                tools:text="Características principales: Fuerza, destreza" />
+
+            <TextView
+                android:id="@+id/labelCreationSaveThrows"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/padding_x1"
+                android:layout_marginBottom="@dimen/padding_x3"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/textInputCreationJob"
+                app:layout_constraintStart_toStartOf="@+id/labelCreationVelocity"
+                app:layout_constraintTop_toBottomOf="@+id/labelCreationMainFeatures"
+                tools:text="Tiros de salvación: Constitución" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</LinearLayout>

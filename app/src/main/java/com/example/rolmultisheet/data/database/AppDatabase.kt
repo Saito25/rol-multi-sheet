@@ -35,9 +35,6 @@ abstract class AppDatabase : RoomDatabase() {
                             .addCallback(object : Callback() {
                                 override fun onCreate(db: SupportSQLiteDatabase) {
                                     GlobalScope.launch {
-                                        INSTANCE!!.appDao.insertCharacter(
-                                            Character(0, "Leunam")
-                                        )
                                         INSTANCE!!.appDao.insertRace(
                                             Race(0, "Elf", 20, 1.9, 1000)
                                         )
@@ -49,6 +46,9 @@ abstract class AppDatabase : RoomDatabase() {
                                                 "Strenght, Agaility",
                                                 "Strenght"
                                             )
+                                        )
+                                        INSTANCE!!.appDao.insertCharacter(
+                                            Character(0, 1, 1, "Leunam")
                                         )
                                         INSTANCE!!.appDao.insertSpell(
                                             Spell(

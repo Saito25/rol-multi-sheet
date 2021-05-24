@@ -44,6 +44,5 @@ interface AppRepository {
     suspend fun deleteItem(item: Item)
     suspend fun deleteArmour(armour: Armour)
     suspend fun deleteWeapon(weapon: Weapon)
-
-
+    suspend fun deleteCharacter(character: Character)
 }

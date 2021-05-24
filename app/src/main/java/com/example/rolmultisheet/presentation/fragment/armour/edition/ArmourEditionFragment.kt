@@ -70,7 +70,6 @@ class ArmourEditionFragment : Fragment(R.layout.armour_edition_fragment) {
         }
     }
 
-    // TODO: Create method o extension function to complete this statement
     private fun validateTextFields() {
         binding.run {
             viewModel.validateTextFields(

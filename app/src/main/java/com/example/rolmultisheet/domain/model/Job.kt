@@ -18,4 +18,6 @@ data class Job(
     val jobFeature: String?,
     @ColumnInfo(name = "job_save_throw")
     val jobSaveThrow: String?,
-)
+) {
+    override fun toString(): String = jobName
+}

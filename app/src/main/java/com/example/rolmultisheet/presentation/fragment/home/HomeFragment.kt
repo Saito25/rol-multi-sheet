@@ -8,16 +8,14 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
-import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.*
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.HomeFragmentBinding
 import com.example.rolmultisheet.presentation.util.fragment.AppBarConfigurationOwner
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
+import com.example.rolmultisheet.presentation.util.recycler.doOnSwiped
 
 class HomeFragment : Fragment(R.layout.home_fragment) {
 
@@ -75,6 +73,9 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
             addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
             itemAnimator = DefaultItemAnimator()
             adapter = listAdapter
+            doOnSwiped(swipeDirs = ItemTouchHelper.RIGHT) { viewHolder, _ ->
+                viewModel.deleteCharacter(listAdapter.currentList[viewHolder.adapterPosition])
+            }
         }
     }
 
