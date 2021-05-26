@@ -48,4 +48,6 @@ data class Character(
     val characterWisdom: Int = 1,
     @ColumnInfo(name = "character_charisma")
     val characterCharisma: Int = 1,
+    @ColumnInfo(name = "character_gold")
+    val characterGold: Int = 0,
 )
