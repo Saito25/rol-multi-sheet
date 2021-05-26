@@ -1,9 +1,6 @@
 package com.example.rolmultisheet.domain.model.form
 
-import com.example.rolmultisheet.domain.model.form.util.FormDexterityException
-import com.example.rolmultisheet.domain.model.form.util.FormNameException
-import com.example.rolmultisheet.domain.model.form.util.FormStrengthException
-import com.example.rolmultisheet.domain.model.form.util.ModelValidator
+import com.example.rolmultisheet.domain.model.form.util.*
 
 class CharacterFormValidator(
     private val characterName: String?,
@@ -16,21 +13,21 @@ class CharacterFormValidator(
 ) : ModelValidator {
 
     override fun validate(): Boolean =
-        when {
-            validateIsNullOrEmpty(characterName) ->
-                throw FormNameException("Name can not be empty")
-            isNotNullAndPositive(characterStrength) ->
-                throw FormStrengthException("Strength can not be empty and it must be positive")
-            isNotNullAndPositive(characterDexterity) ->
-                throw FormDexterityException("Dexterity can not be empty and it must be positive")
-            isNotNullAndPositive(characterConstitution) ->
-                throw FormDexterityException("Constitution can not be empty and it must be positive")
-            isNotNullAndPositive(characterIntelligence) ->
-                throw FormDexterityException("Intelligence can not be empty and it must be positive")
-            isNotNullAndPositive(characterWisdom) ->
-                throw FormDexterityException("Wisdom can not be empty and it must be positive")
-            isNotNullAndPositive(characterCharisma) ->
-                throw FormDexterityException("Charisma can not be empty and it must be positive")
-            else -> true
+        if (validateIsNullOrEmpty(characterName)) {
+            throw FormNameException("Name can not be empty")
+        } else if (isNotNullAndPositive(characterStrength)) {
+            throw FormStrengthException("Strength can not be empty and it must be positive")
+        } else if (isNotNullAndPositive(characterDexterity)) {
+            throw FormDexterityException("Dexterity can not be empty and it must be positive")
+        } else if (isNotNullAndPositive(characterConstitution)) {
+            throw FormConstitutionException("Constitution can not be empty and it must be positive")
+        } else if (isNotNullAndPositive(characterIntelligence)) {
+            throw FormIntelligenceException("Intelligence can not be empty and it must be positive")
+        } else if (isNotNullAndPositive(characterWisdom)) {
+            throw FormWisdomException("Wisdom can not be empty and it must be positive")
+        } else if (isNotNullAndPositive(characterCharisma)) {
+            throw FormCharismaException("Charisma can not be empty and it must be positive")
+        } else {
+            true
         }
 }

@@ -2,6 +2,7 @@ package com.example.rolmultisheet.presentation.fragment.creation
 
 
 import android.os.Bundle
+import android.text.Editable
 import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
@@ -75,6 +76,12 @@ class CreationFragment : Fragment(R.layout.creation_fragment) {
 
     private fun observeViewModelEvent() {
         observeOnInvalidNameEvent()
+        observeOnInvalidStrength()
+        observeOnInvalidDexterity()
+        observeOnInvalidConstitution()
+        observeOnInvalidIntelligence()
+        observeOnInvalidWisdom()
+        observeOnInvalidCharisma()
         observeOnCloseEvent()
     }
 
@@ -122,6 +129,42 @@ class CreationFragment : Fragment(R.layout.creation_fragment) {
     private fun observeOnInvalidNameEvent() {
         viewModel.onInvalidName.observeEvent(viewLifecycleOwner) {
             binding.inputCreationName.error = getString(it.string)
+        }
+    }
+
+    private fun observeOnInvalidStrength() {
+        viewModel.onInvalidStrength.observeEvent(viewLifecycleOwner) {
+            binding.inputCreationStrength.error = getString(it.string)
+        }
+    }
+
+    private fun observeOnInvalidDexterity() {
+        viewModel.onInvalidDexterity.observeEvent(viewLifecycleOwner) {
+            binding.inputCreationDexterity.error = getString(it.string)
+        }
+    }
+
+    private fun observeOnInvalidConstitution() {
+        viewModel.onInvalidConstitution.observeEvent(viewLifecycleOwner) {
+            binding.inputCreationConstitution.error = getString(it.string)
+        }
+    }
+
+    private fun observeOnInvalidIntelligence() {
+        viewModel.onInvalidIntelligence.observeEvent(viewLifecycleOwner) {
+            binding.inputCreationIntelligence.error = getString(it.string)
+        }
+    }
+
+    private fun observeOnInvalidWisdom() {
+        viewModel.onInvalidWisdom.observeEvent(viewLifecycleOwner) {
+            binding.inputCreationWisdom.error = getString(it.string)
+        }
+    }
+
+    private fun observeOnInvalidCharisma() {
+        viewModel.onInvalidCharisma.observeEvent(viewLifecycleOwner) {
+            binding.inputCreationCharisma.error = getString(it.string)
         }
     }
 
@@ -176,13 +219,36 @@ class CreationFragment : Fragment(R.layout.creation_fragment) {
     }
 
     private fun onSave() {
-        val nameValue =
-            if (binding.inputCreationName.text.isNullOrBlank()) null else binding.inputCreationName.text.toString()
+        val name = getNullOrString(binding.inputCreationName.text)
+        val strength = getNullOrString(binding.inputCreationStrength.text)
+        val dexterity = getNullOrString(binding.inputCreationDexterity.text)
+        val constitution = getNullOrString(binding.inputCreationConstitution.text)
+        val intelligence = getNullOrString(binding.inputCreationIntelligence.text)
+        val wisdom = getNullOrString(binding.inputCreationWisdom.text)
+        val charisma = getNullOrString(binding.inputCreationCharisma.text)
 
-        if (viewModel.validateName(nameValue)) {
-            viewModel.save(nameValue!!)
+        if (viewModel.validateFields(
+                name,
+                strength,
+                dexterity,
+                constitution,
+                intelligence,
+                wisdom,
+                charisma,
+            )
+        ) {
+            viewModel.save(
+                name!!,
+                strength!!,
+                dexterity!!,
+                constitution!!,
+                intelligence!!,
+                wisdom!!,
+                charisma!!,
+            )
         }
     }
 
-
+    private fun getNullOrString(editable: Editable?): String? =
+        if (editable.isNullOrBlank()) null else editable.toString()
 }

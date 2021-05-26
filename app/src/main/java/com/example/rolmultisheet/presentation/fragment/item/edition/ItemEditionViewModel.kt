@@ -48,7 +48,6 @@ class ItemEditionViewModel(private val appRepository: AppRepository, private val
                 _onSaveEvent.value = Event(true)
             }
         } catch (e: FormNameException) {
-            println("No se ha validado")
             _onInvalidName.value = Event(StringResource(R.string.form_null_blank_exception))
         }
     }

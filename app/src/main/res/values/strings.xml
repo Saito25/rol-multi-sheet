@@ -5,6 +5,7 @@
     <!--  Form Exceptions  -->
     <string name="form_null_blank_exception">No puede estar vacío</string>
     <string name="form_armour_class_exception">Formato inválido</string>
+    <string name="form_invalid_range_exception">No puede ser menor a 1</string>
 
     <!--  Home menu  -->
     <string name="home_menu_game">D&amp;D</string>

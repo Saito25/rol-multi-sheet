@@ -5,6 +5,8 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.domain.model.Character
 import com.example.rolmultisheet.domain.model.Job
 import com.example.rolmultisheet.domain.model.Race
+import com.example.rolmultisheet.domain.model.form.CharacterFormValidator
+import com.example.rolmultisheet.domain.model.form.util.*
 import com.example.rolmultisheet.domain.repository.AppRepository
 import com.example.rolmultisheet.domain.valueObject.StringResource
 import com.example.rolmultisheet.presentation.util.event.Event
@@ -44,25 +46,97 @@ class CreationViewModel(private val appRepository: AppRepository, handle: SavedS
     val onInvalidName: LiveData<Event<StringResource>>
         get() = _onInvalidName
 
+    private val _onInvalidStrength: MutableLiveData<Event<StringResource>> = MutableLiveData()
+    val onInvalidStrength: LiveData<Event<StringResource>>
+        get() = _onInvalidStrength
+
+    private val _onInvalidDexterity: MutableLiveData<Event<StringResource>> = MutableLiveData()
+    val onInvalidDexterity: LiveData<Event<StringResource>>
+        get() = _onInvalidDexterity
+
+    private val _onInvalidConstitution: MutableLiveData<Event<StringResource>> = MutableLiveData()
+    val onInvalidConstitution: LiveData<Event<StringResource>>
+        get() = _onInvalidConstitution
+
+    private val _onInvalidIntelligence: MutableLiveData<Event<StringResource>> = MutableLiveData()
+    val onInvalidIntelligence: LiveData<Event<StringResource>>
+        get() = _onInvalidIntelligence
+
+    private val _onInvalidWisdom: MutableLiveData<Event<StringResource>> = MutableLiveData()
+    val onInvalidWisdom: LiveData<Event<StringResource>>
+        get() = _onInvalidWisdom
+
+    private val _onInvalidCharisma: MutableLiveData<Event<StringResource>> = MutableLiveData()
+    val onInvalidCharisma: LiveData<Event<StringResource>>
+        get() = _onInvalidCharisma
+
     private val _onClose: MutableLiveData<Event<Boolean>> = MutableLiveData()
     val onClose: LiveData<Event<Boolean>>
         get() = _onClose
 
-    fun validateName(nameValue: String?): Boolean {
-        if (nameValue.isNullOrBlank()) {
+    fun validateFields(
+        characterName: String?,
+        characterStrength: String?,
+        characterDexterity: String?,
+        characterConstitution: String?,
+        characterIntelligence: String?,
+        characterWisdom: String?,
+        characterCharisma: String?,
+    ): Boolean {
+        try {
+            return CharacterFormValidator(
+                characterName,
+                characterStrength?.toIntOrNull(),
+                characterDexterity?.toIntOrNull(),
+                characterConstitution?.toIntOrNull(),
+                characterIntelligence?.toIntOrNull(),
+                characterWisdom?.toIntOrNull(),
+                characterCharisma?.toIntOrNull(),
+            ).validate()
+        } catch (e: FormNameException) {
             _onInvalidName.value = Event(StringResource(R.string.form_null_blank_exception))
-            return false
+        } catch (e: FormStrengthException) {
+            _onInvalidStrength.value = Event(StringResource(R.string.form_invalid_range_exception))
+        } catch (e: FormDexterityException) {
+            _onInvalidDexterity.value = Event(StringResource(R.string.form_invalid_range_exception))
+        } catch (e: FormConstitutionException) {
+            _onInvalidConstitution.value =
+                Event(StringResource(R.string.form_invalid_range_exception))
+        } catch (e: FormIntelligenceException) {
+            _onInvalidIntelligence.value =
+                Event(StringResource(R.string.form_invalid_range_exception))
+        } catch (e: FormWisdomException) {
+            _onInvalidWisdom.value = Event(StringResource(R.string.form_invalid_range_exception))
+        } catch (e: FormCharismaException) {
+            _onInvalidCharisma.value = Event(StringResource(R.string.form_invalid_range_exception))
         }
-        return true
+        return false
     }
 
-    fun save(nameValue: String) {
+    fun save(
+        characterName: String,
+        characterStrength: String,
+        characterDexterity: String,
+        characterConstitution: String,
+        characterIntelligence: String,
+        characterWisdom: String,
+        characterCharisma: String,
+    ) {
         val raceId = currentRace.value!!.raceId
         val jobId = currentJob.value!!.jobId
         viewModelScope.launch {
             appRepository.insertCharacter(
                 Character(
-                    0, raceId, jobId, nameValue
+                    0,
+                    raceId,
+                    jobId,
+                    characterName,
+                    characterStrength.toInt(),
+                    characterDexterity.toInt(),
+                    characterConstitution.toInt(),
+                    characterIntelligence.toInt(),
+                    characterWisdom.toInt(),
+                    characterCharisma.toInt(),
                 )
             )
             _onClose.value = Event(true)
@@ -78,7 +152,6 @@ class CreationViewModel(private val appRepository: AppRepository, handle: SavedS
             for (j in 0..4) {
                 currentThrows.add(random.nextInt(6) + 1)
             }
-            println("------------------- $currentThrows")
             currentThrows.sortDescending()
             currentThrows.removeLast()
             currentThrows.removeLast()
