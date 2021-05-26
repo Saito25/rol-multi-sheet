@@ -7,6 +7,13 @@
     <string name="form_armour_class_exception">Formato inválido</string>
     <string name="form_invalid_range_exception">No puede ser menor a 1</string>
 
+    <!--  Health Modal  -->
+    <string name="health_modal_title">Vida</string>
+    <string name="health_modal_current">Actual</string>
+    <string name="health_modal_max">Máxima</string>
+    <string name="health_modal_save">Guardar</string>
+    <string name="health_modal_cancel">Cancelar</string>
+
     <!--  Home menu  -->
     <string name="home_menu_game">D&amp;D</string>
     <string name="home_menu_game_info">Información</string>

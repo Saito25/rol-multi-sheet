@@ -79,7 +79,10 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
         appDao.insertWeapon(weapon)
     }
 
-    // Update
+    override suspend fun updateCharacter(character: Character) {
+        appDao.updateCharacter(character)
+    }
+
     override suspend fun updateRace(race: Race) {
         appDao.updateRace(race)
     }

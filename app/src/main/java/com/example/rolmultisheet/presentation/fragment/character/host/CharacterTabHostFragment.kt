@@ -12,6 +12,7 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CharacterTabHostFragmentBinding
+import com.example.rolmultisheet.presentation.util.fragment.ArgumentsOwner
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.tab.PageContainer
 import com.example.rolmultisheet.presentation.util.tab.PageFragment
@@ -19,7 +20,8 @@ import com.example.rolmultisheet.presentation.util.tab.onAddTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator
 import java.lang.ref.WeakReference
 
-class CharacterTabHostFragment : Fragment(R.layout.character_tab_host_fragment), PageContainer {
+class CharacterTabHostFragment : Fragment(R.layout.character_tab_host_fragment), PageContainer,
+    ArgumentsOwner {
 
     private val binding: CharacterTabHostFragmentBinding by viewBinding {
         CharacterTabHostFragmentBinding.bind(it)
@@ -35,6 +37,8 @@ class CharacterTabHostFragment : Fragment(R.layout.character_tab_host_fragment),
     private val navController: NavController by lazy { findNavController() }
 
     private val args: CharacterTabHostFragmentArgs by navArgs()
+
+    override val characterId: Long by lazy { args.characterId }
 
     override var currentPage: WeakReference<PageFragment>? = null
 

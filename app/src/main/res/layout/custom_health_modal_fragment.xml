@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraintHealthModalRoot"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/labelHealthModalTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_x3"
+        android:text="@string/health_modal_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/buttonHealthModalSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/health_modal_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonHealthModalCancel"
+        app:layout_constraintTop_toTopOf="@+id/buttonHealthModalCancel" />
+
+    <Button
+        android:id="@+id/buttonHealthModalCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_x2"
+        android:layout_marginBottom="@dimen/padding_x3"
+        android:text="@string/health_modal_cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonHealthModalSave"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutHealthModalMax" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayoutHealthModalCurrent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/padding_x3"
+        android:layout_marginTop="@dimen/padding_x2"
+        android:layout_marginEnd="@dimen/padding_x3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelHealthModalTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputHealthModalCurrent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/health_modal_current"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/inputLayoutHealthModalMax"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_x2"
+        app:layout_constraintEnd_toEndOf="@+id/inputLayoutHealthModalCurrent"
+        app:layout_constraintStart_toStartOf="@+id/inputLayoutHealthModalCurrent"
+        app:layout_constraintTop_toBottomOf="@+id/inputLayoutHealthModalCurrent">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/inputHealthModalMax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/health_modal_max"
+            android:inputType="number" />
+    </com.google.android.material.textfield.TextInputLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

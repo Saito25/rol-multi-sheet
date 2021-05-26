@@ -31,6 +31,7 @@ interface AppRepository {
     suspend fun insertWeapon(weapon: Weapon)
 
     // Update
+    suspend fun updateCharacter(character: Character)
     suspend fun updateRace(race: Race)
     suspend fun updateJob(job: Job)
     suspend fun updateSpell(spell: Spell)

@@ -14,6 +14,7 @@
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="#FFFFFF"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.6" />
 
@@ -46,11 +47,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
+        android:importantForAutofill="no"
+        android:inputType="number"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
-        app:layout_constraintTop_toBottomOf="@+id/labelCharacterInformationGold"
-        android:importantForAutofill="no" />
+        app:layout_constraintTop_toBottomOf="@+id/labelCharacterInformationGold" />
 
     <TextView
         android:id="@+id/labelCharacterInformationGold"
@@ -61,5 +62,56 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         app:layout_constraintStart_toStartOf="@+id/guideline2"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageCharacterInformationHearth"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="@dimen/padding_x3"
+        android:src="@drawable/ic_favorite_black_24dp"
+        app:tint="#E91E63"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelCharacterInformationClass"
+        android:contentDescription="TODO" />
+
+    <TextView
+        android:id="@+id/labelCharacterInformationCurrentLife"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="4dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toTopOf="@+id/viewCharacterInformationSeparator"
+        app:layout_constraintEnd_toEndOf="@+id/viewCharacterInformationSeparator"
+        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintStart_toStartOf="@+id/viewCharacterInformationSeparator"
+        tools:text="10" />
+
+    <TextView
+        android:id="@+id/labelCharacterInformationMaxLife"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="@+id/viewCharacterInformationSeparator"
+        app:layout_constraintStart_toStartOf="@+id/viewCharacterInformationSeparator"
+        app:layout_constraintTop_toBottomOf="@+id/viewCharacterInformationSeparator"
+        tools:text="99" />
+
+    <View
+        android:id="@+id/viewCharacterInformationSeparator"
+        android:layout_width="0dp"
+        android:layout_height="1dp"
+        android:layout_marginStart="@dimen/padding_x4"
+        android:layout_marginEnd="@dimen/padding_x4"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/imageCharacterInformationHearth"
+        app:layout_constraintEnd_toEndOf="@+id/imageCharacterInformationHearth"
+        app:layout_constraintStart_toStartOf="@+id/imageCharacterInformationHearth"
+        app:layout_constraintTop_toTopOf="@+id/imageCharacterInformationHearth" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

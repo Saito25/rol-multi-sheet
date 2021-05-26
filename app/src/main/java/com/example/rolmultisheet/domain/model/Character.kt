@@ -36,6 +36,12 @@ data class Character(
     val raceid: Long,
     @ColumnInfo(name = "character_name")
     val characterName: String,
+    @ColumnInfo(name = "character_current_life")
+    val characterCurrentLife: Int = 0,
+    @ColumnInfo(name = "character_max_life")
+    val characterMaxLife: Int = 0,
+    @ColumnInfo(name = "character_armour_class")
+    val characterArmourClass: Int = 0,
     @ColumnInfo(name = "character_strength")
     val characterStrength: Int = 1,
     @ColumnInfo(name = "character_dexterity")

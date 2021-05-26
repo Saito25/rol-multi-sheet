@@ -74,6 +74,9 @@ interface AppDao {
 
     // Update
     @Update
+    suspend fun updateCharacter(character: Character)
+
+    @Update
     suspend fun updateRace(race: Race)
 
     @Update
