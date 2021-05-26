@@ -19,6 +19,9 @@
         <action
             android:id="@+id/showCreationAction"
             app:destination="@id/creationFragmentDirection" />
+        <action
+            android:id="@+id/showCharacterTabHostFragmentAction"
+            app:destination="@id/characterTabHostFragmentDirection" />
     </fragment>
     <fragment
         android:id="@+id/infoFragmentDirection"
@@ -107,4 +110,11 @@
         android:name="com.example.rolmultisheet.presentation.fragment.creation.CreationFragment"
         android:label="@string/creation_toolbar_title"
         tools:layout="@layout/creation_fragment" />
+    <fragment
+        android:id="@+id/characterTabHostFragmentDirection"
+        android:name="com.example.rolmultisheet.presentation.fragment.character.host.CharacterTabHostFragment">
+        <argument
+            android:name="characterId"
+            app:argType="long" />
+    </fragment>
 </navigation>

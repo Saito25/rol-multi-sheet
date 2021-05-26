@@ -13,6 +13,7 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.HomeFragmentBinding
+import com.example.rolmultisheet.domain.model.Character
 import com.example.rolmultisheet.presentation.util.fragment.AppBarConfigurationOwner
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.recycler.doOnSwiped
@@ -30,7 +31,17 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     }
 
     private val listAdapter: HomeListAdapter by lazy {
-        HomeListAdapter()
+        HomeListAdapter().apply {
+            setOnItemClickListener { itemPosition ->
+                navigateToCharacterInformationFragment(currentList[itemPosition])
+            }
+        }
+    }
+
+    private fun navigateToCharacterInformationFragment(character: Character) {
+        val action =
+            HomeFragmentDirections.showCharacterTabHostFragmentAction(character.characterId)
+        navController.navigate(action)
     }
 
     private val navController: NavController by lazy { findNavController() }
