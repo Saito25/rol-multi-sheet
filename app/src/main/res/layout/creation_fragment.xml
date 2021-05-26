@@ -288,14 +288,14 @@
     </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/fabHomeAddCharacter"
+        android:id="@+id/fabCreationDice"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="@dimen/padding_x3"
         android:layout_marginBottom="@dimen/padding_x3"
         android:clickable="true"
         app:tint="@color/white"
-        android:src="@drawable/ic_add_black_24dp"
+        android:src="@drawable/ic_dice_black_24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:focusable="true"

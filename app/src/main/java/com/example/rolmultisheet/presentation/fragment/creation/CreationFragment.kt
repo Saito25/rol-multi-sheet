@@ -29,7 +29,8 @@ class CreationFragment : Fragment(R.layout.creation_fragment) {
         CreationViewModelFactory(
             RoomRepository(
                 AppDatabase.getInstance(requireContext()).appDao
-            )
+            ),
+            this
         )
     }
 
@@ -58,12 +59,18 @@ class CreationFragment : Fragment(R.layout.creation_fragment) {
 
     private fun setupViews() {
         setupToolBar()
-        setupDrowDownMenus()
+        setupDropDownMenus()
+        setupFab()
+    }
+
+    private fun setupFab() {
+        binding.fabCreationDice.setOnClickListener { viewModel.throwDices() }
     }
 
     private fun observeViewModelData() {
         observeCurrentRace()
         observeCurrentJob()
+        observeCurrentDice()
     }
 
     private fun observeViewModelEvent() {
@@ -81,7 +88,7 @@ class CreationFragment : Fragment(R.layout.creation_fragment) {
         }
     }
 
-    private fun setupDrowDownMenus() {
+    private fun setupDropDownMenus() {
         setupDropDownRaceMenu()
         setupDropDownJobMenu()
     }
@@ -102,6 +109,13 @@ class CreationFragment : Fragment(R.layout.creation_fragment) {
                 getString(R.string.creation_main_feature_label, job.jobFeature)
             binding.labelCreationSaveThrows.text =
                 getString(R.string.creation_save_throw_label, job.jobSaveThrow)
+        }
+    }
+
+    private fun observeCurrentDice() {
+        viewModel.currentDices.observe(viewLifecycleOwner) {
+            binding.labelCreationCurrentThrow.text =
+                getString(R.string.creation_save_throw_dice, it)
         }
     }
 

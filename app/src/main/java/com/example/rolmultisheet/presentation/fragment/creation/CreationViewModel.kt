@@ -1,9 +1,6 @@
 package com.example.rolmultisheet.presentation.fragment.creation
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.domain.model.Character
 import com.example.rolmultisheet.domain.model.Job
@@ -13,13 +10,19 @@ import com.example.rolmultisheet.domain.valueObject.StringResource
 import com.example.rolmultisheet.presentation.util.event.Event
 import com.example.rolmultisheet.presentation.util.functions.combineWith
 import kotlinx.coroutines.launch
+import java.util.*
 
-class CreationViewModel(private val appRepository: AppRepository) : ViewModel() {
+private const val CURRENT_DICES: String = "CURRENT_DICES"
+
+class CreationViewModel(private val appRepository: AppRepository, handle: SavedStateHandle) :
+    ViewModel() {
 
     val raceList: LiveData<List<Race>> = appRepository.queryAllRaces()
     val jobList: LiveData<List<Job>> = appRepository.queryAllJobs()
     val raceIndex: MutableLiveData<Int> = MutableLiveData(0)
     var jobIndex: MutableLiveData<Int> = MutableLiveData(0)
+    val currentDices: MutableLiveData<String> =
+        handle.getLiveData(CURRENT_DICES, "15, 14, 13, 12, 10, 8 ")
 
     val currentRace = raceList.combineWith(raceIndex) { list, position ->
         if (list != null && position != null) {
@@ -63,6 +66,30 @@ class CreationViewModel(private val appRepository: AppRepository) : ViewModel() 
                 )
             )
             _onClose.value = Event(true)
+        }
+    }
+
+    fun throwDices() {
+        val random = Random()
+        val throws = mutableListOf<Int>()
+        val currentThrows = mutableListOf<Int>()
+
+        for (i in 0..5) {
+            for (j in 0..4) {
+                currentThrows.add(random.nextInt(6) + 1)
+            }
+            println("------------------- $currentThrows")
+            currentThrows.sortDescending()
+            currentThrows.removeLast()
+            currentThrows.removeLast()
+            throws.add(currentThrows.reduce { n1, n2 ->
+                n1 + n2
+            })
+            currentThrows.clear()
+        }
+
+        currentDices.value = throws.sortedByDescending { i -> i }.joinToString { number ->
+            number.toString()
         }
     }
 }

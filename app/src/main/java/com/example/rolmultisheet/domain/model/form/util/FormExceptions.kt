@@ -21,3 +21,15 @@ class FormWeaponDamageFormatException(message: String) : Exception(message)
 class FormWeaponScopeFormatException(message: String) : Exception(message)
 
 class FormWeaponTwoHandFormatException(message: String) : Exception(message)
+
+class FormStrengthException(message: String) : Exception(message)
+
+class FormDexterityException(message: String) : Exception(message)
+
+class FormConstitutionException(message: String) : Exception(message)
+
+class FormIntelligenceException(message: String) : Exception(message)
+
+class FormWisdomException(message: String) : Exception(message)
+
+class FormCharismaException(message: String) : Exception(message)

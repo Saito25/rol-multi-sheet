@@ -124,6 +124,7 @@
     <string name="creation_hit_dice_label">Dado de golpe: %1$s</string>
     <string name="creation_main_feature_label">Características principales %1$s</string>
     <string name="creation_save_throw_label">Tiros de salvación: %1$s</string>
+    <string name="creation_save_throw_dice">Tirada de dados actual: %1$s</string>
 
     <!--  Character host  -->
     <string name="character_host_information_name">Información</string>
