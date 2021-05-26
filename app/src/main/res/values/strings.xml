@@ -125,8 +125,22 @@
     <string name="creation_main_feature_label">Características principales %1$s</string>
     <string name="creation_save_throw_label">Tiros de salvación: %1$s</string>
 
-    <!--  Spell main  -->
-    <!--  Spell main  -->
-    <!--  Spell main  -->
+    <!--  Character host  -->
+    <string name="character_host_information_name">Información</string>
 
+    <!--  Character information  -->
+    <string name="character_information_strength">Fuerza</string>
+    <string name="character_information_dexterity">Destreza</string>
+    <string name="character_information_constitution">Constitución</string>
+    <string name="character_information_intelligence">Inteligencia</string>
+    <string name="character_information_wisdom">Sabiduría</string>
+    <string name="character_information_charisma">Carisma</string>
+
+    <!--  Spell main  -->
+    <!--  Spell main  -->
+    <!--  Spell main  -->
+    <!--  Spell main  -->
+    <!--  Spell main  -->
+    <!--  Spell main  -->
+    <!--  Spell main  -->
 </resources>

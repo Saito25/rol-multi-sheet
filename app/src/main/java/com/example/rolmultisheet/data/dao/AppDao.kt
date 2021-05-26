@@ -11,6 +11,9 @@ interface AppDao {
     @Query("SELECT * FROM character")
     fun queryAllCharacters(): LiveData<List<Character>>
 
+    @Query("SELECT * FROM character WHERE character_id = :characterId")
+    fun queryCharacterById(characterId: Long): LiveData<Character?>
+
     @Query("SELECT * FROM race")
     fun queryAllRaces(): LiveData<List<Race>>
 

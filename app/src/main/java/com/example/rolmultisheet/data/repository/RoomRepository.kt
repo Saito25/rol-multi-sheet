@@ -11,6 +11,9 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
     override fun queryAllCharacters(): LiveData<List<Character>> =
         appDao.queryAllCharacters()
 
+    override fun queryCharacterById(characterId: Long): LiveData<Character?> =
+        appDao.queryCharacterById(characterId)
+
     override fun queryAllRaces(): LiveData<List<Race>> =
         appDao.queryAllRaces()
 

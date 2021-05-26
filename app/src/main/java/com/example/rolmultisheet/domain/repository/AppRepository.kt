@@ -7,6 +7,7 @@ interface AppRepository {
 
     // Query
     fun queryAllCharacters(): LiveData<List<Character>>
+    fun queryCharacterById(characterId: Long): LiveData<Character?>
     fun queryAllRaces(): LiveData<List<Race>>
     fun queryRaceById(raceId: Long): LiveData<Race?>
     fun queryAllJobs(): LiveData<List<Job>>

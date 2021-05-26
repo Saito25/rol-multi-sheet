@@ -86,15 +86,130 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorCreationStrength"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_x3"
+                android:layout_marginTop="@dimen/padding_x2"
+                android:layout_marginEnd="@dimen/padding_x3"
+                android:hint="@string/character_information_strength"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textInputCreationJob">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputCreationStrength"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorCreationDexterity"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_x3"
+                android:layout_marginTop="@dimen/padding_x2"
+                android:layout_marginEnd="@dimen/padding_x3"
+                android:hint="@string/character_information_dexterity"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorCreationStrength">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputCreationDexterity"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorCreationConstitution"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_x3"
+                android:layout_marginTop="@dimen/padding_x2"
+                android:layout_marginEnd="@dimen/padding_x3"
+                android:hint="@string/character_information_constitution"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorCreationDexterity">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputCreationConstitution"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorCreationIntelligence"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_x3"
+                android:layout_marginTop="@dimen/padding_x2"
+                android:layout_marginEnd="@dimen/padding_x3"
+                android:hint="@string/character_information_intelligence"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorCreationConstitution">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputCreationIntelligence"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorCreationWisdom"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_x3"
+                android:layout_marginTop="@dimen/padding_x2"
+                android:layout_marginEnd="@dimen/padding_x3"
+                android:hint="@string/character_information_wisdom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorCreationIntelligence">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputCreationWisdom"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/inputDecoratorCreationCharisma"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/padding_x3"
+                android:layout_marginTop="@dimen/padding_x2"
+                android:layout_marginEnd="@dimen/padding_x3"
+                android:hint="@string/character_information_charisma"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorCreationWisdom">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/inputCreationCharisma"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="number" />
+            </com.google.android.material.textfield.TextInputLayout>
+
             <TextView
                 android:id="@+id/labelCreationInformation"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
                 android:layout_marginTop="@dimen/padding_x3"
                 android:text="@string/creation_information_label"
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 app:layout_constraintStart_toStartOf="@+id/textInputCreationJob"
-                app:layout_constraintTop_toBottomOf="@+id/textInputCreationJob" />
+                app:layout_constraintTop_toBottomOf="@+id/inputDecoratorCreationCharisma" />
 
             <TextView
                 android:id="@+id/labelCreationVelocity"
