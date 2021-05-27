@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/constraintHealDialogFragment"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/padding_x3">
+
+    <TextView
+        android:id="@+id/labelHealthDialogTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/health_modal_title"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textLayoutHealthDialogCurrentLife"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/padding_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/labelHealthDialogTitle">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputHealthDialogCurrentLife"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/health_modal_current" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textLayoutHealthDialogMaxLife"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/padding_x2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textLayoutHealthDialogCurrentLife">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/textInputHealthDialogMaxLife"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/health_modal_max" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/buttonHealthDialogSave"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/health_modal_save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonHealthDialogCancel"
+        app:layout_constraintTop_toTopOf="@+id/buttonHealthDialogCancel" />
+
+    <Button
+        android:id="@+id/buttonHealthDialogCancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_x2"
+        android:text="@string/health_modal_cancel"
+        app:layout_constraintEnd_toStartOf="@+id/buttonHealthDialogSave"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textLayoutHealthDialogMaxLife" />
+</androidx.constraintlayout.widget.ConstraintLayout>
