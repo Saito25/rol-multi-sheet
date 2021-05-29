@@ -40,6 +40,23 @@ class CharacterInformationViewModel(
         updateCharacter(updatedCharacter)
     }
 
+    fun decrementHealth() {
+        if (character.value!!.characterCurrentLife > 0) {
+            val updatedCharacter = character.value!!.copy(
+                characterCurrentLife = character.value!!.characterCurrentLife - 1,
+            )
+            updateCharacter(updatedCharacter)
+        }
+    }
+
+    fun incrementHealth() {
+        val updatedCharacter = character.value!!.copy(
+            characterCurrentLife = character.value!!.characterCurrentLife + 1,
+        )
+        updateCharacter(updatedCharacter)
+
+    }
+
     private fun updateCharacter(character: Character) {
         viewModelScope.launch {
             appRepository.updateCharacter(character)

@@ -55,6 +55,8 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
     private fun setupViews() {
         setupGold()
         setupHealthImage()
+        setupLessButton()
+        setupAddButton()
     }
 
     private fun observeViewModelData() {
@@ -80,6 +82,18 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
             val maxHealth = viewModel.character.value!!.characterMaxLife
             HealthDialogFragment.newInstance(currentHealth, maxHealth)
                 .show(parentFragmentManager, HealthDialogFragment.path)
+        }
+    }
+
+    private fun setupLessButton() {
+        binding.imageCharacterInformationSubtract.setOnClickListener {
+            viewModel.decrementHealth()
+        }
+    }
+
+    private fun setupAddButton() {
+        binding.imageCharacterInformationSum.setOnClickListener {
+            viewModel.incrementHealth()
         }
     }
 
