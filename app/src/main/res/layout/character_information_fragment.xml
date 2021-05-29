@@ -10,6 +10,31 @@
     android:padding="@dimen/padding_x3"
     tools:context=".presentation.fragment.character.information.CharacterInformationFragment">
 
+    <ImageView
+        android:id="@+id/imageCharacterInformationArmour"
+        android:layout_width="128dp"
+        android:layout_height="128dp"
+        android:layout_marginTop="@dimen/padding_x2"
+        android:contentDescription="TODO"
+        app:layout_constraintEnd_toStartOf="@+id/imageCharacterInformationSumArmour"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageCharacterInformationSubtractArmour"
+        app:layout_constraintTop_toBottomOf="@+id/imageCharacterInformationHearth"
+        android:src="@drawable/ic_shield_black_24dp"
+        app:tint="#3F51B5" />
+
+    <ImageView
+        android:id="@+id/imageCharacterInformationSubtractArmour"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_remove_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageCharacterInformationArmour"
+        app:layout_constraintEnd_toStartOf="@+id/imageCharacterInformationArmour"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageCharacterInformationArmour"
+        app:tint="#AD0101" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
         android:layout_width="wrap_content"
@@ -102,6 +127,19 @@
         app:layout_constraintTop_toBottomOf="@+id/viewCharacterInformationSeparator"
         tools:text="99" />
 
+    <TextView
+        android:id="@+id/labelCharacterInformationArmour"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/white"
+        android:textSize="36sp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageCharacterInformationArmour"
+        app:layout_constraintEnd_toEndOf="@+id/imageCharacterInformationArmour"
+        app:layout_constraintStart_toStartOf="@+id/imageCharacterInformationArmour"
+        app:layout_constraintTop_toTopOf="@+id/imageCharacterInformationArmour"
+        tools:text="99" />
+
     <View
         android:id="@+id/viewCharacterInformationSeparator"
         android:layout_width="0dp"
@@ -155,6 +193,18 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageCharacterInformationHearth"
         app:layout_constraintTop_toTopOf="@+id/imageCharacterInformationHearth"
+        app:tint="#4CAF50" />
+
+    <ImageView
+        android:id="@+id/imageCharacterInformationSumArmour"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_add_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageCharacterInformationArmour"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageCharacterInformationArmour"
+        app:layout_constraintTop_toTopOf="@+id/imageCharacterInformationArmour"
         app:tint="#4CAF50" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
