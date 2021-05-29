@@ -55,8 +55,10 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
     private fun setupViews() {
         setupGold()
         setupHealthImage()
-        setupLessButton()
-        setupAddButton()
+        setupLessHealthButton()
+        setupAddHealthButton()
+        setupIncrementArmourClassButton()
+        setupDecrementArmourClassButton()
     }
 
     private fun observeViewModelData() {
@@ -85,15 +87,27 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
         }
     }
 
-    private fun setupLessButton() {
+    private fun setupLessHealthButton() {
         binding.imageCharacterInformationSubtract.setOnClickListener {
             viewModel.decrementHealth()
         }
     }
 
-    private fun setupAddButton() {
+    private fun setupAddHealthButton() {
         binding.imageCharacterInformationSum.setOnClickListener {
             viewModel.incrementHealth()
+        }
+    }
+
+    private fun setupDecrementArmourClassButton() {
+        binding.imageCharacterInformationSubtractArmour.setOnClickListener {
+            viewModel.decrementArmourClass()
+        }
+    }
+
+    private fun setupIncrementArmourClassButton() {
+        binding.imageCharacterInformationSumArmour.setOnClickListener {
+            viewModel.incrementArmourClass()
         }
     }
 
@@ -102,6 +116,7 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
             if (it != null) {
                 updateGold(it.characterGold)
                 updateHealth(it.characterCurrentLife, it.characterMaxLife)
+                updateArmourClass(it.characterArmourClass)
             }
         }
 
@@ -132,5 +147,9 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
             labelCharacterInformationCurrentLife.text = characterCurrentLife.toString()
             labelCharacterInformationMaxLife.text = characterMaxLife.toString()
         }
+    }
+
+    private fun updateArmourClass(characterArmourClass: Int) {
+        binding.run { labelCharacterInformationArmour.text = characterArmourClass.toString() }
     }
 }

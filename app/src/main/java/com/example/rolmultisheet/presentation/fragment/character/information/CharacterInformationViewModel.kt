@@ -57,6 +57,22 @@ class CharacterInformationViewModel(
 
     }
 
+    fun incrementArmourClass() {
+        val updatedCharacter = character.value!!.copy(
+            characterArmourClass = character.value!!.characterArmourClass + 1,
+        )
+        updateCharacter(updatedCharacter)
+    }
+
+    fun decrementArmourClass() {
+        if (character.value!!.characterArmourClass > 0) {
+            val updatedCharacter = character.value!!.copy(
+                characterArmourClass = character.value!!.characterArmourClass - 1,
+            )
+            updateCharacter(updatedCharacter)
+        }
+    }
+
     private fun updateCharacter(character: Character) {
         viewModelScope.launch {
             appRepository.updateCharacter(character)
