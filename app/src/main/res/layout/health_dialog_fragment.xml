@@ -29,7 +29,8 @@
             android:id="@+id/textInputHealthDialogCurrentLife"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/health_modal_current" />
+            android:hint="@string/health_modal_current"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -45,7 +46,8 @@
             android:id="@+id/textInputHealthDialogMaxLife"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/health_modal_max" />
+            android:hint="@string/health_modal_max"
+            android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button

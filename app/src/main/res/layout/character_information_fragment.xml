@@ -25,21 +25,20 @@
         android:layout_marginEnd="@dimen/padding_x1"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/labelInfoCharacterInformationRace"
+        app:layout_constraintTop_toBottomOf="@+id/labelInfoCharacterInformationRace"
         tools:text="Enano de las montañas" />
 
     <TextView
         android:id="@+id/labelCharacterInformationClass"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/card_corner_radius_8dp"
         android:layout_marginEnd="@dimen/padding_x1"
         android:textAppearance="@style/TextAppearance.AppCompat.Medium"
         app:layout_constraintEnd_toStartOf="@+id/guideline2"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/labelCharacterInformationRace"
+        app:layout_constraintStart_toStartOf="@+id/LabelInfoCharacterInformationClass"
+        app:layout_constraintTop_toBottomOf="@+id/LabelInfoCharacterInformationClass"
         tools:text="Berserker" />
 
     <EditText
@@ -67,13 +66,14 @@
         android:id="@+id/imageCharacterInformationHearth"
         android:layout_width="128dp"
         android:layout_height="128dp"
-        android:layout_marginTop="@dimen/padding_x3"
+        android:layout_marginTop="24dp"
+        android:contentDescription="TODO"
         android:src="@drawable/ic_favorite_black_24dp"
-        app:tint="#E91E63"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageCharacterInformationSum"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageCharacterInformationSubtract"
         app:layout_constraintTop_toBottomOf="@+id/labelCharacterInformationClass"
-        android:contentDescription="TODO" />
+        app:tint="#E91E63" />
 
     <TextView
         android:id="@+id/labelCharacterInformationCurrentLife"
@@ -113,5 +113,48 @@
         app:layout_constraintEnd_toEndOf="@+id/imageCharacterInformationHearth"
         app:layout_constraintStart_toStartOf="@+id/imageCharacterInformationHearth"
         app:layout_constraintTop_toTopOf="@+id/imageCharacterInformationHearth" />
+
+    <TextView
+        android:id="@+id/labelInfoCharacterInformationRace"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/creation_race_label"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/LabelInfoCharacterInformationClass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/padding_x2"
+        android:text="@string/creation_job_label"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        app:layout_constraintStart_toStartOf="@+id/labelCharacterInformationRace"
+        app:layout_constraintTop_toBottomOf="@+id/labelCharacterInformationRace" />
+
+    <ImageView
+        android:id="@+id/imageCharacterInformationSubtract"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_remove_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageCharacterInformationHearth"
+        app:layout_constraintEnd_toStartOf="@+id/imageCharacterInformationHearth"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageCharacterInformationHearth"
+        app:tint="#AD0101" />
+
+    <ImageView
+        android:id="@+id/imageCharacterInformationSum"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:src="@drawable/ic_add_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/imageCharacterInformationHearth"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/imageCharacterInformationHearth"
+        app:layout_constraintTop_toTopOf="@+id/imageCharacterInformationHearth"
+        app:tint="#4CAF50" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

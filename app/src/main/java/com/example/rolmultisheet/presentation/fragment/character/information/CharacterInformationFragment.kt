@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.setFragmentResultListener
 import androidx.fragment.app.viewModels
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CharacterInformationFragmentBinding
+import com.example.rolmultisheet.presentation.fragment.character.information.modal.HealthDialogFragment
 import com.example.rolmultisheet.presentation.util.fragment.findParentArgument
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 
@@ -31,6 +33,19 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
         )
     }
 
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setFragmentResultListeners()
+    }
+
+    private fun setFragmentResultListeners() {
+        setFragmentResultListener(HealthDialogFragment.requestKey) { _, bundle ->
+            val currentHealth = bundle.getInt(HealthDialogFragment.requestCurrentHealth)
+            val maxHealth = bundle.getInt(HealthDialogFragment.requestMaxHealth)
+            viewModel.updateHealth(currentHealth, maxHealth)
+        }
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
@@ -38,6 +53,17 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
     }
 
     private fun setupViews() {
+        setupGold()
+        setupHealthImage()
+    }
+
+    private fun observeViewModelData() {
+        observeCharacter()
+        observeRace()
+        observeJob()
+    }
+
+    private fun setupGold() {
         binding.editCharacterInformationGold.setOnFocusChangeListener { editText, hasFocus ->
             if (hasFocus.not()) {
                 editText as EditText
@@ -48,10 +74,13 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
         }
     }
 
-    private fun observeViewModelData() {
-        observeCharacter()
-        observeRace()
-        observeJob()
+    private fun setupHealthImage() {
+        binding.imageCharacterInformationHearth.setOnClickListener {
+            val currentHealth = viewModel.character.value!!.characterCurrentLife
+            val maxHealth = viewModel.character.value!!.characterMaxLife
+            HealthDialogFragment.newInstance(currentHealth, maxHealth)
+                .show(parentFragmentManager, HealthDialogFragment.path)
+        }
     }
 
     private fun observeCharacter() {

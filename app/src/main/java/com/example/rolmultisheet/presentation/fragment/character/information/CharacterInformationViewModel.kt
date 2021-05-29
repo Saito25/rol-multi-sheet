@@ -28,9 +28,21 @@ class CharacterInformationViewModel(
     fun updateGold(gold: Int) {
         if (character.value != null) {
             val updatedCharacter = character.value!!.copy(characterGold = gold)
-            viewModelScope.launch {
-                appRepository.updateCharacter(updatedCharacter)
-            }
+            updateCharacter(updatedCharacter)
+        }
+    }
+
+    fun updateHealth(currentHealth: Int, maxHealth: Int) {
+        val updatedCharacter = character.value!!.copy(
+            characterCurrentLife = currentHealth,
+            characterMaxLife = maxHealth
+        )
+        updateCharacter(updatedCharacter)
+    }
+
+    private fun updateCharacter(character: Character) {
+        viewModelScope.launch {
+            appRepository.updateCharacter(character)
         }
     }
 }
