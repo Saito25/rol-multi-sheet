@@ -214,7 +214,8 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_x3"
-            app:layout_constraintEnd_toEndOf="@+id/imageCharacterInformationSumArmour"
+            android:layout_marginEnd="@dimen/padding_x1"
+            app:layout_constraintEnd_toStartOf="@+id/labelCharacterInformationStrengthBonus"
             app:layout_constraintStart_toStartOf="@+id/imageCharacterInformationSubtractArmour"
             app:layout_constraintTop_toBottomOf="@+id/imageCharacterInformationArmour">
 
@@ -256,7 +257,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputTextCharacterInformationConstitution"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -272,7 +274,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputTextCharacterInformationIntelligence"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -288,7 +291,8 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputTextCharacterInformationWisdom"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
@@ -304,8 +308,69 @@
             <com.google.android.material.textfield.TextInputEditText
                 android:id="@+id/inputTextCharacterInformationCharisma"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/labelCharacterInformationStrengthBonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintBottom_toBottomOf="@+id/InputLayoutCharacterInformationStrength"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/InputLayoutCharacterInformationStrength"
+            tools:text="+3" />
+
+        <TextView
+            android:id="@+id/labelCharacterInformationDexterityBonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintBottom_toBottomOf="@+id/InputLayoutCharacterInformationDexterity"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/InputLayoutCharacterInformationDexterity"
+            tools:text="+3" />
+
+        <TextView
+            android:id="@+id/labelCharacterInformationConstitutionBonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintBottom_toBottomOf="@+id/InputLayoutCharacterInformationConstitution"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/InputLayoutCharacterInformationConstitution"
+            tools:text="+3" />
+
+        <TextView
+            android:id="@+id/labelCharacterInformationIntelligenceBonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintBottom_toBottomOf="@+id/InputLayoutCharacterInformationIntelligence"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/InputLayoutCharacterInformationIntelligence"
+            tools:text="+3" />
+
+        <TextView
+            android:id="@+id/labelCharacterInformationWisdomBonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintBottom_toBottomOf="@+id/InputLayoutCharacterInformationWisdom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/InputLayoutCharacterInformationWisdom"
+            tools:text="+3" />
+
+        <TextView
+            android:id="@+id/labelCharacterInformationCharismaBonus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:layout_constraintBottom_toBottomOf="@+id/inputLayoutCharacterInformationCharisma"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/inputLayoutCharacterInformationCharisma"
+            tools:text="+3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>
