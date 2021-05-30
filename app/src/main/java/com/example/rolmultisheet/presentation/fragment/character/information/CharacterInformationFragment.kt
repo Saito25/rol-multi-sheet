@@ -160,8 +160,8 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
         binding.inputTextCharacterInformationIntelligence.run {
             setOnFocusChangeListener { _, hasFocus ->
                 if (!hasFocus) {
-                    val wisdomValue = getValueOrZero(text)
-                    viewModel.updateIntelligence(wisdomValue)
+                    val intelligenceValue = getValueOrZero(text)
+                    viewModel.updateIntelligence(intelligenceValue)
                 }
             }
         }

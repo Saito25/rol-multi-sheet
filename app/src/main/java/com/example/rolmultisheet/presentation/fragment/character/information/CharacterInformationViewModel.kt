@@ -81,23 +81,38 @@ class CharacterInformationViewModel(
     }
 
     fun updateDexterity(dexterityValue: Int) {
-
+        val updatedCharacter = character.value!!.copy(
+            characterDexterity = dexterityValue,
+        )
+        updateCharacter(updatedCharacter)
     }
 
     fun updateConstitution(constitutionValue: Int) {
-
+        val updatedCharacter = character.value!!.copy(
+            characterConstitution = constitutionValue,
+        )
+        updateCharacter(updatedCharacter)
     }
 
-    fun updateIntelligence(dexterityValue: Int) {
-
+    fun updateIntelligence(intelligenceValue: Int) {
+        val updatedCharacter = character.value!!.copy(
+            characterIntelligence = intelligenceValue,
+        )
+        updateCharacter(updatedCharacter)
     }
 
-    fun updateWisdom(intelligenceValue: Int) {
-
+    fun updateWisdom(wisdomValue: Int) {
+        val updatedCharacter = character.value!!.copy(
+            characterWisdom = wisdomValue,
+        )
+        updateCharacter(updatedCharacter)
     }
 
     fun updateCharisma(charismaValue: Int) {
-
+        val updatedCharacter = character.value!!.copy(
+            characterCharisma = charismaValue,
+        )
+        updateCharacter(updatedCharacter)
     }
 
 
