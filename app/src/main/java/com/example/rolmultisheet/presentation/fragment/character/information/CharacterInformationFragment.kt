@@ -1,6 +1,7 @@
 package com.example.rolmultisheet.presentation.fragment.character.information
 
 import android.os.Bundle
+import android.text.Editable
 import android.view.View
 import android.widget.EditText
 import androidx.fragment.app.Fragment
@@ -10,6 +11,7 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CharacterInformationFragmentBinding
+import com.example.rolmultisheet.domain.model.Character
 import com.example.rolmultisheet.presentation.fragment.character.information.modal.HealthDialogFragment
 import com.example.rolmultisheet.presentation.util.fragment.findParentArgument
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
@@ -59,6 +61,7 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
         setupAddHealthButton()
         setupIncrementArmourClassButton()
         setupDecrementArmourClassButton()
+        setupInputTexts()
     }
 
     private fun observeViewModelData() {
@@ -111,12 +114,91 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
         }
     }
 
+    private fun setupInputTexts() {
+        setupStrengthText()
+        setupDexterityText()
+        setupConstitutionText()
+        setupIntelligenceText()
+        setupWisdomText()
+        setupCharismaText()
+    }
+
+    private fun setupStrengthText() {
+        binding.inputTextCharacterInformationStrength.run {
+            setOnFocusChangeListener { _, hasFocus ->
+                if (!hasFocus) {
+                    val strengthValue = getValueOrZero(text)
+                    viewModel.updateStrength(strengthValue)
+                }
+            }
+        }
+    }
+
+    private fun setupDexterityText() {
+        binding.inputTextCharacterInformationDexterity.run {
+            setOnFocusChangeListener { _, hasFocus ->
+                if (!hasFocus) {
+                    val dexterityValue = getValueOrZero(text)
+                    viewModel.updateDexterity(dexterityValue)
+                }
+            }
+        }
+    }
+
+    private fun setupConstitutionText() {
+        binding.inputTextCharacterInformationConstitution.run {
+            setOnFocusChangeListener { _, hasFocus ->
+                if (!hasFocus) {
+                    val constitutionValue = getValueOrZero(text)
+                    viewModel.updateConstitution(constitutionValue)
+                }
+            }
+        }
+    }
+
+    private fun setupIntelligenceText() {
+        binding.inputTextCharacterInformationIntelligence.run {
+            setOnFocusChangeListener { _, hasFocus ->
+                if (!hasFocus) {
+                    val wisdomValue = getValueOrZero(text)
+                    viewModel.updateIntelligence(wisdomValue)
+                }
+            }
+        }
+    }
+
+    private fun setupWisdomText() {
+        binding.inputTextCharacterInformationWisdom.run {
+            setOnFocusChangeListener { _, hasFocus ->
+                if (!hasFocus) {
+                    val wisdomValue = getValueOrZero(text)
+                    viewModel.updateWisdom(wisdomValue)
+                }
+            }
+        }
+    }
+
+    private fun setupCharismaText() {
+        binding.inputTextCharacterInformationCharisma.run {
+            setOnFocusChangeListener { _, hasFocus ->
+                if (!hasFocus) {
+                    val charismaValue = getValueOrZero(text)
+                    viewModel.updateCharisma(charismaValue)
+                }
+            }
+        }
+    }
+
+    private fun getValueOrZero(editable: Editable?): Int =
+        if (editable.isNullOrBlank()) 0 else editable.toString().toInt()
+
     private fun observeCharacter() {
         viewModel.character.observe(viewLifecycleOwner) {
             if (it != null) {
                 updateGold(it.characterGold)
                 updateHealth(it.characterCurrentLife, it.characterMaxLife)
                 updateArmourClass(it.characterArmourClass)
+                updateAttributes(it)
             }
         }
 
@@ -151,5 +233,16 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
 
     private fun updateArmourClass(characterArmourClass: Int) {
         binding.run { labelCharacterInformationArmour.text = characterArmourClass.toString() }
+    }
+
+    private fun updateAttributes(character: Character) {
+        binding.run {
+            inputTextCharacterInformationStrength.setText(character.characterStrength.toString())
+            inputTextCharacterInformationDexterity.setText(character.characterDexterity.toString())
+            inputTextCharacterInformationConstitution.setText(character.characterConstitution.toString())
+            inputTextCharacterInformationIntelligence.setText(character.characterIntelligence.toString())
+            inputTextCharacterInformationWisdom.setText(character.characterWisdom.toString())
+            inputTextCharacterInformationCharisma.setText(character.characterCharisma.toString())
+        }
     }
 }

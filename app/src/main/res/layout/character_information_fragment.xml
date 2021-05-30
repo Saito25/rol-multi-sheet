@@ -210,7 +210,7 @@
             app:tint="#4CAF50" />
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
+            android:id="@+id/InputLayoutCharacterInformationStrength"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_x3"
@@ -219,6 +219,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageCharacterInformationArmour">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputTextCharacterInformationStrength"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="@string/character_information_strength"
@@ -226,76 +227,82 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout2"
+            android:id="@+id/InputLayoutCharacterInformationDexterity"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_x2"
             android:hint="@string/character_information_dexterity"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout">
+            app:layout_constraintEnd_toEndOf="@+id/InputLayoutCharacterInformationStrength"
+            app:layout_constraintStart_toStartOf="@+id/InputLayoutCharacterInformationStrength"
+            app:layout_constraintTop_toBottomOf="@+id/InputLayoutCharacterInformationStrength">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputTextCharacterInformationDexterity"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout3"
+            android:id="@+id/InputLayoutCharacterInformationConstitution"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_x2"
             android:hint="@string/character_information_constitution"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout2"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout2"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout2">
+            app:layout_constraintEnd_toEndOf="@+id/InputLayoutCharacterInformationDexterity"
+            app:layout_constraintStart_toStartOf="@+id/InputLayoutCharacterInformationDexterity"
+            app:layout_constraintTop_toBottomOf="@+id/InputLayoutCharacterInformationDexterity">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputTextCharacterInformationConstitution"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout4"
+            android:id="@+id/InputLayoutCharacterInformationIntelligence"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_x2"
             android:hint="@string/character_information_intelligence"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout3"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout3"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout3">
+            app:layout_constraintEnd_toEndOf="@+id/InputLayoutCharacterInformationConstitution"
+            app:layout_constraintStart_toStartOf="@+id/InputLayoutCharacterInformationConstitution"
+            app:layout_constraintTop_toBottomOf="@+id/InputLayoutCharacterInformationConstitution">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputTextCharacterInformationIntelligence"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout5"
+            android:id="@+id/InputLayoutCharacterInformationWisdom"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_x2"
             android:hint="@string/character_information_wisdom"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout4"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout4"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout4">
+            app:layout_constraintEnd_toEndOf="@+id/InputLayoutCharacterInformationIntelligence"
+            app:layout_constraintStart_toStartOf="@+id/InputLayoutCharacterInformationIntelligence"
+            app:layout_constraintTop_toBottomOf="@+id/InputLayoutCharacterInformationIntelligence">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputTextCharacterInformationWisdom"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/inputLayoutCharacterInformationCharisma"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_x2"
             android:hint="@string/character_information_charisma"
-            app:layout_constraintEnd_toEndOf="@+id/textInputLayout5"
-            app:layout_constraintStart_toStartOf="@+id/textInputLayout5"
-            app:layout_constraintTop_toBottomOf="@+id/textInputLayout5">
+            app:layout_constraintEnd_toEndOf="@+id/InputLayoutCharacterInformationWisdom"
+            app:layout_constraintStart_toStartOf="@+id/InputLayoutCharacterInformationWisdom"
+            app:layout_constraintTop_toBottomOf="@+id/InputLayoutCharacterInformationWisdom">
 
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputTextCharacterInformationCharisma"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content" />
         </com.google.android.material.textfield.TextInputLayout>

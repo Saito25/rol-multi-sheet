@@ -73,9 +73,38 @@ class CharacterInformationViewModel(
         }
     }
 
+    fun updateStrength(strengthValue: Int) {
+        val updatedCharacter = character.value!!.copy(
+            characterStrength = strengthValue,
+        )
+        updateCharacter(updatedCharacter)
+    }
+
+    fun updateDexterity(dexterityValue: Int) {
+
+    }
+
+    fun updateConstitution(constitutionValue: Int) {
+
+    }
+
+    fun updateIntelligence(dexterityValue: Int) {
+
+    }
+
+    fun updateWisdom(intelligenceValue: Int) {
+
+    }
+
+    fun updateCharisma(charismaValue: Int) {
+
+    }
+
+
     private fun updateCharacter(character: Character) {
         viewModelScope.launch {
             appRepository.updateCharacter(character)
         }
     }
+
 }
