@@ -58,6 +58,7 @@ class CharacterTabHostFragment : Fragment(R.layout.character_tab_host_fragment),
     private fun setupToolBar() {
         binding.toolbarCharacterTab.run {
             setupWithNavController(navController)
+            inflateMenu(R.menu.dice_menu)
             viewModel.character.observe(viewLifecycleOwner) {
                 if (it != null) {
                     title = it.characterName

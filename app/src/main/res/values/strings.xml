@@ -14,6 +14,19 @@
     <string name="health_modal_save">Guardar</string>
     <string name="health_modal_cancel">Cancelar</string>
 
+    <!--  Dice dialog  -->
+    <string name="dice_dialog_d2">d2</string>
+    <string name="dice_dialog_d3">d3</string>
+    <string name="dice_dialog_d4">d4</string>
+    <string name="dice_dialog_d6">d6</string>
+    <string name="dice_dialog_d8">d8</string>
+    <string name="dice_dialog_d10">d10</string>
+    <string name="dice_dialog_d12">d12</string>
+    <string name="dice_dialog_d20">d20</string>
+    <string name="dice_dialog_d100">d100</string>
+    <string name="dice_dialog_throw">Lanzar</string>
+    <string name="dice_dialog_exit">Volver</string>
+
     <!--  Home menu  -->
     <string name="home_menu_game">D&amp;D</string>
     <string name="home_menu_game_info">Información</string>
@@ -150,8 +163,6 @@
     <string name="character_information_charisma">Carisma</string>
     <string name="character_information_gold">Oro</string>
     <string name="character_information_bonus">+%1$d</string>
-
-    <!--  Spell main  -->
 
 
     <!--  Spell main  -->
