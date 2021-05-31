@@ -1,6 +1,7 @@
 package com.example.rolmultisheet.presentation.fragment.character.host
 
 import android.os.Bundle
+import android.view.MenuItem
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -12,6 +13,7 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CharacterTabHostFragmentBinding
+import com.example.rolmultisheet.presentation.fragment.character.host.modal.DiceDialogFragment
 import com.example.rolmultisheet.presentation.util.fragment.ArgumentsOwner
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.tab.PageContainer
@@ -59,12 +61,25 @@ class CharacterTabHostFragment : Fragment(R.layout.character_tab_host_fragment),
         binding.toolbarCharacterTab.run {
             setupWithNavController(navController)
             inflateMenu(R.menu.dice_menu)
+            setOnMenuItemClickListener { onMenuItemClick(it) }
             viewModel.character.observe(viewLifecycleOwner) {
                 if (it != null) {
                     title = it.characterName
                 }
             }
         }
+    }
+
+    private fun onMenuItemClick(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.diceDialogRoot -> showDiceDialog()
+            else -> return false
+        }
+        return true
+    }
+
+    private fun showDiceDialog() {
+        DiceDialogFragment().show(parentFragmentManager, DiceDialogFragment.path)
     }
 
     private fun setupFab() {
