@@ -214,8 +214,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_x3"
-            android:layout_marginEnd="@dimen/padding_x1"
-            app:layout_constraintEnd_toStartOf="@+id/labelCharacterInformationStrengthBonus"
+            app:layout_constraintEnd_toEndOf="@+id/imageCharacterInformationArmour"
             app:layout_constraintStart_toStartOf="@+id/imageCharacterInformationSubtractArmour"
             app:layout_constraintTop_toBottomOf="@+id/imageCharacterInformationArmour">
 
@@ -318,9 +317,10 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintBottom_toBottomOf="@+id/InputLayoutCharacterInformationStrength"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageCharacterInformationSumArmour"
+            app:layout_constraintStart_toStartOf="@+id/imageCharacterInformationSumArmour"
             app:layout_constraintTop_toTopOf="@+id/InputLayoutCharacterInformationStrength"
-            tools:text="+3" />
+            tools:text="+10" />
 
         <TextView
             android:id="@+id/labelCharacterInformationDexterityBonus"
@@ -328,7 +328,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintBottom_toBottomOf="@+id/InputLayoutCharacterInformationDexterity"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageCharacterInformationSumArmour"
+            app:layout_constraintStart_toStartOf="@+id/imageCharacterInformationSumArmour"
             app:layout_constraintTop_toTopOf="@+id/InputLayoutCharacterInformationDexterity"
             tools:text="+3" />
 
@@ -338,7 +339,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintBottom_toBottomOf="@+id/InputLayoutCharacterInformationConstitution"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageCharacterInformationSumArmour"
+            app:layout_constraintStart_toStartOf="@+id/imageCharacterInformationSumArmour"
             app:layout_constraintTop_toTopOf="@+id/InputLayoutCharacterInformationConstitution"
             tools:text="+3" />
 
@@ -348,7 +350,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintBottom_toBottomOf="@+id/InputLayoutCharacterInformationIntelligence"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageCharacterInformationSumArmour"
+            app:layout_constraintStart_toStartOf="@+id/imageCharacterInformationSumArmour"
             app:layout_constraintTop_toTopOf="@+id/InputLayoutCharacterInformationIntelligence"
             tools:text="+3" />
 
@@ -358,7 +361,8 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintBottom_toBottomOf="@+id/InputLayoutCharacterInformationWisdom"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageCharacterInformationSumArmour"
+            app:layout_constraintStart_toStartOf="@+id/imageCharacterInformationSumArmour"
             app:layout_constraintTop_toTopOf="@+id/InputLayoutCharacterInformationWisdom"
             tools:text="+3" />
 
@@ -368,9 +372,17 @@
             android:layout_height="wrap_content"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
             app:layout_constraintBottom_toBottomOf="@+id/inputLayoutCharacterInformationCharisma"
-            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imageCharacterInformationSumArmour"
+            app:layout_constraintStart_toStartOf="@+id/imageCharacterInformationSumArmour"
             app:layout_constraintTop_toTopOf="@+id/inputLayoutCharacterInformationCharisma"
             tools:text="+3" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.75" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

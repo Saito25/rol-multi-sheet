@@ -49,7 +49,7 @@ class SpellEditionFragment : Fragment(R.layout.spell_edition_fragment) {
     private fun setupToolBar() {
         binding.toolbarSpellEdition.run {
             setupWithNavController(navController)
-            inflateMenu(R.menu.save_manu)
+            inflateMenu(R.menu.save_menu)
             setOnMenuItemClickListener { onMenuItemClick(it) }
             setupToolbarNameIfNoSpell()
         }

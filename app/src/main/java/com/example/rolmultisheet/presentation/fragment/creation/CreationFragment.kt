@@ -88,7 +88,7 @@ class CreationFragment : Fragment(R.layout.creation_fragment) {
     private fun setupToolBar() {
         binding.tbCreation.run {
             setupWithNavController(navController)
-            inflateMenu(R.menu.save_manu)
+            inflateMenu(R.menu.save_menu)
             setOnMenuItemClickListener {
                 onMenuItemClick(it)
             }

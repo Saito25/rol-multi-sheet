@@ -15,6 +15,7 @@ import com.example.rolmultisheet.domain.model.Character
 import com.example.rolmultisheet.presentation.fragment.character.information.modal.HealthDialogFragment
 import com.example.rolmultisheet.presentation.util.fragment.findParentArgument
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
+import kotlin.math.floor
 
 class CharacterInformationFragment : Fragment(R.layout.character_information_fragment) {
 
@@ -199,6 +200,7 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
                 updateHealth(it.characterCurrentLife, it.characterMaxLife)
                 updateArmourClass(it.characterArmourClass)
                 updateAttributes(it)
+                updateAttributesBonus(it)
             }
         }
 
@@ -243,6 +245,32 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
             inputTextCharacterInformationIntelligence.setText(character.characterIntelligence.toString())
             inputTextCharacterInformationWisdom.setText(character.characterWisdom.toString())
             inputTextCharacterInformationCharisma.setText(character.characterCharisma.toString())
+        }
+    }
+
+    private fun updateAttributesBonus(character: Character) {
+        binding.run {
+            labelCharacterInformationStrengthBonus.text =
+                getAttributeBonus(character.characterStrength)
+            labelCharacterInformationDexterityBonus.text =
+                getAttributeBonus(character.characterDexterity)
+            labelCharacterInformationConstitutionBonus.text =
+                getAttributeBonus(character.characterConstitution)
+            labelCharacterInformationIntelligenceBonus.text =
+                getAttributeBonus(character.characterIntelligence)
+            labelCharacterInformationWisdomBonus.text =
+                getAttributeBonus(character.characterWisdom)
+            labelCharacterInformationCharismaBonus.text =
+                getAttributeBonus(character.characterCharisma)
+        }
+    }
+
+    private fun getAttributeBonus(attribute: Int): CharSequence {
+        val value = floor(((attribute - 10.0) / 2)).toInt()
+        return when {
+            value > 0 -> getString(R.string.character_information_bonus, value)
+            value < 0 -> value.toString()
+            else -> "0"
         }
     }
 }

@@ -18,11 +18,15 @@
     <string name="home_menu_game">D&amp;D</string>
     <string name="home_menu_game_info">Información</string>
 
+    <!--  Save menu  -->
+    <string name="save_menu_item">Guardar</string>
+
+    <!--  Dice menu  -->
+    <string name="dice_menu_item">Lanzar dados</string>
+
     <!--  Snackbar  -->
     <string name="snackbar_action">Deshacer</string>
 
-    <!--  Save menu  -->
-    <string name="save_menu_item">Guardar</string>
 
     <!--  Home -->
     <string name="home_fab_description">Botón flotante para añadir elementos</string>

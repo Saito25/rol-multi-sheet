@@ -49,7 +49,7 @@ class JobEditionFragment : Fragment(R.layout.job_edition_fragment) {
     private fun setupToolBar() {
         binding.toolbarJobEdition.run {
             setupWithNavController(navController)
-            inflateMenu(R.menu.save_manu)
+            inflateMenu(R.menu.save_menu)
             setOnMenuItemClickListener { onMenuItemClick(it) }
             setupToolbarNameIfNoRace()
         }

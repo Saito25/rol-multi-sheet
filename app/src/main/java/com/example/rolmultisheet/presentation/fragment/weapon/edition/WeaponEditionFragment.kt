@@ -50,7 +50,7 @@ class WeaponEditionFragment : Fragment(R.layout.weapon_edition_fragment) {
     private fun setupToolBar() {
         binding.toolbarWeaponEdition.run {
             setupWithNavController(navController)
-            inflateMenu(R.menu.save_manu)
+            inflateMenu(R.menu.save_menu)
             setOnMenuItemClickListener { onMenuItemClick(it) }
             setupToolbarNameIfNoWeapon()
         }

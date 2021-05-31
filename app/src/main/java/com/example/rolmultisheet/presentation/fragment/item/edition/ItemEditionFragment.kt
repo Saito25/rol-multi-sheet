@@ -49,7 +49,7 @@ class ItemEditionFragment : Fragment(R.layout.item_edition_fragment) {
     private fun setupToolBar() {
         binding.toolbarItemEdition.run {
             setupWithNavController(navController)
-            inflateMenu(R.menu.save_manu)
+            inflateMenu(R.menu.save_menu)
             setOnMenuItemClickListener { onMenuItemClick(it) }
             setupToolbarNameIfNoItem()
         }

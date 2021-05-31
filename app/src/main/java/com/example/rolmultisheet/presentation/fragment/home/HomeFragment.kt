@@ -70,7 +70,7 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
                 navController,
                 (requireActivity() as AppBarConfigurationOwner).appBarConfiguration
             )
-            inflateMenu(R.menu.main_nav)
+            inflateMenu(R.menu.main_nav_menu)
             setOnMenuItemClickListener {
                 onMenuItemClick(it)
             }
