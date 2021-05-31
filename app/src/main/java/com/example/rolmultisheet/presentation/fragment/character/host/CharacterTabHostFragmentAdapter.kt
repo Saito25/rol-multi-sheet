@@ -4,7 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.example.rolmultisheet.presentation.fragment.character.information.CharacterInformationFragment
 
-private const val NUMBER_OF_FRAGMENTS = 5
+private const val NUMBER_OF_FRAGMENTS = 2
 
 class CharacterTabHostFragmentAdapter(parentFragment: Fragment) :
     FragmentStateAdapter(parentFragment) {
@@ -15,9 +15,6 @@ class CharacterTabHostFragmentAdapter(parentFragment: Fragment) :
         when (position) {
             0 -> CharacterInformationFragment()
             1 -> CharacterInformationFragment()
-            2 -> CharacterInformationFragment()
-            3 -> CharacterInformationFragment()
-            4 -> CharacterInformationFragment()
             else -> throw IndexOutOfBoundsException("Invalid fragment index")
         }
 }

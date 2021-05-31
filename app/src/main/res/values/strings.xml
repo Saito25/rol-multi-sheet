@@ -26,6 +26,7 @@
     <string name="dice_dialog_d100">d100</string>
     <string name="dice_dialog_throw">Lanzar</string>
     <string name="dice_dialog_exit">Volver</string>
+    <string name="dice_dialog_reset">Limpiar</string>
 
     <!--  Home menu  -->
     <string name="home_menu_game">D&amp;D</string>

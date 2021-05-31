@@ -25,6 +25,12 @@ class HealthDialogFragment : DialogFragment(R.layout.health_dialog_fragment) {
         requireArguments().getInt(requestMaxHealth, 0)
     }
 
+    override fun onStart() {
+        super.onStart()
+        val width = (resources.displayMetrics.widthPixels * 0.85).toInt()
+        dialog!!.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         dialog!!.window?.setBackgroundDrawableResource(R.drawable.dr_rounded_background)
@@ -69,11 +75,6 @@ class HealthDialogFragment : DialogFragment(R.layout.health_dialog_fragment) {
     private fun getValueOrZero(editable: Editable?): Int =
         if (editable.isNullOrBlank()) 0 else editable.toString().toInt()
 
-    override fun onStart() {
-        super.onStart()
-        val width = (resources.displayMetrics.widthPixels * 0.85).toInt()
-        dialog!!.window?.setLayout(width, ViewGroup.LayoutParams.WRAP_CONTENT)
-    }
 
     companion object {
         const val path: String = "/health_dialog"

@@ -72,7 +72,7 @@ class CharacterTabHostFragment : Fragment(R.layout.character_tab_host_fragment),
 
     private fun onMenuItemClick(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.diceDialogRoot -> showDiceDialog()
+            R.id.menuDice -> showDiceDialog()
             else -> return false
         }
         return true
