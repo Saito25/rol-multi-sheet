@@ -33,6 +33,9 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
     override fun querySpellById(spellId: Long): LiveData<Spell?> =
         appDao.querySpellById(spellId)
 
+    override fun queryAllSpellExceptIds(spellIdList: LongArray): LiveData<List<Spell>> =
+        appDao.queryAllSpellExceptIds(spellIdList)
+
     override fun queryAllItems(): LiveData<List<Item>> =
         appDao.queryAllItems()
 

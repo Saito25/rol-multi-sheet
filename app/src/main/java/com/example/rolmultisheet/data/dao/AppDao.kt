@@ -34,6 +34,9 @@ interface AppDao {
     @Query("SELECT * FROM spell WHERE spell_id = :spellId")
     fun querySpellById(spellId: Long): LiveData<Spell?>
 
+    @Query("SELECT * FROM spell WHERE spell_id NOT IN (:spellIdList)")
+    fun queryAllSpellExceptIds(spellIdList: LongArray): LiveData<List<Spell>>
+
     @Query("SELECT * FROM item")
     fun queryAllItems(): LiveData<List<Item>>
 

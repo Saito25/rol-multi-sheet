@@ -4,7 +4,10 @@ import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -12,13 +15,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
-import com.example.rolmultisheet.databinding.CommonListFragmentBinding
+import com.example.rolmultisheet.databinding.SharedListAddFragmentBinding
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 
-class CharacterSpellAddFragment : Fragment(R.layout.common_list_fragment) {
+class CharacterSpellAddFragment : Fragment(R.layout.shared_list_add_fragment) {
 
-    private val binding: CommonListFragmentBinding by viewBinding {
-        CommonListFragmentBinding.bind(it)
+    private val binding: SharedListAddFragmentBinding by viewBinding {
+        SharedListAddFragmentBinding.bind(it)
     }
 
     private val args: CharacterSpellAddFragmentArgs by navArgs()
@@ -34,6 +37,8 @@ class CharacterSpellAddFragment : Fragment(R.layout.common_list_fragment) {
         SpellMainListAddAdapterNoEditable()
     }
 
+    private val navController: NavController by lazy { findNavController() }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
@@ -41,6 +46,7 @@ class CharacterSpellAddFragment : Fragment(R.layout.common_list_fragment) {
     }
 
     private fun setupViews() {
+        setupToolBar()
         setupRecyclerView()
     }
 
@@ -48,8 +54,15 @@ class CharacterSpellAddFragment : Fragment(R.layout.common_list_fragment) {
         observeCharacterSpellList()
     }
 
+    private fun setupToolBar() {
+        binding.toolbarSharedAdd.run {
+            setupWithNavController(navController)
+            inflateMenu(R.menu.save_menu)
+        }
+    }
+
     private fun setupRecyclerView() {
-        binding.listCommonRoot.run {
+        binding.listSharedAdd.run {
             setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireContext())
             addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
