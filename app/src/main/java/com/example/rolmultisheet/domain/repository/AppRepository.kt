@@ -21,7 +21,7 @@ interface AppRepository {
     fun queryArmourById(armourId: Long): LiveData<Armour?>
     fun queryAllWeapons(): LiveData<List<Weapon>>
     fun queryWeaponById(weaponId: Long): LiveData<Weapon?>
-    fun queryCharacterByIdWithSpellList(characterId: Long): List<CharacterWithSpells>
+    fun queryCharacterByIdWithSpellList(characterId: Long): LiveData<List<CharacterWithSpells>>
 
     // Insert
     suspend fun insertCharacter(character: Character)

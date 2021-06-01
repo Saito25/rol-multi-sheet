@@ -51,7 +51,7 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
     override fun queryWeaponById(weaponId: Long): LiveData<Weapon?> =
         appDao.queryWeaponById(weaponId)
 
-    override fun queryCharacterByIdWithSpellList(characterId: Long): List<CharacterWithSpells> =
+    override fun queryCharacterByIdWithSpellList(characterId: Long): LiveData<List<CharacterWithSpells>> =
         appDao.queryCharacterByIdWithSpellList(characterId)
 
     // Insert

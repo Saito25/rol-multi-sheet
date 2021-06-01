@@ -14,4 +14,5 @@ abstract class PageFragment constructor(@LayoutRes layoutResId: Int) :
 
     abstract fun onFabClick()
 
+
 }

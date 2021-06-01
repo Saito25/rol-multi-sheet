@@ -36,10 +36,15 @@ class CharacterSpellListFragment : PageFragment(R.layout.common_list_fragment) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
+        observeViewModel()
     }
 
     private fun setupViews() {
         setupRecyclerView()
+    }
+
+    private fun observeViewModel() {
+        observeCharacterSpellList()
     }
 
     private fun setupRecyclerView() {
@@ -49,6 +54,12 @@ class CharacterSpellListFragment : PageFragment(R.layout.common_list_fragment) {
             addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
             itemAnimator = DefaultItemAnimator()
             adapter = listAdapter
+        }
+    }
+
+    private fun observeCharacterSpellList() {
+        viewModel.characterSpellsList.observe(viewLifecycleOwner) {
+            listAdapter.submitList(it.spellLists)
         }
     }
 
