@@ -1,4 +1,4 @@
-package com.example.rolmultisheet.presentation.fragment.character.spell
+package com.example.rolmultisheet.presentation.fragment.character.spell.add
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider

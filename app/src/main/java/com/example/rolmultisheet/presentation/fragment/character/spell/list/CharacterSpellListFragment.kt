@@ -1,4 +1,4 @@
-package com.example.rolmultisheet.presentation.fragment.character.spell
+package com.example.rolmultisheet.presentation.fragment.character.spell.list
 
 import android.os.Bundle
 import android.view.View
@@ -11,7 +11,6 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CommonListFragmentBinding
-import com.example.rolmultisheet.presentation.fragment.spell.main.SpellMainListAdapter
 import com.example.rolmultisheet.presentation.util.fragment.ArgumentsOwner
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.tab.PageFragment
@@ -30,7 +29,7 @@ class CharacterSpellListFragment : PageFragment(R.layout.common_list_fragment) {
     }
 
     private val listAdapter by lazy {
-        SpellMainListAdapter()
+        SpellMainListAdapterNoEditable()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

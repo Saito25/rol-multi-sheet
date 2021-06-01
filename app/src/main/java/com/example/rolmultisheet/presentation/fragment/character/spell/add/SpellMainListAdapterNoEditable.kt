@@ -1,4 +1,4 @@
-package com.example.rolmultisheet.presentation.fragment.spell.main
+package com.example.rolmultisheet.presentation.fragment.character.spell.add
 
 import android.util.TypedValue
 import android.view.LayoutInflater
@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.databinding.SpellMainItemFragmentBinding
 import com.example.rolmultisheet.domain.model.Spell
-import com.example.rolmultisheet.presentation.util.recycler.OnItemClickListener
 
 
 object SpellDiffUtil : DiffUtil.ItemCallback<Spell>() {
@@ -20,12 +19,8 @@ object SpellDiffUtil : DiffUtil.ItemCallback<Spell>() {
     override fun areContentsTheSame(oldItem: Spell, newItem: Spell): Boolean = oldItem == newItem
 }
 
-class SpellMainListAdapter : ListAdapter<Spell, SpellMainListAdapter.ViewHolder>(SpellDiffUtil) {
-
-    private var onItemClickListener: OnItemClickListener? = null
-    fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
-        this.onItemClickListener = onItemClickListener
-    }
+class SpellMainListAdapterNoEditable :
+    ListAdapter<Spell, SpellMainListAdapterNoEditable.ViewHolder>(SpellDiffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
@@ -44,13 +39,7 @@ class SpellMainListAdapter : ListAdapter<Spell, SpellMainListAdapter.ViewHolder>
         RecyclerView.ViewHolder(binding.root) {
 
         init {
-            addRippleEffectToView()
-
             itemView.setOnClickListener {
-                onItemClickListener?.onItemClick(adapterPosition)
-            }
-
-            binding.spellMainItemAction.setOnClickListener {
                 if (binding.spellMainItemDescription.visibility == View.GONE) {
                     binding.spellMainItemDescription.visibility = View.VISIBLE
                     binding.spellMainItemAction.setImageResource(R.drawable.ic_arrow_down_black_24dp)
