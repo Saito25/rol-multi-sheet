@@ -7,11 +7,12 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.rolmultisheet.data.dao.AppDao
 import com.example.rolmultisheet.domain.model.*
+import com.example.rolmultisheet.domain.model.relation.CharacterSpellCrossRef
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 
 @Database(
-    entities = [Character::class, Race::class, Job::class, Spell::class, Item::class, Armour::class, Weapon::class],
+    entities = [Character::class, Race::class, Job::class, Spell::class, Item::class, Armour::class, Weapon::class, CharacterSpellCrossRef::class],
     version = 1
 )
 abstract class AppDatabase : RoomDatabase() {

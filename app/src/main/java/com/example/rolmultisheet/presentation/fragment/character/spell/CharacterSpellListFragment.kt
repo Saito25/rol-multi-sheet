@@ -33,10 +33,6 @@ class CharacterSpellListFragment : PageFragment(R.layout.common_list_fragment) {
         SpellMainListAdapter()
     }
 
-    override fun onFabClick() {
-        // TODO("Not yet implemented")
-    }
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
@@ -54,5 +50,9 @@ class CharacterSpellListFragment : PageFragment(R.layout.common_list_fragment) {
             itemAnimator = DefaultItemAnimator()
             adapter = listAdapter
         }
+    }
+
+    override fun onFabClick() {
+        // TODO("Not yet implemented")
     }
 }

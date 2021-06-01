@@ -30,9 +30,9 @@ data class Character(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "character_id")
     val characterId: Long = 0,
-    @ColumnInfo(name = "job_id")
+    @ColumnInfo(name = "job_id", index = true)
     val jobId: Long,
-    @ColumnInfo(name = "race_id")
+    @ColumnInfo(name = "race_id", index = true)
     val raceid: Long,
     @ColumnInfo(name = "character_name")
     val characterName: String,
