@@ -2,7 +2,9 @@ package com.example.rolmultisheet.presentation.fragment.character.spell.add
 
 import android.os.Bundle
 import android.view.View
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,25 +13,25 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CommonListFragmentBinding
-import com.example.rolmultisheet.presentation.util.fragment.ArgumentsOwner
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
-import com.example.rolmultisheet.presentation.util.tab.PageFragment
 
-class CharacterSpellListFragment : PageFragment(R.layout.common_list_fragment) {
+class CharacterSpellAddFragment : Fragment(R.layout.common_list_fragment) {
 
     private val binding: CommonListFragmentBinding by viewBinding {
         CommonListFragmentBinding.bind(it)
     }
 
-    private val viewModel: CharacterSpellListViewModel by viewModels {
-        CharacterSpellListViewModelFactory(
+    private val args: CharacterSpellAddFragmentArgs by navArgs()
+
+    private val viewModel: CharacterSpellAddViewModel by viewModels {
+        CharacterSpellAddViewModelFactory(
             RoomRepository(AppDatabase.getInstance(requireContext()).appDao),
-            (requireParentFragment() as ArgumentsOwner).characterId
+            args.spellsId
         )
     }
 
     private val listAdapter by lazy {
-        SpellMainListAdapterNoEditable()
+        SpellMainListAddAdapterNoEditable()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,9 +62,5 @@ class CharacterSpellListFragment : PageFragment(R.layout.common_list_fragment) {
         viewModel.characterSpellsList.observe(viewLifecycleOwner) {
             listAdapter.submitList(it.spellLists)
         }
-    }
-
-    override fun onFabClick() {
-        // TODO("Not yet implemented")
     }
 }

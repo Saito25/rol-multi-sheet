@@ -3,6 +3,8 @@ package com.example.rolmultisheet.presentation.fragment.character.spell.list
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.navigation.NavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DefaultItemAnimator
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -11,6 +13,7 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CommonListFragmentBinding
+import com.example.rolmultisheet.presentation.fragment.character.host.CharacterTabHostFragmentDirections
 import com.example.rolmultisheet.presentation.util.fragment.ArgumentsOwner
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.tab.PageFragment
@@ -31,6 +34,8 @@ class CharacterSpellListFragment : PageFragment(R.layout.common_list_fragment) {
     private val listAdapter by lazy {
         SpellMainListAdapterNoEditable()
     }
+
+    private val navController: NavController by lazy { findNavController() }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -63,6 +68,8 @@ class CharacterSpellListFragment : PageFragment(R.layout.common_list_fragment) {
     }
 
     override fun onFabClick() {
-        // TODO("Not yet implemented")
+        val spellsId = viewModel.characterSpellIdList
+        val action = CharacterTabHostFragmentDirections.showCharacterSpellAddDirection(spellsId)
+        navController.navigate(action)
     }
 }

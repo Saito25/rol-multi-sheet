@@ -4,15 +4,15 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.rolmultisheet.domain.repository.AppRepository
 
-class CharacterSpellListViewModelFactory(
+class CharacterSpellAddViewModelFactory(
     private val appRepository: AppRepository,
-    private val characterId: Long,
+    private val characterIdList: LongArray,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-        if (modelClass.isAssignableFrom(CharacterSpellListViewModel::class.java)) {
-            CharacterSpellListViewModel(appRepository, characterId) as T
+        if (modelClass.isAssignableFrom(CharacterSpellAddViewModel::class.java)) {
+            CharacterSpellAddViewModel(appRepository, characterIdList) as T
         } else {
             throw IllegalArgumentException("Wrong ViewModel class passed")
         }

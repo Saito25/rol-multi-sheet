@@ -9,4 +9,7 @@ class CharacterSpellListViewModel(appRepository: AppRepository, characterId: Lon
 
     val characterSpellsList: LiveData<CharacterWithSpells> =
         appRepository.queryCharacterByIdWithSpellList(characterId)
+
+    val characterSpellIdList: LongArray
+        get() = characterSpellsList.value!!.spellLists.map { spell -> spell.spellId }.toLongArray()
 }

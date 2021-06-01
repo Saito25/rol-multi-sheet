@@ -4,4 +4,5 @@
     android:id="@+id/listCommonRoot"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:listitem="@layout/common_fragment_item" />
+    tools:listitem="@layout/common_fragment_item"
+    tools:context=".presentation.fragment.spell.main.SpellMainFragment" />

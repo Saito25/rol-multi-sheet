@@ -112,9 +112,21 @@
         tools:layout="@layout/creation_fragment" />
     <fragment
         android:id="@+id/characterTabHostFragmentDirection"
-        android:name="com.example.rolmultisheet.presentation.fragment.character.host.CharacterTabHostFragment">
+        android:name="com.example.rolmultisheet.presentation.fragment.character.host.CharacterTabHostFragment"
+        tools:layout="@layout/character_tab_host_fragment">
         <argument
             android:name="characterId"
             app:argType="long" />
+        <action
+            android:id="@+id/showCharacterSpellAddDirection"
+            app:destination="@id/characterSpellAddFragmentDirection" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterSpellAddFragmentDirection"
+        android:name="com.example.rolmultisheet.presentation.fragment.character.spell.add.CharacterSpellAddFragment"
+        android:label="@string/game_host_spell_name">
+        <argument
+            android:name="spellsId"
+            app:argType="long[]" />
     </fragment>
 </navigation>
