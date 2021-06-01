@@ -86,6 +86,9 @@ abstract class AppDatabase : RoomDatabase() {
                                                 weaponDescription = "",
                                             )
                                         )
+                                        INSTANCE!!.appDao.insertCharacterWithSpell(
+                                            CharacterSpellCrossRef(1, 1)
+                                        )
                                     }
                                 }
                             })

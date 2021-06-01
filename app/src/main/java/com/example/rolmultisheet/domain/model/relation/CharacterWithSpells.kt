@@ -15,27 +15,9 @@ data class CharacterWithSpells(
         entityColumn = "spell_id",
         associateBy = Junction(
             value = CharacterSpellCrossRef::class,
-            parentColumn = "race_id_cross_ref",
-            entityColumn = "trait_id_cross_ref"
+            parentColumn = "character_id_cross_ref",
+            entityColumn = "spell_id_cross_ref"
         )
     )
     val spellLists: List<Spell>
 )
-
-/*
-@Entity(tableName = "race_with_traits")
-data class RaceWithTraits(
-    @Embedded val race: Race,
-    @Relation(
-        parentColumn = "race_id",
-        entityColumn = "trait_id",
-        associateBy = Junction(
-            RaceTraitCrossRef::class,
-            parentColumn = "race_id_cross_ref",
-            entityColumn = "trait_id_cross_ref"
-        )
-    )
-    val traits: List<Trait>
-
-)
- */
