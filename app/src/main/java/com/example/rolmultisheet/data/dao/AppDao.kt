@@ -3,6 +3,8 @@ package com.example.rolmultisheet.data.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.rolmultisheet.domain.model.*
+import com.example.rolmultisheet.domain.model.relation.CharacterSpellCrossRef
+import com.example.rolmultisheet.domain.model.relation.CharacterWithSpells
 
 @Dao
 interface AppDao {
@@ -50,6 +52,10 @@ interface AppDao {
     @Query("SELECT * FROM weapon WHERE weapon_id = :weaponId")
     fun queryWeaponById(weaponId: Long): LiveData<Weapon?>
 
+    @Transaction
+    @Query("SELECT * FROM character where character_id = :characterId")
+    fun queryCharacterByIdWithSpellList(characterId: Long): List<CharacterWithSpells>
+
     // Insert
     @Insert
     suspend fun insertCharacter(character: Character)
@@ -71,6 +77,14 @@ interface AppDao {
 
     @Insert
     suspend fun insertWeapon(weapon: Weapon)
+
+    @Transaction
+    @Insert
+    suspend fun insertCharacterWithSpell(characterSpellCrossRef: CharacterSpellCrossRef)
+
+    @Transaction
+    @Insert
+    suspend fun insertCharacterWithSpellList(characterSpellCrossRefList: List<CharacterSpellCrossRef>)
 
     // Update
     @Update
@@ -115,4 +129,8 @@ interface AppDao {
 
     @Delete
     suspend fun deleteCharacter(character: Character)
+
+    @Transaction
+    @Delete
+    suspend fun deleteCharacterWithSpell(characterSpellCrossRef: CharacterSpellCrossRef)
 }

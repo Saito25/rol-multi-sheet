@@ -2,6 +2,7 @@ package com.example.rolmultisheet.domain.repository
 
 import androidx.lifecycle.LiveData
 import com.example.rolmultisheet.domain.model.*
+import com.example.rolmultisheet.domain.model.relation.CharacterWithSpells
 
 interface AppRepository {
 
@@ -20,6 +21,7 @@ interface AppRepository {
     fun queryArmourById(armourId: Long): LiveData<Armour?>
     fun queryAllWeapons(): LiveData<List<Weapon>>
     fun queryWeaponById(weaponId: Long): LiveData<Weapon?>
+    fun queryCharacterByIdWithSpellList(characterId: Long): List<CharacterWithSpells>
 
     // Insert
     suspend fun insertCharacter(character: Character)

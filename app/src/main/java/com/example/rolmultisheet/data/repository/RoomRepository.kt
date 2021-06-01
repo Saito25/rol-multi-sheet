@@ -3,6 +3,7 @@ package com.example.rolmultisheet.data.repository
 import androidx.lifecycle.LiveData
 import com.example.rolmultisheet.data.dao.AppDao
 import com.example.rolmultisheet.domain.model.*
+import com.example.rolmultisheet.domain.model.relation.CharacterWithSpells
 import com.example.rolmultisheet.domain.repository.AppRepository
 
 class RoomRepository(private val appDao: AppDao) : AppRepository {
@@ -49,6 +50,9 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
 
     override fun queryWeaponById(weaponId: Long): LiveData<Weapon?> =
         appDao.queryWeaponById(weaponId)
+
+    override fun queryCharacterByIdWithSpellList(characterId: Long): List<CharacterWithSpells> =
+        appDao.queryCharacterByIdWithSpellList(characterId)
 
     // Insert
     override suspend fun insertCharacter(character: Character) {
