@@ -100,8 +100,6 @@ class CharacterTabHostFragment : Fragment(R.layout.character_tab_host_fragment),
     private fun setupTabLayoutMediator() {
         val titleResIds = intArrayOf(
             R.string.character_host_information_name,
-            R.string.game_host_race_name,
-            R.string.game_host_class_name,
             R.string.game_host_spell_name,
             R.string.game_host_item_name,
             R.string.game_host_armour_name,
