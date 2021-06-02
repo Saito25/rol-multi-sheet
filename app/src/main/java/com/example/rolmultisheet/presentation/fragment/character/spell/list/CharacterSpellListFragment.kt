@@ -5,10 +5,7 @@ import android.view.View
 import androidx.fragment.app.viewModels
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.DefaultItemAnimator
-import androidx.recyclerview.widget.DividerItemDecoration
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.*
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
@@ -16,6 +13,7 @@ import com.example.rolmultisheet.databinding.CommonListFragmentBinding
 import com.example.rolmultisheet.presentation.fragment.character.host.CharacterTabHostFragmentDirections
 import com.example.rolmultisheet.presentation.util.fragment.ArgumentsOwner
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
+import com.example.rolmultisheet.presentation.util.recycler.doOnSwiped
 import com.example.rolmultisheet.presentation.util.tab.PageFragment
 
 class CharacterSpellListFragment : PageFragment(R.layout.common_list_fragment) {
@@ -58,6 +56,9 @@ class CharacterSpellListFragment : PageFragment(R.layout.common_list_fragment) {
             addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
             itemAnimator = DefaultItemAnimator()
             adapter = listAdapter
+            doOnSwiped(swipeDirs = ItemTouchHelper.RIGHT) { viewHolder, _ ->
+                viewModel.deleteSpellFromCharacter(listAdapter.currentList[viewHolder.adapterPosition])
+            }
         }
     }
 

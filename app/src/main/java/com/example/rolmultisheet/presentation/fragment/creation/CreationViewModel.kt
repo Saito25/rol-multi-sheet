@@ -128,15 +128,15 @@ class CreationViewModel(private val appRepository: AppRepository, handle: SavedS
             appRepository.insertCharacter(
                 Character(
                     0,
-                    raceId,
-                    jobId,
-                    characterName,
-                    characterStrength.toInt(),
-                    characterDexterity.toInt(),
-                    characterConstitution.toInt(),
-                    characterIntelligence.toInt(),
-                    characterWisdom.toInt(),
-                    characterCharisma.toInt(),
+                    raceid = raceId,
+                    jobId = jobId,
+                    characterName = characterName,
+                    characterStrength = characterStrength.toInt(),
+                    characterDexterity = characterDexterity.toInt(),
+                    characterConstitution = characterConstitution.toInt(),
+                    characterIntelligence = characterIntelligence.toInt(),
+                    characterWisdom = characterWisdom.toInt(),
+                    characterCharisma = characterCharisma.toInt(),
                 )
             )
             _onClose.value = Event(true)
