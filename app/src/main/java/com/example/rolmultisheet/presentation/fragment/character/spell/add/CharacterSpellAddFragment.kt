@@ -73,7 +73,7 @@ class CharacterSpellAddFragment : Fragment(R.layout.shared_list_add_fragment) {
 
     private fun observeCharacterSpellList() {
         viewModel.characterSpellsList.observe(viewLifecycleOwner) {
-            listAdapter.submitList(it.spellLists)
+            listAdapter.submitList(it)
         }
     }
 }
