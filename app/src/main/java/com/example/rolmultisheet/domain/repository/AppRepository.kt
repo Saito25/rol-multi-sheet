@@ -2,6 +2,7 @@ package com.example.rolmultisheet.domain.repository
 
 import androidx.lifecycle.LiveData
 import com.example.rolmultisheet.domain.model.*
+import com.example.rolmultisheet.domain.model.relation.CharacterSpellCrossRef
 import com.example.rolmultisheet.domain.model.relation.CharacterWithSpells
 
 interface AppRepository {
@@ -32,6 +33,9 @@ interface AppRepository {
     suspend fun insertItem(item: Item)
     suspend fun insertArmour(armour: Armour)
     suspend fun insertWeapon(weapon: Weapon)
+    suspend fun insertCharacterWithSpell(characterSpellCrossRef: CharacterSpellCrossRef)
+    suspend fun insertCharacterWithSpellList(characterSpellCrossRefList: List<CharacterSpellCrossRef>)
+
 
     // Update
     suspend fun updateCharacter(character: Character)
@@ -50,4 +54,6 @@ interface AppRepository {
     suspend fun deleteArmour(armour: Armour)
     suspend fun deleteWeapon(weapon: Weapon)
     suspend fun deleteCharacter(character: Character)
+    suspend fun deleteCharacterWithSpell(characterSpellCrossRef: CharacterSpellCrossRef)
+
 }

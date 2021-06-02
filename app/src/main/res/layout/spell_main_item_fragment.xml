@@ -1,46 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/spellMainItemRoot"
+    android:foreground="@drawable/card_foreground"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingVertical="@dimen/padding_x2"
-    android:animateLayoutChanges="true">
+    android:layout_height="wrap_content">
 
-    <TextView
-        android:id="@+id/spellMainItemName"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/spellMainItemSubRoot"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="@dimen/padding_x3"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textSize="@dimen/item_title_size"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="spell name" />
+        android:paddingVertical="@dimen/padding_x2"
+        android:animateLayoutChanges="true">
 
-    <TextView
-        android:id="@+id/spellMainItemDescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/padding_x1"
-        android:layout_marginBottom="@dimen/padding_x2"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/spellMainItemAction"
-        app:layout_constraintStart_toStartOf="@+id/spellMainItemName"
-        app:layout_constraintTop_toBottomOf="@+id/spellMainItemName"
-        tools:text="Description"
-        tools:visibility="visible" />
+        <TextView
+            android:id="@+id/spellMainItemName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/padding_x3"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:textSize="@dimen/item_title_size"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="spell name" />
 
-    <ImageView
-        android:id="@+id/spellMainItemAction"
-        android:layout_width="32dp"
-        android:layout_height="32dp"
-        android:layout_marginEnd="@dimen/padding_x3"
-        android:contentDescription="@string/home_item_actionable_image_description"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/ic_arrow_up_black_24dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/spellMainItemDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_x1"
+            android:layout_marginBottom="@dimen/padding_x2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/spellMainItemAction"
+            app:layout_constraintStart_toStartOf="@+id/spellMainItemName"
+            app:layout_constraintTop_toBottomOf="@+id/spellMainItemName"
+            tools:text="Description"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/spellMainItemAction"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="@dimen/padding_x3"
+            android:contentDescription="@string/home_item_actionable_image_description"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_arrow_up_black_24dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

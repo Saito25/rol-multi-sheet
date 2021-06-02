@@ -3,6 +3,7 @@ package com.example.rolmultisheet.data.repository
 import androidx.lifecycle.LiveData
 import com.example.rolmultisheet.data.dao.AppDao
 import com.example.rolmultisheet.domain.model.*
+import com.example.rolmultisheet.domain.model.relation.CharacterSpellCrossRef
 import com.example.rolmultisheet.domain.model.relation.CharacterWithSpells
 import com.example.rolmultisheet.domain.repository.AppRepository
 
@@ -86,6 +87,16 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
         appDao.insertWeapon(weapon)
     }
 
+    override suspend fun insertCharacterWithSpell(characterSpellCrossRef: CharacterSpellCrossRef) {
+        appDao.insertCharacterWithSpell(characterSpellCrossRef)
+    }
+
+    override suspend fun insertCharacterWithSpellList(characterSpellCrossRefList: List<CharacterSpellCrossRef>) {
+        appDao.insertCharacterWithSpellList(characterSpellCrossRefList)
+    }
+
+
+    // Update
     override suspend fun updateCharacter(character: Character) {
         appDao.updateCharacter(character)
     }
@@ -141,5 +152,9 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
 
     override suspend fun deleteCharacter(character: Character) {
         appDao.deleteCharacter(character)
+    }
+
+    override suspend fun deleteCharacterWithSpell(characterSpellCrossRef: CharacterSpellCrossRef) {
+        appDao.deleteCharacterWithSpell(characterSpellCrossRef)
     }
 }

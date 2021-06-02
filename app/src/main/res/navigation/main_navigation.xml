@@ -128,5 +128,8 @@
         <argument
             android:name="spellsId"
             app:argType="long[]" />
+        <argument
+            android:name="characterId"
+            app:argType="long" />
     </fragment>
 </navigation>

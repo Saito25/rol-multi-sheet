@@ -69,7 +69,10 @@ class CharacterSpellListFragment : PageFragment(R.layout.common_list_fragment) {
 
     override fun onFabClick() {
         val spellsId = viewModel.characterSpellIdList
-        val action = CharacterTabHostFragmentDirections.showCharacterSpellAddDirection(spellsId)
+        val action = CharacterTabHostFragmentDirections.showCharacterSpellAddDirection(
+            spellsId,
+            (requireParentFragment() as ArgumentsOwner).characterId,
+        )
         navController.navigate(action)
     }
 }

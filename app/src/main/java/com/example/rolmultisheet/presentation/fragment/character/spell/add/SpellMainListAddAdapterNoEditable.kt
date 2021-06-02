@@ -4,12 +4,14 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.databinding.SpellMainItemFragmentBinding
 import com.example.rolmultisheet.domain.model.Spell
+import com.example.rolmultisheet.presentation.util.recycler.ItemKeyPositionProvider
 
 
 object SpellDiffUtil : DiffUtil.ItemCallback<Spell>() {
@@ -20,7 +22,10 @@ object SpellDiffUtil : DiffUtil.ItemCallback<Spell>() {
 }
 
 class SpellMainListAddAdapterNoEditable :
-    ListAdapter<Spell, SpellMainListAddAdapterNoEditable.ViewHolder>(SpellDiffUtil) {
+    ListAdapter<Spell, SpellMainListAddAdapterNoEditable.ViewHolder>(SpellDiffUtil),
+    ItemKeyPositionProvider<Long> {
+
+    var selectionTracker: SelectionTracker<Long>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
@@ -31,8 +36,15 @@ class SpellMainListAddAdapterNoEditable :
             )
         )
 
+    override fun getItemKey(position: Int): Long = currentList[position].spellId
+
+    override fun getItemPosition(key: Long): Int = currentList.indexOfFirst { it.spellId == key }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(currentList[position])
+        holder.bind(
+            currentList[position],
+            selectionTracker?.isSelected(getItemKey(position)) ?: false
+        )
     }
 
     inner class ViewHolder(private val binding: SpellMainItemFragmentBinding) :
@@ -50,10 +62,12 @@ class SpellMainListAddAdapterNoEditable :
             }
         }
 
-        fun bind(item: Spell) {
+        fun bind(item: Spell, isSelected: Boolean) {
             binding.run {
                 spellMainItemName.text = item.spellName
+                if (isSelected) spellMainItemName.append("*")
                 spellMainItemDescription.text = item.spellDescription
+                root.isActivated = isSelected
             }
         }
 
@@ -62,7 +76,8 @@ class SpellMainListAddAdapterNoEditable :
             binding.root.context.theme
                 .resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
             binding.root.setBackgroundResource(outValue.resourceId)
-
         }
     }
+
+
 }

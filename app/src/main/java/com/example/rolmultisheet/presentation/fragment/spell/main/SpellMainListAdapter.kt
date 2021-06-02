@@ -72,7 +72,7 @@ class SpellMainListAdapter : ListAdapter<Spell, SpellMainListAdapter.ViewHolder>
             val outValue = TypedValue()
             binding.root.context.theme
                 .resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
-            binding.root.setBackgroundResource(outValue.resourceId)
+            binding.spellMainItemSubRoot.setBackgroundResource(outValue.resourceId)
 
         }
     }
