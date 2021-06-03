@@ -59,6 +59,10 @@ interface AppDao {
     @Query("SELECT * FROM character where character_id = :characterId")
     fun queryCharacterByIdWithSpellList(characterId: Long): LiveData<CharacterWithSpells>
 
+//    @Transaction
+//    @Query("SELECT * FROM character where character_id = :characterId")
+//    fun queryCharacterByIdWithSpellList(characterId: Long): LiveData<CharacterWithSpells>
+
     // Insert
     @Insert
     suspend fun insertCharacter(character: Character)
