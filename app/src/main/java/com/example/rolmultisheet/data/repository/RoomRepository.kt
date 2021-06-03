@@ -3,7 +3,9 @@ package com.example.rolmultisheet.data.repository
 import androidx.lifecycle.LiveData
 import com.example.rolmultisheet.data.dao.AppDao
 import com.example.rolmultisheet.domain.model.*
+import com.example.rolmultisheet.domain.model.relation.CharacterItemCrossRef
 import com.example.rolmultisheet.domain.model.relation.CharacterSpellCrossRef
+import com.example.rolmultisheet.domain.model.relation.CharacterWithItems
 import com.example.rolmultisheet.domain.model.relation.CharacterWithSpells
 import com.example.rolmultisheet.domain.repository.AppRepository
 
@@ -58,6 +60,10 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
     override fun queryCharacterByIdWithSpellList(characterId: Long): LiveData<CharacterWithSpells> =
         appDao.queryCharacterByIdWithSpellList(characterId)
 
+    override fun queryCharacterByIdWithItemsList(characterId: Long): LiveData<CharacterWithItems> =
+        appDao.queryCharacterByIdWithItemsList(characterId)
+
+
     // Insert
     override suspend fun insertCharacter(character: Character) {
         appDao.insertCharacter(character)
@@ -95,6 +101,13 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
         appDao.insertCharacterWithSpellList(characterSpellCrossRefList)
     }
 
+    override suspend fun insertCharacterWithItem(characterItemCrossRef: CharacterItemCrossRef) {
+        appDao.insertCharacterWithItem(characterItemCrossRef)
+    }
+
+    override suspend fun insertCharacterWithItemList(characterItemCrossRefList: List<CharacterItemCrossRef>) {
+        appDao.insertCharacterWithItemList(characterItemCrossRefList)
+    }
 
     // Update
     override suspend fun updateCharacter(character: Character) {
@@ -156,5 +169,9 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
 
     override suspend fun deleteCharacterWithSpell(characterSpellCrossRef: CharacterSpellCrossRef) {
         appDao.deleteCharacterWithSpell(characterSpellCrossRef)
+    }
+
+    override suspend fun deleteCharacterWithItem(characterItemCrossRef: CharacterItemCrossRef) {
+        appDao.deleteCharacterWithItem(characterItemCrossRef)
     }
 }

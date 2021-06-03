@@ -2,7 +2,9 @@ package com.example.rolmultisheet.domain.repository
 
 import androidx.lifecycle.LiveData
 import com.example.rolmultisheet.domain.model.*
+import com.example.rolmultisheet.domain.model.relation.CharacterItemCrossRef
 import com.example.rolmultisheet.domain.model.relation.CharacterSpellCrossRef
+import com.example.rolmultisheet.domain.model.relation.CharacterWithItems
 import com.example.rolmultisheet.domain.model.relation.CharacterWithSpells
 
 interface AppRepository {
@@ -24,6 +26,8 @@ interface AppRepository {
     fun queryAllWeapons(): LiveData<List<Weapon>>
     fun queryWeaponById(weaponId: Long): LiveData<Weapon?>
     fun queryCharacterByIdWithSpellList(characterId: Long): LiveData<CharacterWithSpells>
+    fun queryCharacterByIdWithItemsList(characterId: Long): LiveData<CharacterWithItems>
+
 
     // Insert
     suspend fun insertCharacter(character: Character)
@@ -35,7 +39,8 @@ interface AppRepository {
     suspend fun insertWeapon(weapon: Weapon)
     suspend fun insertCharacterWithSpell(characterSpellCrossRef: CharacterSpellCrossRef)
     suspend fun insertCharacterWithSpellList(characterSpellCrossRefList: List<CharacterSpellCrossRef>)
-
+    suspend fun insertCharacterWithItem(characterItemCrossRef: CharacterItemCrossRef)
+    suspend fun insertCharacterWithItemList(characterItemCrossRefList: List<CharacterItemCrossRef>)
 
     // Update
     suspend fun updateCharacter(character: Character)
@@ -55,5 +60,5 @@ interface AppRepository {
     suspend fun deleteWeapon(weapon: Weapon)
     suspend fun deleteCharacter(character: Character)
     suspend fun deleteCharacterWithSpell(characterSpellCrossRef: CharacterSpellCrossRef)
-
+    suspend fun deleteCharacterWithItem(characterItemCrossRef: CharacterItemCrossRef)
 }

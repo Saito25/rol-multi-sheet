@@ -3,7 +3,9 @@ package com.example.rolmultisheet.data.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.rolmultisheet.domain.model.*
+import com.example.rolmultisheet.domain.model.relation.CharacterItemCrossRef
 import com.example.rolmultisheet.domain.model.relation.CharacterSpellCrossRef
+import com.example.rolmultisheet.domain.model.relation.CharacterWithItems
 import com.example.rolmultisheet.domain.model.relation.CharacterWithSpells
 
 @Dao
@@ -59,9 +61,9 @@ interface AppDao {
     @Query("SELECT * FROM character where character_id = :characterId")
     fun queryCharacterByIdWithSpellList(characterId: Long): LiveData<CharacterWithSpells>
 
-//    @Transaction
-//    @Query("SELECT * FROM character where character_id = :characterId")
-//    fun queryCharacterByIdWithSpellList(characterId: Long): LiveData<CharacterWithSpells>
+    @Transaction
+    @Query("SELECT * FROM character where character_id = :characterId")
+    fun queryCharacterByIdWithItemsList(characterId: Long): LiveData<CharacterWithItems>
 
     // Insert
     @Insert
@@ -91,7 +93,15 @@ interface AppDao {
 
     @Transaction
     @Insert
+    suspend fun insertCharacterWithItem(characterItemCrossRef: CharacterItemCrossRef)
+
+    @Transaction
+    @Insert
     suspend fun insertCharacterWithSpellList(characterSpellCrossRefList: List<CharacterSpellCrossRef>)
+
+    @Transaction
+    @Insert
+    suspend fun insertCharacterWithItemList(characterItemCrossRefList: List<CharacterItemCrossRef>)
 
     // Update
     @Update
@@ -140,4 +150,9 @@ interface AppDao {
     @Transaction
     @Delete
     suspend fun deleteCharacterWithSpell(characterSpellCrossRef: CharacterSpellCrossRef)
+
+    @Transaction
+    @Delete
+    suspend fun deleteCharacterWithItem(characterItemCrossRef: CharacterItemCrossRef)
 }
+
