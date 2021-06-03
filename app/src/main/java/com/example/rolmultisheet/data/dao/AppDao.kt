@@ -45,6 +45,9 @@ interface AppDao {
     @Query("SELECT * FROM item WHERE item_id = :itemId")
     fun queryItemById(itemId: Long): LiveData<Item?>
 
+    @Query("SELECT * FROM item WHERE item_id NOT IN (:itemIdList)")
+    fun queryAllItemsExceptIds(itemIdList: LongArray): LiveData<List<Item>>
+
     @Query("SELECT * FROM armour")
     fun queryAllArmours(): LiveData<List<Armour>>
 

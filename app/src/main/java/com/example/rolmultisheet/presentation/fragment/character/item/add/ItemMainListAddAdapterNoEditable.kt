@@ -1,16 +1,17 @@
-package com.example.rolmultisheet.presentation.fragment.item.main
+package com.example.rolmultisheet.presentation.fragment.character.item.add
 
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rolmultisheet.R
 import com.example.rolmultisheet.databinding.ItemMainItemFragmentBinding
 import com.example.rolmultisheet.domain.model.Item
-import com.example.rolmultisheet.presentation.util.recycler.OnItemClickListener
+import com.example.rolmultisheet.presentation.util.recycler.ItemKeyPositionProvider
+
 
 object ItemDiffUtil : DiffUtil.ItemCallback<Item>() {
     override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean =
@@ -19,12 +20,11 @@ object ItemDiffUtil : DiffUtil.ItemCallback<Item>() {
     override fun areContentsTheSame(oldItem: Item, newItem: Item): Boolean = oldItem == newItem
 }
 
-class ItemMainListAdapter : ListAdapter<Item, ItemMainListAdapter.ViewHolder>(ItemDiffUtil) {
+class ItemMainListAddAdapterNoEditable :
+    ListAdapter<Item, ItemMainListAddAdapterNoEditable.ViewHolder>(ItemDiffUtil),
+    ItemKeyPositionProvider<Long> {
 
-    private var onItemClickListener: OnItemClickListener? = null
-    fun setOnItemClickListener(onItemClickListener: OnItemClickListener) {
-        this.onItemClickListener = onItemClickListener
-    }
+    var selectionTracker: SelectionTracker<Long>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
@@ -35,20 +35,22 @@ class ItemMainListAdapter : ListAdapter<Item, ItemMainListAdapter.ViewHolder>(It
             )
         )
 
+    override fun getItemKey(position: Int): Long = currentList[position].itemId
+
+    override fun getItemPosition(key: Long): Int = currentList.indexOfFirst { it.itemId == key }
+
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(currentList[position])
+        holder.bind(
+            currentList[position],
+            selectionTracker?.isSelected(getItemKey(position)) ?: false
+        )
     }
 
     inner class ViewHolder(private val binding: ItemMainItemFragmentBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         init {
-            addRippleEffectToView()
             itemView.setOnClickListener {
-                onItemClickListener?.onItemClick(adapterPosition)
-            }
-
-            binding.itemMainItemAction.setOnClickListener {
                 if (binding.itemMainItemDescription.visibility == View.GONE) {
                     binding.itemMainItemDescription.visibility = View.VISIBLE
                     binding.itemMainItemAction.setImageResource(R.drawable.ic_arrow_down_black_24dp)
@@ -59,24 +61,18 @@ class ItemMainListAdapter : ListAdapter<Item, ItemMainListAdapter.ViewHolder>(It
             }
         }
 
-        fun bind(item: Item) {
+        fun bind(item: Item, isSelected: Boolean) {
             binding.run {
                 itemMainItemName.text = item.itemName
+                if (isSelected) itemMainItemName.append("*")
                 itemMainItemDescription.text = item.itemDescription
                 labelItemMainItemPrice.text =
                     binding.root.context.applicationContext.getString(
                         R.string.item_main_item_price,
                         item.itemPrice
                     )
+                root.isActivated = isSelected
             }
-        }
-
-        private fun addRippleEffectToView() {
-            val outValue = TypedValue()
-            binding.root.context.theme
-                .resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
-            binding.itemMainItemSubRoot.setBackgroundResource(outValue.resourceId)
-
         }
     }
 }

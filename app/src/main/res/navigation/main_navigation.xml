@@ -120,6 +120,9 @@
         <action
             android:id="@+id/showCharacterSpellAddDirection"
             app:destination="@id/characterSpellAddFragmentDirection" />
+        <action
+            android:id="@+id/showCharacterItemAddDirection"
+            app:destination="@id/characterItemAddFragmentDirection" />
     </fragment>
     <fragment
         android:id="@+id/characterSpellAddFragmentDirection"
@@ -127,6 +130,17 @@
         android:label="@string/game_host_spell_name">
         <argument
             android:name="spellsId"
+            app:argType="long[]" />
+        <argument
+            android:name="characterId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterItemAddFragmentDirection"
+        android:name="com.example.rolmultisheet.presentation.fragment.character.item.add.CharacterItemAddFragment"
+        android:label="CharacterItemAddFragment">
+        <argument
+            android:name="itemIds"
             app:argType="long[]" />
         <argument
             android:name="characterId"

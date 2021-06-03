@@ -21,6 +21,7 @@ interface AppRepository {
     fun queryAllSpellExceptIds(spellIdList: LongArray): LiveData<List<Spell>>
     fun queryAllItems(): LiveData<List<Item>>
     fun queryItemById(itemId: Long): LiveData<Item?>
+    fun queryAllItemsExceptIds(itemIdList: LongArray): LiveData<List<Item>>
     fun queryAllArmours(): LiveData<List<Armour>>
     fun queryArmourById(armourId: Long): LiveData<Armour?>
     fun queryAllWeapons(): LiveData<List<Weapon>>

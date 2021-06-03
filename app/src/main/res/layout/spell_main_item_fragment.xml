@@ -3,17 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/spellMainItemRoot"
-    android:foreground="@drawable/card_foreground"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:foreground="@drawable/card_foreground">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-
         android:id="@+id/spellMainItemSubRoot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingVertical="@dimen/padding_x2"
-        android:animateLayoutChanges="true">
+        android:paddingVertical="@dimen/padding_x2">
 
         <TextView
             android:id="@+id/spellMainItemName"

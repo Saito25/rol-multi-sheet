@@ -30,7 +30,7 @@ class CharacterItemListFragment : PageFragment(R.layout.common_list_fragment) {
     }
 
     private val listAdapter by lazy {
-        SpellMainListAdapterNoEditable()
+        ItemMainListAdapterNoEditable()
     }
 
     private val navController: NavController by lazy { findNavController() }
@@ -46,7 +46,7 @@ class CharacterItemListFragment : PageFragment(R.layout.common_list_fragment) {
     }
 
     private fun observeViewModel() {
-        observeCharacterSpellList()
+        observeCharacterItemList()
     }
 
     private fun setupRecyclerView() {
@@ -57,21 +57,21 @@ class CharacterItemListFragment : PageFragment(R.layout.common_list_fragment) {
             itemAnimator = DefaultItemAnimator()
             adapter = listAdapter
             doOnSwiped(swipeDirs = ItemTouchHelper.RIGHT) { viewHolder, _ ->
-                viewModel.deleteSpellFromCharacter(listAdapter.currentList[viewHolder.adapterPosition])
+                viewModel.deleteItemFromCharacter(listAdapter.currentList[viewHolder.adapterPosition])
             }
         }
     }
 
-    private fun observeCharacterSpellList() {
-        viewModel.characterSpellsList.observe(viewLifecycleOwner) {
-            listAdapter.submitList(it.spellLists)
+    private fun observeCharacterItemList() {
+        viewModel.characterItemsList.observe(viewLifecycleOwner) {
+            listAdapter.submitList(it.itemLists)
         }
     }
 
     override fun onFabClick() {
-        val spellsId = viewModel.characterSpellIdList
-        val action = CharacterTabHostFragmentDirections.showCharacterSpellAddDirection(
-            spellsId,
+        val itemsId = viewModel.characterItemIdList
+        val action = CharacterTabHostFragmentDirections.showCharacterItemAddDirection(
+            itemsId,
             (requireParentFragment() as ArgumentsOwner).characterId,
         )
         navController.navigate(action)

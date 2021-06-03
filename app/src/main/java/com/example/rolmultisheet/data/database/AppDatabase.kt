@@ -99,6 +99,9 @@ abstract class AppDatabase : RoomDatabase() {
                                         INSTANCE!!.appDao.insertCharacterWithSpell(
                                             CharacterSpellCrossRef(1, 1)
                                         )
+                                        INSTANCE!!.appDao.insertCharacterWithItem(
+                                            CharacterItemCrossRef(1, 1)
+                                        )
                                     }
                                 }
                             })
