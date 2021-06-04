@@ -1,6 +1,5 @@
 package com.example.rolmultisheet.presentation.fragment.character.spell.list
 
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,14 +54,6 @@ class SpellMainListAdapterNoEditable :
                 spellMainItemName.text = item.spellName
                 spellMainItemDescription.text = item.spellDescription
             }
-        }
-
-        private fun addRippleEffectToView() {
-            val outValue = TypedValue()
-            binding.root.context.theme
-                .resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
-            binding.root.setBackgroundResource(outValue.resourceId)
-
         }
     }
 }

@@ -1,6 +1,5 @@
 package com.example.rolmultisheet.presentation.fragment.character.weapon.list
 
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -8,23 +7,23 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rolmultisheet.R
-import com.example.rolmultisheet.databinding.SpellMainItemFragmentBinding
-import com.example.rolmultisheet.domain.model.Spell
+import com.example.rolmultisheet.databinding.WeaponMainItemFragmentBinding
+import com.example.rolmultisheet.domain.model.Weapon
 
 
-object SpellDiffUtil : DiffUtil.ItemCallback<Spell>() {
-    override fun areItemsTheSame(oldItem: Spell, newItem: Spell): Boolean =
-        oldItem.spellId == newItem.spellId
+object WeaponDiffUtil : DiffUtil.ItemCallback<Weapon>() {
+    override fun areItemsTheSame(oldItem: Weapon, newItem: Weapon): Boolean =
+        oldItem.weaponId == newItem.weaponId
 
-    override fun areContentsTheSame(oldItem: Spell, newItem: Spell): Boolean = oldItem == newItem
+    override fun areContentsTheSame(oldItem: Weapon, newItem: Weapon): Boolean = oldItem == newItem
 }
 
 class WeaponMainListAdapterNoEditable :
-    ListAdapter<Spell, WeaponMainListAdapterNoEditable.ViewHolder>(SpellDiffUtil) {
+    ListAdapter<Weapon, WeaponMainListAdapterNoEditable.ViewHolder>(WeaponDiffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
-            SpellMainItemFragmentBinding.inflate(
+            WeaponMainItemFragmentBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
@@ -35,34 +34,33 @@ class WeaponMainListAdapterNoEditable :
         holder.bind(currentList[position])
     }
 
-    inner class ViewHolder(private val binding: SpellMainItemFragmentBinding) :
+    inner class ViewHolder(private val binding: WeaponMainItemFragmentBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         init {
             itemView.setOnClickListener {
-                if (binding.spellMainItemDescription.visibility == View.GONE) {
-                    binding.spellMainItemDescription.visibility = View.VISIBLE
-                    binding.spellMainItemAction.setImageResource(R.drawable.ic_arrow_down_black_24dp)
+                if (binding.weaponMainItemDescription.visibility == View.GONE) {
+                    binding.weaponMainItemDescription.visibility = View.VISIBLE
+                    binding.weaponMainItemAction.setImageResource(R.drawable.ic_arrow_down_black_24dp)
                 } else {
-                    binding.spellMainItemDescription.visibility = View.GONE
-                    binding.spellMainItemAction.setImageResource(R.drawable.ic_arrow_up_black_24dp)
+                    binding.weaponMainItemDescription.visibility = View.GONE
+                    binding.weaponMainItemAction.setImageResource(R.drawable.ic_arrow_up_black_24dp)
                 }
             }
+
         }
 
-        fun bind(item: Spell) {
+        fun bind(item: Weapon) {
             binding.run {
-                spellMainItemName.text = item.spellName
-                spellMainItemDescription.text = item.spellDescription
+                weaponMainItemName.text = item.weaponName
+                weaponMainItemDescription.text = item.weaponDescription
+                labelWeaponMainItemPrice.text =
+                    binding.root.context.applicationContext.getString(
+                        R.string.item_main_item_price,
+                        item.weaponPrice
+                    )
+                labelWeaponMainItemDamage.text = item.weaponDamage
             }
-        }
-
-        private fun addRippleEffectToView() {
-            val outValue = TypedValue()
-            binding.root.context.theme
-                .resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
-            binding.root.setBackgroundResource(outValue.resourceId)
-
         }
     }
 }
