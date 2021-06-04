@@ -2,10 +2,7 @@ package com.example.rolmultisheet.domain.repository
 
 import androidx.lifecycle.LiveData
 import com.example.rolmultisheet.domain.model.*
-import com.example.rolmultisheet.domain.model.relation.CharacterItemCrossRef
-import com.example.rolmultisheet.domain.model.relation.CharacterSpellCrossRef
-import com.example.rolmultisheet.domain.model.relation.CharacterWithItems
-import com.example.rolmultisheet.domain.model.relation.CharacterWithSpells
+import com.example.rolmultisheet.domain.model.relation.*
 
 interface AppRepository {
 
@@ -25,10 +22,11 @@ interface AppRepository {
     fun queryAllArmours(): LiveData<List<Armour>>
     fun queryArmourById(armourId: Long): LiveData<Armour?>
     fun queryAllWeapons(): LiveData<List<Weapon>>
+    fun queryAllWeaponsExceptIds(weaponIdList: LongArray): LiveData<List<Weapon>>
     fun queryWeaponById(weaponId: Long): LiveData<Weapon?>
     fun queryCharacterByIdWithSpellList(characterId: Long): LiveData<CharacterWithSpells>
     fun queryCharacterByIdWithItemsList(characterId: Long): LiveData<CharacterWithItems>
-
+    fun queryCharacterByIdWithWeaponsList(characterId: Long): LiveData<CharacterWithWeapons>
 
     // Insert
     suspend fun insertCharacter(character: Character)
@@ -42,6 +40,8 @@ interface AppRepository {
     suspend fun insertCharacterWithSpellList(characterSpellCrossRefList: List<CharacterSpellCrossRef>)
     suspend fun insertCharacterWithItem(characterItemCrossRef: CharacterItemCrossRef)
     suspend fun insertCharacterWithItemList(characterItemCrossRefList: List<CharacterItemCrossRef>)
+    suspend fun insertCharacterWithWeapon(characterWeaponCrossRef: CharacterWeaponCrossRef)
+    suspend fun insertCharacterWithWeaponList(characterWeaponCrossRefList: List<CharacterWeaponCrossRef>)
 
     // Update
     suspend fun updateCharacter(character: Character)
@@ -62,4 +62,5 @@ interface AppRepository {
     suspend fun deleteCharacter(character: Character)
     suspend fun deleteCharacterWithSpell(characterSpellCrossRef: CharacterSpellCrossRef)
     suspend fun deleteCharacterWithItem(characterItemCrossRef: CharacterItemCrossRef)
+    suspend fun deleteCharacterWithWeapon(characterWeaponCrossRef: CharacterWeaponCrossRef)
 }

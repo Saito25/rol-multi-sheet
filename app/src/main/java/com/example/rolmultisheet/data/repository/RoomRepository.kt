@@ -3,10 +3,7 @@ package com.example.rolmultisheet.data.repository
 import androidx.lifecycle.LiveData
 import com.example.rolmultisheet.data.dao.AppDao
 import com.example.rolmultisheet.domain.model.*
-import com.example.rolmultisheet.domain.model.relation.CharacterItemCrossRef
-import com.example.rolmultisheet.domain.model.relation.CharacterSpellCrossRef
-import com.example.rolmultisheet.domain.model.relation.CharacterWithItems
-import com.example.rolmultisheet.domain.model.relation.CharacterWithSpells
+import com.example.rolmultisheet.domain.model.relation.*
 import com.example.rolmultisheet.domain.repository.AppRepository
 
 class RoomRepository(private val appDao: AppDao) : AppRepository {
@@ -61,11 +58,17 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
     override fun queryWeaponById(weaponId: Long): LiveData<Weapon?> =
         appDao.queryWeaponById(weaponId)
 
+    override fun queryAllWeaponsExceptIds(weaponIdList: LongArray): LiveData<List<Weapon>> =
+        appDao.queryAllWeaponsExceptIds(weaponIdList)
+
     override fun queryCharacterByIdWithSpellList(characterId: Long): LiveData<CharacterWithSpells> =
         appDao.queryCharacterByIdWithSpellList(characterId)
 
     override fun queryCharacterByIdWithItemsList(characterId: Long): LiveData<CharacterWithItems> =
         appDao.queryCharacterByIdWithItemsList(characterId)
+
+    override fun queryCharacterByIdWithWeaponsList(characterId: Long): LiveData<CharacterWithWeapons> =
+        appDao.queryCharacterByIdWithWeaponsList(characterId)
 
 
     // Insert
@@ -111,6 +114,14 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
 
     override suspend fun insertCharacterWithItemList(characterItemCrossRefList: List<CharacterItemCrossRef>) {
         appDao.insertCharacterWithItemList(characterItemCrossRefList)
+    }
+
+    override suspend fun insertCharacterWithWeapon(characterWeaponCrossRef: CharacterWeaponCrossRef) {
+        appDao.insertCharacterWithWeapon(characterWeaponCrossRef)
+    }
+
+    override suspend fun insertCharacterWithWeaponList(characterWeaponCrossRefList: List<CharacterWeaponCrossRef>) {
+        appDao.insertCharacterWithWeaponList(characterWeaponCrossRefList)
     }
 
     // Update
@@ -178,4 +189,10 @@ class RoomRepository(private val appDao: AppDao) : AppRepository {
     override suspend fun deleteCharacterWithItem(characterItemCrossRef: CharacterItemCrossRef) {
         appDao.deleteCharacterWithItem(characterItemCrossRef)
     }
+
+    override suspend fun deleteCharacterWithWeapon(characterWeaponCrossRef: CharacterWeaponCrossRef) {
+        appDao.deleteCharacterWithWeapon(characterWeaponCrossRef)
+    }
 }
+
+

@@ -3,10 +3,7 @@ package com.example.rolmultisheet.data.dao
 import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.example.rolmultisheet.domain.model.*
-import com.example.rolmultisheet.domain.model.relation.CharacterItemCrossRef
-import com.example.rolmultisheet.domain.model.relation.CharacterSpellCrossRef
-import com.example.rolmultisheet.domain.model.relation.CharacterWithItems
-import com.example.rolmultisheet.domain.model.relation.CharacterWithSpells
+import com.example.rolmultisheet.domain.model.relation.*
 
 @Dao
 interface AppDao {
@@ -60,6 +57,9 @@ interface AppDao {
     @Query("SELECT * FROM weapon WHERE weapon_id = :weaponId")
     fun queryWeaponById(weaponId: Long): LiveData<Weapon?>
 
+    @Query("SELECT * FROM weapon WHERE weapon_id NOT IN (:weaponIdList)")
+    fun queryAllWeaponsExceptIds(weaponIdList: LongArray): LiveData<List<Weapon>>
+
     @Transaction
     @Query("SELECT * FROM character where character_id = :characterId")
     fun queryCharacterByIdWithSpellList(characterId: Long): LiveData<CharacterWithSpells>
@@ -67,6 +67,10 @@ interface AppDao {
     @Transaction
     @Query("SELECT * FROM character where character_id = :characterId")
     fun queryCharacterByIdWithItemsList(characterId: Long): LiveData<CharacterWithItems>
+
+    @Transaction
+    @Query("SELECT * FROM character where character_id = :characterId")
+    fun queryCharacterByIdWithWeaponsList(characterId: Long): LiveData<CharacterWithWeapons>
 
     // Insert
     @Insert
@@ -105,6 +109,14 @@ interface AppDao {
     @Transaction
     @Insert
     suspend fun insertCharacterWithItemList(characterItemCrossRefList: List<CharacterItemCrossRef>)
+
+    @Transaction
+    @Insert
+    suspend fun insertCharacterWithWeapon(characterWeaponCrossRef: CharacterWeaponCrossRef)
+
+    @Transaction
+    @Insert
+    suspend fun insertCharacterWithWeaponList(characterWeaponCrossRefList: List<CharacterWeaponCrossRef>)
 
     // Update
     @Update
@@ -157,5 +169,9 @@ interface AppDao {
     @Transaction
     @Delete
     suspend fun deleteCharacterWithItem(characterItemCrossRef: CharacterItemCrossRef)
+
+    @Transaction
+    @Delete
+    suspend fun deleteCharacterWithWeapon(characterWeaponCrossRef: CharacterWeaponCrossRef)
 }
 
