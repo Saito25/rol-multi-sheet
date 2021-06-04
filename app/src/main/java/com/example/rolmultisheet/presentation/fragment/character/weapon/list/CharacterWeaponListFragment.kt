@@ -16,21 +16,21 @@ import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.recycler.doOnSwiped
 import com.example.rolmultisheet.presentation.util.tab.PageFragment
 
-class CharacterSpellListFragment : PageFragment(R.layout.common_list_fragment) {
+class CharacterWeaponListFragment : PageFragment(R.layout.common_list_fragment) {
 
     private val binding: CommonListFragmentBinding by viewBinding {
         CommonListFragmentBinding.bind(it)
     }
 
-    private val viewModel: CharacterSpellListViewModel by viewModels {
-        CharacterSpellListViewModelFactory(
+    private val viewModel: CharacterWeaponListViewModel by viewModels {
+        CharacterWeaponListViewModelFactory(
             RoomRepository(AppDatabase.getInstance(requireContext()).appDao),
             (requireParentFragment() as ArgumentsOwner).characterId
         )
     }
 
     private val listAdapter by lazy {
-        SpellMainListAdapterNoEditable()
+        WeaponMainListAdapterNoEditable()
     }
 
     private val navController: NavController by lazy { findNavController() }

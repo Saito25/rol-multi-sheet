@@ -9,7 +9,7 @@ import com.example.rolmultisheet.domain.model.relation.CharacterWithSpells
 import com.example.rolmultisheet.domain.repository.AppRepository
 import kotlinx.coroutines.launch
 
-class CharacterSpellListViewModel(
+class CharacterWeaponListViewModel(
     private val appRepository: AppRepository,
     private val characterId: Long
 ) : ViewModel() {

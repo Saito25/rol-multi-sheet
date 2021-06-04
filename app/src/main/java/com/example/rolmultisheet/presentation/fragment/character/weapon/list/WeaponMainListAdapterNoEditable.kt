@@ -19,8 +19,8 @@ object SpellDiffUtil : DiffUtil.ItemCallback<Spell>() {
     override fun areContentsTheSame(oldItem: Spell, newItem: Spell): Boolean = oldItem == newItem
 }
 
-class SpellMainListAdapterNoEditable :
-    ListAdapter<Spell, SpellMainListAdapterNoEditable.ViewHolder>(SpellDiffUtil) {
+class WeaponMainListAdapterNoEditable :
+    ListAdapter<Spell, WeaponMainListAdapterNoEditable.ViewHolder>(SpellDiffUtil) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
