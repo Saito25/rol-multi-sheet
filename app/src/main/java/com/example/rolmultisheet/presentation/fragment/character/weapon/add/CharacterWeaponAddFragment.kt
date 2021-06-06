@@ -24,24 +24,24 @@ import com.example.rolmultisheet.presentation.util.recycler.newLongKeySelectionT
 
 private const val STATE_SELECTION: String = "STATE_SELECTION"
 
-class CharacterSpellAddFragment : Fragment(R.layout.shared_list_add_fragment) {
+class CharacterWeaponAddFragment : Fragment(R.layout.shared_list_add_fragment) {
 
     private val binding: SharedListAddFragmentBinding by viewBinding {
         SharedListAddFragmentBinding.bind(it)
     }
 
-    private val args: CharacterSpellAddFragmentArgs by navArgs()
+    private val args: CharacterWeaponAddFragmentArgs by navArgs()
 
-    private val viewModel: CharacterSpellAddViewModel by viewModels {
-        CharacterSpellAddViewModelFactory(
+    private val viewModel: CharacterWeaponAddViewModel by viewModels {
+        CharacterWeaponAddViewModelFactory(
             RoomRepository(AppDatabase.getInstance(requireContext()).appDao),
-            args.spellsId,
+            args.weaponsId,
             args.characterId
         )
     }
 
     private val listAdapter by lazy {
-        SpellMainListAddAdapterNoEditable()
+        WeaponMainListAddAdapterNoEditable()
     }
 
     private val selectionTracker: SelectionTracker<Long> by lazy {
@@ -75,7 +75,7 @@ class CharacterSpellAddFragment : Fragment(R.layout.shared_list_add_fragment) {
     }
 
     private fun observeViewModel() {
-        observeCharacterSpellList()
+        observeCharacterWeaponList()
     }
 
     private fun observeViewModelEvent() {
@@ -101,8 +101,8 @@ class CharacterSpellAddFragment : Fragment(R.layout.shared_list_add_fragment) {
         }
     }
 
-    private fun observeCharacterSpellList() {
-        viewModel.characterSpellsList.observe(viewLifecycleOwner) {
+    private fun observeCharacterWeaponList() {
+        viewModel.characterWeaponsList.observe(viewLifecycleOwner) {
             listAdapter.submitList(it)
         }
     }
@@ -117,7 +117,7 @@ class CharacterSpellAddFragment : Fragment(R.layout.shared_list_add_fragment) {
 
     private fun onMenuItemClick(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menuSave -> viewModel.addSpellsToCharacter(selectionTracker.selection)
+            R.id.menuSave -> viewModel.addWeaponsToCharacter(selectionTracker.selection)
             else -> return false
         }
         return true

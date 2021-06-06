@@ -123,6 +123,9 @@
         <action
             android:id="@+id/showCharacterItemAddDirection"
             app:destination="@id/characterItemAddFragmentDirection" />
+        <action
+            android:id="@+id/showCharacterWeaponAddDirectionAction"
+            app:destination="@id/characterWeaponAddDirection" />
     </fragment>
     <fragment
         android:id="@+id/characterSpellAddFragmentDirection"
@@ -141,6 +144,17 @@
         android:label="CharacterItemAddFragment">
         <argument
             android:name="itemIds"
+            app:argType="long[]" />
+        <argument
+            android:name="characterId"
+            app:argType="long" />
+    </fragment>
+    <fragment
+        android:id="@+id/characterWeaponAddDirection"
+        android:name="com.example.rolmultisheet.presentation.fragment.character.weapon.add.CharacterWeaponAddFragment"
+        android:label="CharacterWeaponAddFragment">
+        <argument
+            android:name="weaponsId"
             app:argType="long[]" />
         <argument
             android:name="characterId"

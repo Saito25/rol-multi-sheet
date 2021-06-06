@@ -1,6 +1,5 @@
 package com.example.rolmultisheet.presentation.fragment.character.spell.add
 
-import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -69,13 +68,6 @@ class SpellMainListAddAdapterNoEditable :
                 spellMainItemDescription.text = item.spellDescription
                 root.isActivated = isSelected
             }
-        }
-
-        private fun addRippleEffectToView() {
-            val outValue = TypedValue()
-            binding.root.context.theme
-                .resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
-            binding.root.setBackgroundResource(outValue.resourceId)
         }
     }
 
