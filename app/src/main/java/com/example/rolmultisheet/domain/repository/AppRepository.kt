@@ -21,12 +21,14 @@ interface AppRepository {
     fun queryAllItemsExceptIds(itemIdList: LongArray): LiveData<List<Item>>
     fun queryAllArmours(): LiveData<List<Armour>>
     fun queryArmourById(armourId: Long): LiveData<Armour?>
+    fun queryAllArmourExceptIds(armourIdList: LongArray): LiveData<List<Armour>>
     fun queryAllWeapons(): LiveData<List<Weapon>>
     fun queryAllWeaponsExceptIds(weaponIdList: LongArray): LiveData<List<Weapon>>
     fun queryWeaponById(weaponId: Long): LiveData<Weapon?>
     fun queryCharacterByIdWithSpellList(characterId: Long): LiveData<CharacterWithSpells>
     fun queryCharacterByIdWithItemsList(characterId: Long): LiveData<CharacterWithItems>
     fun queryCharacterByIdWithWeaponsList(characterId: Long): LiveData<CharacterWithWeapons>
+    fun queryCharacterByIdWithArmoursList(characterId: Long): LiveData<CharacterWithArmours>
 
     // Insert
     suspend fun insertCharacter(character: Character)
@@ -42,6 +44,8 @@ interface AppRepository {
     suspend fun insertCharacterWithItemList(characterItemCrossRefList: List<CharacterItemCrossRef>)
     suspend fun insertCharacterWithWeapon(characterWeaponCrossRef: CharacterWeaponCrossRef)
     suspend fun insertCharacterWithWeaponList(characterWeaponCrossRefList: List<CharacterWeaponCrossRef>)
+    suspend fun insertCharacterWithArmour(characterArmourCrossRef: CharacterArmourCrossRef)
+    suspend fun insertCharacterWithArmourList(characterArmourCrossRefList: List<CharacterArmourCrossRef>)
 
     // Update
     suspend fun updateCharacter(character: Character)
@@ -63,4 +67,5 @@ interface AppRepository {
     suspend fun deleteCharacterWithSpell(characterSpellCrossRef: CharacterSpellCrossRef)
     suspend fun deleteCharacterWithItem(characterItemCrossRef: CharacterItemCrossRef)
     suspend fun deleteCharacterWithWeapon(characterWeaponCrossRef: CharacterWeaponCrossRef)
+    suspend fun deleteCharacterWithArmour(characterArmourCrossRef: CharacterArmourCrossRef)
 }

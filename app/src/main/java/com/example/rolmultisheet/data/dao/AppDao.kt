@@ -51,6 +51,9 @@ interface AppDao {
     @Query("SELECT * FROM armour WHERE armour_id = :armourId")
     fun queryArmourById(armourId: Long): LiveData<Armour?>
 
+    @Query("SELECT * FROM armour WHERE armour_id NOT IN (:armourIdList)")
+    fun queryAllArmourExceptIds(armourIdList: LongArray): LiveData<List<Armour>>
+
     @Query("SELECT * FROM weapon")
     fun queryAllWeapons(): LiveData<List<Weapon>>
 
@@ -71,6 +74,10 @@ interface AppDao {
     @Transaction
     @Query("SELECT * FROM character where character_id = :characterId")
     fun queryCharacterByIdWithWeaponsList(characterId: Long): LiveData<CharacterWithWeapons>
+
+    @Transaction
+    @Query("SELECT * FROM character where character_id = :characterId")
+    fun queryCharacterByIdWithArmoursList(characterId: Long): LiveData<CharacterWithArmours>
 
     // Insert
     @Insert
@@ -117,6 +124,14 @@ interface AppDao {
     @Transaction
     @Insert
     suspend fun insertCharacterWithWeaponList(characterWeaponCrossRefList: List<CharacterWeaponCrossRef>)
+
+    @Transaction
+    @Insert
+    suspend fun insertCharacterWithArmour(characterArmourCrossRef: CharacterArmourCrossRef)
+
+    @Transaction
+    @Insert
+    suspend fun insertCharacterWithArmourList(characterArmourCrossRefList: List<CharacterArmourCrossRef>)
 
     // Update
     @Update
@@ -173,5 +188,9 @@ interface AppDao {
     @Transaction
     @Delete
     suspend fun deleteCharacterWithWeapon(characterWeaponCrossRef: CharacterWeaponCrossRef)
+
+    @Transaction
+    @Delete
+    suspend fun deleteCharacterWithArmour(characterArmourCrossRef: CharacterArmourCrossRef)
 }
 
