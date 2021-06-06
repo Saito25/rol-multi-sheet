@@ -7,6 +7,7 @@ import androidx.room.RoomDatabase
 import androidx.sqlite.db.SupportSQLiteDatabase
 import com.example.rolmultisheet.data.dao.AppDao
 import com.example.rolmultisheet.domain.model.*
+import com.example.rolmultisheet.domain.model.relation.CharacterArmourCrossRef
 import com.example.rolmultisheet.domain.model.relation.CharacterItemCrossRef
 import com.example.rolmultisheet.domain.model.relation.CharacterSpellCrossRef
 import com.example.rolmultisheet.domain.model.relation.CharacterWeaponCrossRef
@@ -25,6 +26,7 @@ import kotlinx.coroutines.launch
         CharacterSpellCrossRef::class,
         CharacterItemCrossRef::class,
         CharacterWeaponCrossRef::class,
+        CharacterArmourCrossRef::class,
     ],
     version = 1
 )
