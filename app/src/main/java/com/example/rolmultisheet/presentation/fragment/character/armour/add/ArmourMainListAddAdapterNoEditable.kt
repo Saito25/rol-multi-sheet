@@ -20,8 +20,8 @@ object WeaponDiffUtil : DiffUtil.ItemCallback<Weapon>() {
     override fun areContentsTheSame(oldItem: Weapon, newItem: Weapon): Boolean = oldItem == newItem
 }
 
-class WeaponMainListAddAdapterNoEditable :
-    ListAdapter<Weapon, WeaponMainListAddAdapterNoEditable.ViewHolder>(WeaponDiffUtil),
+class ArmourMainListAddAdapterNoEditable :
+    ListAdapter<Weapon, ArmourMainListAddAdapterNoEditable.ViewHolder>(WeaponDiffUtil),
     ItemKeyPositionProvider<Long> {
 
     var selectionTracker: SelectionTracker<Long>? = null

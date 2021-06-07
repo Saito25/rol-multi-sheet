@@ -11,7 +11,7 @@ import com.example.rolmultisheet.domain.repository.AppRepository
 import com.example.rolmultisheet.presentation.util.event.Event
 import kotlinx.coroutines.launch
 
-class CharacterWeaponAddViewModel(
+class CharacterArmourAddViewModel(
     private val appRepository: AppRepository,
     weaponIds: LongArray,
     private val characterId: Long

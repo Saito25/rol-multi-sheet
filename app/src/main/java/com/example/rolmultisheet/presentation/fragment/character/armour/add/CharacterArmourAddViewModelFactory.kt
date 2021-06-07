@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.rolmultisheet.domain.repository.AppRepository
 
-class CharacterWeaponAddViewModelFactory(
+class CharacterArmourAddViewModelFactory(
     private val appRepository: AppRepository,
     private val characterIdList: LongArray,
     private val characterId: Long,
@@ -12,8 +12,8 @@ class CharacterWeaponAddViewModelFactory(
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T =
-        if (modelClass.isAssignableFrom(CharacterWeaponAddViewModel::class.java)) {
-            CharacterWeaponAddViewModel(appRepository, characterIdList, characterId) as T
+        if (modelClass.isAssignableFrom(CharacterArmourAddViewModel::class.java)) {
+            CharacterArmourAddViewModel(appRepository, characterIdList, characterId) as T
         } else {
             throw IllegalArgumentException("Wrong ViewModel class passed")
         }

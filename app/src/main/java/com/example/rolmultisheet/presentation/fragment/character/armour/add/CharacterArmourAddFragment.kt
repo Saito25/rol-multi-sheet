@@ -24,7 +24,7 @@ import com.example.rolmultisheet.presentation.util.recycler.newLongKeySelectionT
 
 private const val STATE_SELECTION: String = "STATE_SELECTION"
 
-class CharacterWeaponAddFragment : Fragment(R.layout.shared_list_add_fragment) {
+class CharacterArmourAddFragment : Fragment(R.layout.shared_list_add_fragment) {
 
     private val binding: SharedListAddFragmentBinding by viewBinding {
         SharedListAddFragmentBinding.bind(it)
@@ -32,8 +32,8 @@ class CharacterWeaponAddFragment : Fragment(R.layout.shared_list_add_fragment) {
 
     private val args: CharacterWeaponAddFragmentArgs by navArgs()
 
-    private val viewModel: CharacterWeaponAddViewModel by viewModels {
-        CharacterWeaponAddViewModelFactory(
+    private val viewModel: CharacterArmourAddViewModel by viewModels {
+        CharacterArmourAddViewModelFactory(
             RoomRepository(AppDatabase.getInstance(requireContext()).appDao),
             args.weaponsId,
             args.characterId
@@ -41,7 +41,7 @@ class CharacterWeaponAddFragment : Fragment(R.layout.shared_list_add_fragment) {
     }
 
     private val listAdapter by lazy {
-        WeaponMainListAddAdapterNoEditable()
+        ArmourMainListAddAdapterNoEditable()
     }
 
     private val selectionTracker: SelectionTracker<Long> by lazy {
