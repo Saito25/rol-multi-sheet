@@ -5,13 +5,13 @@
     android:id="@+id/spellMainItemRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:animateLayoutChanges="true"
     android:foreground="@drawable/card_foreground">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/spellMainItemSubRoot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
         android:paddingVertical="@dimen/padding_x2">
 
         <TextView

@@ -1,5 +1,6 @@
 package com.example.rolmultisheet.presentation.fragment.armour.main
 
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -43,6 +44,8 @@ class ArmourMainListAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         init {
+            addRippleEffectToView()
+
             itemView.setOnClickListener {
                 onItemClickListener?.onItemClick(adapterPosition)
             }
@@ -73,6 +76,14 @@ class ArmourMainListAdapter :
                     )
                 labelArmourMainItemClass.text = item.armourClass.toString()
             }
+        }
+
+        private fun addRippleEffectToView() {
+            val outValue = TypedValue()
+            binding.root.context.theme
+                .resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+            binding.armourMainItemSubRoot.setBackgroundResource(outValue.resourceId)
+
         }
     }
 }

@@ -5,13 +5,13 @@
     android:id="@+id/itemMainItemRoot"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:animateLayoutChanges="true"
     android:foreground="@drawable/card_foreground">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/itemMainItemSubRoot"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:animateLayoutChanges="true"
         android:paddingVertical="@dimen/padding_x2">
 
         <TextView
@@ -28,7 +28,7 @@
         <TextView
             android:id="@+id/itemMainItemDescription"
             android:layout_width="0dp"
-            android:layout_height="64dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_x1"
             android:layout_marginBottom="@dimen/padding_x2"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
@@ -37,7 +37,8 @@
             app:layout_constraintEnd_toEndOf="@+id/itemMainItemAction"
             app:layout_constraintStart_toStartOf="@+id/itemMainItemName"
             app:layout_constraintTop_toBottomOf="@+id/itemMainItemName"
-            tools:text="Description" />
+            tools:text="Description"
+            tools:visibility="visible" />
 
         <ImageView
             android:id="@+id/itemMainItemAction"

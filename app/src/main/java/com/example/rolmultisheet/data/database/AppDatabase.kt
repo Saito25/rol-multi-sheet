@@ -110,6 +110,9 @@ abstract class AppDatabase : RoomDatabase() {
                                         INSTANCE!!.appDao.insertCharacterWithWeapon(
                                             CharacterWeaponCrossRef(1, 1)
                                         )
+                                        INSTANCE!!.appDao.insertCharacterWithArmour(
+                                            CharacterArmourCrossRef(1, 1)
+                                        )
                                     }
                                 }
                             })

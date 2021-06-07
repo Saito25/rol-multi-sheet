@@ -1,5 +1,6 @@
 package com.example.rolmultisheet.presentation.fragment.weapon.main
 
+import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -44,6 +45,8 @@ class WeaponMainListAdapter :
         RecyclerView.ViewHolder(binding.root) {
 
         init {
+            addRippleEffectToView()
+
             itemView.setOnClickListener {
                 onItemClickListener?.onItemClick(adapterPosition)
             }
@@ -70,6 +73,14 @@ class WeaponMainListAdapter :
                     )
                 labelWeaponMainItemDamage.text = item.weaponDamage
             }
+        }
+
+        private fun addRippleEffectToView() {
+            val outValue = TypedValue()
+            binding.root.context.theme
+                .resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
+            binding.weaponMainItemSubroot.setBackgroundResource(outValue.resourceId)
+
         }
     }
 }
