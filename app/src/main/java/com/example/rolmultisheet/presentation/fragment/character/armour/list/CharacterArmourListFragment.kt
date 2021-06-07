@@ -10,27 +10,26 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CommonListFragmentBinding
-import com.example.rolmultisheet.presentation.fragment.character.host.CharacterTabHostFragmentDirections
 import com.example.rolmultisheet.presentation.util.fragment.ArgumentsOwner
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.recycler.doOnSwiped
 import com.example.rolmultisheet.presentation.util.tab.PageFragment
 
-class CharacterWeaponListFragment : PageFragment(R.layout.common_list_fragment) {
+class CharacterArmourListFragment : PageFragment(R.layout.common_list_fragment) {
 
     private val binding: CommonListFragmentBinding by viewBinding {
         CommonListFragmentBinding.bind(it)
     }
 
-    private val viewModel: CharacterWeaponListViewModel by viewModels {
-        CharacterWeaponListViewModelFactory(
+    private val viewModel: CharacterArmourListViewModel by viewModels {
+        CharacterArmourListViewModelFactory(
             RoomRepository(AppDatabase.getInstance(requireContext()).appDao),
             (requireParentFragment() as ArgumentsOwner).characterId
         )
     }
 
     private val listAdapter by lazy {
-        WeaponMainListAdapterNoEditable()
+        ArmourMainListAdapterNoEditable()
     }
 
     private val navController: NavController by lazy { findNavController() }
@@ -46,7 +45,7 @@ class CharacterWeaponListFragment : PageFragment(R.layout.common_list_fragment) 
     }
 
     private fun observeViewModel() {
-        observeCharacterWeaponList()
+        observeCharacterArmourList()
     }
 
     private fun setupRecyclerView() {
@@ -57,23 +56,23 @@ class CharacterWeaponListFragment : PageFragment(R.layout.common_list_fragment) 
             itemAnimator = DefaultItemAnimator()
             adapter = listAdapter
             doOnSwiped(swipeDirs = ItemTouchHelper.RIGHT) { viewHolder, _ ->
-                viewModel.deleteWeaponFromCharacter(listAdapter.currentList[viewHolder.adapterPosition])
+                viewModel.deleteArmourFromCharacter(listAdapter.currentList[viewHolder.adapterPosition])
             }
         }
     }
 
-    private fun observeCharacterWeaponList() {
-        viewModel.characterWeaponsList.observe(viewLifecycleOwner) {
-            listAdapter.submitList(it.weaponLists)
+    private fun observeCharacterArmourList() {
+        viewModel.characterArmoursList.observe(viewLifecycleOwner) {
+            listAdapter.submitList(it.armourLists)
         }
     }
 
     override fun onFabClick() {
-        val weaponsId = viewModel.characterWeaponIdList
-        val action = CharacterTabHostFragmentDirections.showCharacterWeaponAddDirectionAction(
-            weaponsId,
-            (requireParentFragment() as ArgumentsOwner).characterId,
-        )
-        navController.navigate(action)
+//        val armoursId = viewModel.characterArmourIdList
+//        val action = CharacterTabHostFragmentDirections.showCharacterArmourAddDirectionAction(
+//            armoursId,
+//            (requireParentFragment() as ArgumentsOwner).characterId,
+//        )
+//        navController.navigate(action)
     }
 }
