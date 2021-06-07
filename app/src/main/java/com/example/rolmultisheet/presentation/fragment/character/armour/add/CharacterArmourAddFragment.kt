@@ -30,12 +30,12 @@ class CharacterArmourAddFragment : Fragment(R.layout.shared_list_add_fragment) {
         SharedListAddFragmentBinding.bind(it)
     }
 
-    private val args: CharacterWeaponAddFragmentArgs by navArgs()
+    private val args: CharacterArmourAddFragmentArgs by navArgs()
 
     private val viewModel: CharacterArmourAddViewModel by viewModels {
         CharacterArmourAddViewModelFactory(
             RoomRepository(AppDatabase.getInstance(requireContext()).appDao),
-            args.weaponsId,
+            args.armoursId,
             args.characterId
         )
     }
@@ -75,7 +75,7 @@ class CharacterArmourAddFragment : Fragment(R.layout.shared_list_add_fragment) {
     }
 
     private fun observeViewModel() {
-        observeCharacterWeaponList()
+        observeCharacterArmourList()
     }
 
     private fun observeViewModelEvent() {
@@ -101,8 +101,8 @@ class CharacterArmourAddFragment : Fragment(R.layout.shared_list_add_fragment) {
         }
     }
 
-    private fun observeCharacterWeaponList() {
-        viewModel.characterWeaponsList.observe(viewLifecycleOwner) {
+    private fun observeCharacterArmourList() {
+        viewModel.characterArmoursList.observe(viewLifecycleOwner) {
             listAdapter.submitList(it)
         }
     }
@@ -117,7 +117,7 @@ class CharacterArmourAddFragment : Fragment(R.layout.shared_list_add_fragment) {
 
     private fun onMenuItemClick(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.menuSave -> viewModel.addWeaponsToCharacter(selectionTracker.selection)
+            R.id.menuSave -> viewModel.addArmoursToCharacter(selectionTracker.selection)
             else -> return false
         }
         return true

@@ -6,14 +6,14 @@ import com.example.rolmultisheet.domain.repository.AppRepository
 
 class CharacterArmourAddViewModelFactory(
     private val appRepository: AppRepository,
-    private val characterIdList: LongArray,
+    private val armourIdList: LongArray,
     private val characterId: Long,
 ) : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T =
         if (modelClass.isAssignableFrom(CharacterArmourAddViewModel::class.java)) {
-            CharacterArmourAddViewModel(appRepository, characterIdList, characterId) as T
+            CharacterArmourAddViewModel(appRepository, armourIdList, characterId) as T
         } else {
             throw IllegalArgumentException("Wrong ViewModel class passed")
         }

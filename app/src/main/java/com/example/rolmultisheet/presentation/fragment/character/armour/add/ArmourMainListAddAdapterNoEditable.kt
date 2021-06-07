@@ -8,36 +8,36 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.example.rolmultisheet.R
-import com.example.rolmultisheet.databinding.WeaponMainItemFragmentBinding
-import com.example.rolmultisheet.domain.model.Weapon
+import com.example.rolmultisheet.databinding.ArmourMainItemFragmentBinding
+import com.example.rolmultisheet.domain.model.Armour
 import com.example.rolmultisheet.presentation.util.recycler.ItemKeyPositionProvider
 
 
-object WeaponDiffUtil : DiffUtil.ItemCallback<Weapon>() {
-    override fun areItemsTheSame(oldItem: Weapon, newItem: Weapon): Boolean =
-        oldItem.weaponId == newItem.weaponId
+object ArmourDiffUtil : DiffUtil.ItemCallback<Armour>() {
+    override fun areItemsTheSame(oldItem: Armour, newItem: Armour): Boolean =
+        oldItem.armourId == newItem.armourId
 
-    override fun areContentsTheSame(oldItem: Weapon, newItem: Weapon): Boolean = oldItem == newItem
+    override fun areContentsTheSame(oldItem: Armour, newItem: Armour): Boolean = oldItem == newItem
 }
 
 class ArmourMainListAddAdapterNoEditable :
-    ListAdapter<Weapon, ArmourMainListAddAdapterNoEditable.ViewHolder>(WeaponDiffUtil),
+    ListAdapter<Armour, ArmourMainListAddAdapterNoEditable.ViewHolder>(ArmourDiffUtil),
     ItemKeyPositionProvider<Long> {
 
     var selectionTracker: SelectionTracker<Long>? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
         ViewHolder(
-            WeaponMainItemFragmentBinding.inflate(
+            ArmourMainItemFragmentBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false
             )
         )
 
-    override fun getItemKey(position: Int): Long = currentList[position].weaponId
+    override fun getItemKey(position: Int): Long = currentList[position].armourId
 
-    override fun getItemPosition(key: Long): Int = currentList.indexOfFirst { it.weaponId == key }
+    override fun getItemPosition(key: Long): Int = currentList.indexOfFirst { it.armourId == key }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         holder.bind(
@@ -46,35 +46,37 @@ class ArmourMainListAddAdapterNoEditable :
         )
     }
 
-    inner class ViewHolder(private val binding: WeaponMainItemFragmentBinding) :
+    inner class ViewHolder(private val binding: ArmourMainItemFragmentBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         init {
             itemView.setOnClickListener {
-                if (binding.weaponMainItemDescription.visibility == View.GONE) {
-                    binding.weaponMainItemDescription.visibility = View.VISIBLE
-                    binding.weaponMainItemAction.setImageResource(R.drawable.ic_arrow_down_black_24dp)
+                if (binding.armourMainItemDescription.visibility == View.GONE) {
+                    binding.armourMainItemDescription.visibility = View.VISIBLE
+                    binding.labelArmourMainItemClass.visibility = View.VISIBLE
+                    binding.imageArmourMainItemClass.visibility = View.VISIBLE
+                    binding.armourMainItemAction.setImageResource(R.drawable.ic_arrow_down_black_24dp)
                 } else {
-                    binding.weaponMainItemDescription.visibility = View.GONE
-                    binding.weaponMainItemAction.setImageResource(R.drawable.ic_arrow_up_black_24dp)
+                    binding.armourMainItemDescription.visibility = View.GONE
+                    binding.labelArmourMainItemClass.visibility = View.GONE
+                    binding.imageArmourMainItemClass.visibility = View.GONE
+                    binding.armourMainItemAction.setImageResource(R.drawable.ic_arrow_up_black_24dp)
                 }
             }
         }
 
-        fun bind(item: Weapon, isSelected: Boolean) {
+        fun bind(item: Armour, isSelected: Boolean) {
             binding.run {
-                weaponMainItemName.text = item.weaponName
-                weaponMainItemDescription.text = item.weaponDescription
-                labelWeaponMainItemPrice.text =
+                armourMainItemName.text = item.armourName
+                armourMainItemDescription.text = item.armourDescription
+                labelArmourMainItemPrice.text =
                     binding.root.context.applicationContext.getString(
                         R.string.item_main_item_price,
-                        item.weaponPrice
+                        item.armourPrice
                     )
-                labelWeaponMainItemDamage.text = item.weaponDamage
+                labelArmourMainItemClass.text = item.armourClass.toString()
                 root.isActivated = isSelected
             }
         }
     }
-
-
 }

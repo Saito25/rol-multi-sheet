@@ -10,6 +10,7 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.data.database.AppDatabase
 import com.example.rolmultisheet.data.repository.RoomRepository
 import com.example.rolmultisheet.databinding.CommonListFragmentBinding
+import com.example.rolmultisheet.presentation.fragment.character.host.CharacterTabHostFragmentDirections
 import com.example.rolmultisheet.presentation.util.fragment.ArgumentsOwner
 import com.example.rolmultisheet.presentation.util.fragment.viewBinding
 import com.example.rolmultisheet.presentation.util.recycler.doOnSwiped
@@ -68,11 +69,11 @@ class CharacterArmourListFragment : PageFragment(R.layout.common_list_fragment) 
     }
 
     override fun onFabClick() {
-//        val armoursId = viewModel.characterArmourIdList
-//        val action = CharacterTabHostFragmentDirections.showCharacterArmourAddDirectionAction(
-//            armoursId,
-//            (requireParentFragment() as ArgumentsOwner).characterId,
-//        )
-//        navController.navigate(action)
+        val armoursId = viewModel.characterArmourIdList
+        val action = CharacterTabHostFragmentDirections.showCharacterArmourAddDirectionAction(
+            armoursId,
+            (requireParentFragment() as ArgumentsOwner).characterId,
+        )
+        navController.navigate(action)
     }
 }
