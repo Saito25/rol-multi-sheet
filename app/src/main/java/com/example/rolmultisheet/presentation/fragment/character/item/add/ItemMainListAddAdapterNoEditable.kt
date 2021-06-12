@@ -3,6 +3,7 @@ package com.example.rolmultisheet.presentation.fragment.character.item.add
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StringRes
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
@@ -53,9 +54,11 @@ class ItemMainListAddAdapterNoEditable :
             itemView.setOnClickListener {
                 if (binding.itemMainItemDescription.visibility == View.GONE) {
                     binding.itemMainItemDescription.visibility = View.VISIBLE
+                    binding.itemMainItemWeight.visibility = View.VISIBLE
                     binding.itemMainItemAction.setImageResource(R.drawable.ic_arrow_down_black_24dp)
                 } else {
                     binding.itemMainItemDescription.visibility = View.GONE
+                    binding.itemMainItemWeight.visibility = View.GONE
                     binding.itemMainItemAction.setImageResource(R.drawable.ic_arrow_up_black_24dp)
                 }
             }
@@ -63,16 +66,19 @@ class ItemMainListAddAdapterNoEditable :
 
         fun bind(item: Item, isSelected: Boolean) {
             binding.run {
+                root.isActivated = isSelected
                 itemMainItemName.text = item.itemName
                 if (isSelected) itemMainItemName.append("*")
-                itemMainItemDescription.text = item.itemDescription
+                itemMainItemDescription.text =
+                    getString(item.itemDescription, R.string.item_main_item_description)
                 labelItemMainItemPrice.text =
-                    binding.root.context.applicationContext.getString(
-                        R.string.item_main_item_price,
-                        item.itemPrice
-                    )
-                root.isActivated = isSelected
+                    getString(item.itemPrice.toString(), R.string.item_main_item_price)
+                itemMainItemWeight.text =
+                    getString(item.itemWeight.toString(), R.string.item_main_item_weight)
             }
         }
+
+        private fun getString(value: String?, @StringRes resource: Int): String =
+            binding.root.context.applicationContext.getString(resource, value)
     }
 }

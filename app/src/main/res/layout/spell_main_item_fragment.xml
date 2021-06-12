@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/spellMainItemSubRoot"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         android:paddingVertical="@dimen/padding_x2">
 
@@ -26,18 +26,55 @@
             tools:text="spell name" />
 
         <TextView
-            android:id="@+id/spellMainItemDescription"
+            android:id="@+id/spellMainItemDuration"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_x1"
-            android:layout_marginBottom="@dimen/padding_x2"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="@+id/spellMainItemAction"
             app:layout_constraintStart_toStartOf="@+id/spellMainItemName"
             app:layout_constraintTop_toBottomOf="@+id/spellMainItemName"
+            tools:text="Duración"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/spellMainItemDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/card_corner_radius_8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/spellMainItemAction"
+            app:layout_constraintStart_toStartOf="@+id/spellMainItemName"
+            app:layout_constraintTop_toBottomOf="@+id/spellMainItemScope"
             tools:text="Description"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/spellMainItemScope"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_x1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/spellMainItemAction"
+            app:layout_constraintStart_toStartOf="@+id/spellMainItemName"
+            app:layout_constraintTop_toBottomOf="@+id/spellMainItemCastTime"
+            tools:text="Scope"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/spellMainItemCastTime"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_x1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/spellMainItemAction"
+            app:layout_constraintStart_toStartOf="@+id/spellMainItemName"
+            app:layout_constraintTop_toBottomOf="@+id/spellMainItemDuration"
+            tools:text="Cast time"
             tools:visibility="visible" />
 
         <ImageView

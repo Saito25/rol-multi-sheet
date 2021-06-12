@@ -104,7 +104,6 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
     private fun onMenuItemClick(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.menuGame -> navigateToEditGame()
-            R.id.menuGameInfo -> navigateToInfo()
             else -> return false
         }
         return true
@@ -114,10 +113,4 @@ class HomeFragment : Fragment(R.layout.home_fragment) {
         val action = HomeFragmentDirections.showGameTabHostFragmentDirection()
         navController.navigate(action)
     }
-
-    private fun navigateToInfo() {
-        val action = HomeFragmentDirections.showInfoFragmentDirection()
-        navController.navigate(action)
-    }
-
 }

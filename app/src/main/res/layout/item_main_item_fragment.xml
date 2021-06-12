@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/itemMainItemSubRoot"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         android:paddingVertical="@dimen/padding_x2">
 
@@ -30,14 +30,25 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_x1"
-            android:layout_marginBottom="@dimen/padding_x2"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:visibility="gone"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/itemMainItemWeight"
+            app:layout_constraintStart_toStartOf="@+id/itemMainItemWeight"
+            app:layout_constraintTop_toBottomOf="@+id/itemMainItemWeight"
+            tools:text="Description"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/itemMainItemWeight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_x1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/itemMainItemAction"
             app:layout_constraintStart_toStartOf="@+id/itemMainItemName"
             app:layout_constraintTop_toBottomOf="@+id/itemMainItemName"
-            tools:text="Description"
+            tools:text="Peso"
             tools:visibility="visible" />
 
         <ImageView

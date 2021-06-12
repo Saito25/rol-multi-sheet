@@ -4,6 +4,7 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StringRes
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -53,9 +54,15 @@ class SpellMainListAdapter : ListAdapter<Spell, SpellMainListAdapter.ViewHolder>
             binding.spellMainItemAction.setOnClickListener {
                 if (binding.spellMainItemDescription.visibility == View.GONE) {
                     binding.spellMainItemDescription.visibility = View.VISIBLE
+                    binding.spellMainItemCastTime.visibility = View.VISIBLE
+                    binding.spellMainItemScope.visibility = View.VISIBLE
+                    binding.spellMainItemDuration.visibility = View.VISIBLE
                     binding.spellMainItemAction.setImageResource(R.drawable.ic_arrow_down_black_24dp)
                 } else {
                     binding.spellMainItemDescription.visibility = View.GONE
+                    binding.spellMainItemCastTime.visibility = View.GONE
+                    binding.spellMainItemScope.visibility = View.GONE
+                    binding.spellMainItemDuration.visibility = View.GONE
                     binding.spellMainItemAction.setImageResource(R.drawable.ic_arrow_up_black_24dp)
                 }
             }
@@ -64,9 +71,19 @@ class SpellMainListAdapter : ListAdapter<Spell, SpellMainListAdapter.ViewHolder>
         fun bind(item: Spell) {
             binding.run {
                 spellMainItemName.text = item.spellName
-                spellMainItemDescription.text = item.spellDescription
+                spellMainItemDescription.text =
+                    getString(item.spellDescription, R.string.spell_main_description)
+                spellMainItemDuration.text =
+                    getString(item.spellDuration, R.string.spell_main_duration)
+                spellMainItemScope.text = getString(item.spellScope, R.string.spell_main_scope)
+                spellMainItemCastTime.text =
+                    getString(item.spellCastTime, R.string.spell_main_castTime)
             }
         }
+
+        private fun getString(value: String?, @StringRes resource: Int): String =
+            binding.root.context.applicationContext.getString(resource, value)
+
 
         private fun addRippleEffectToView() {
             val outValue = TypedValue()

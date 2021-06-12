@@ -85,6 +85,10 @@
 
     <!--  Spell main  -->
     <string name="spell_main_snackbar_title">Hechizo eliminado</string>
+    <string name="spell_main_duration">Duración: %1$s</string>
+    <string name="spell_main_description">Descripción: %1$s</string>
+    <string name="spell_main_castTime">Tiempo de lanzamiento: %1$s</string>
+    <string name="spell_main_scope">Alcance: %1$s</string>
 
     <!--  Spell edition  -->
     <string name="spell_edition_toolbar_title">Nuevo hechizo</string>
@@ -98,7 +102,9 @@
     <string name="item_main_snackbar_title">Objeto eliminado</string>
 
     <!--  Item main Item -->
-    <string name="item_main_item_price">%1$d $</string>
+    <string name="item_main_item_price">%1$s $</string>
+    <string name="item_main_item_weight">Peso: %1$s</string>
+    <string name="item_main_item_description">Description: %1$s</string>
 
     <!--  Item edition  -->
     <string name="item_edition_toolbar_title">Nuevo Objeto</string>
