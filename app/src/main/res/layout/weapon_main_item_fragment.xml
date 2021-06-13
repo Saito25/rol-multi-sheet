@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/weaponMainItemSubroot"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         android:paddingVertical="@dimen/padding_x2">
 
@@ -34,8 +34,60 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/weaponMainItemAction"
             app:layout_constraintStart_toStartOf="@+id/weaponMainItemName"
-            app:layout_constraintTop_toBottomOf="@+id/labelWeaponMainItemDamage"
+            app:layout_constraintTop_toBottomOf="@+id/weaponMainItemWeigth"
             tools:text="Description"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/weaponMainItemScope"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_x1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/weaponMainItemAction"
+            app:layout_constraintStart_toStartOf="@+id/labelWeaponMainItemDamage"
+            app:layout_constraintTop_toBottomOf="@+id/labelWeaponMainItemDamage"
+            tools:text="Alcance"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/weaponMainItemDamageType"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_x1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/weaponMainItemAction"
+            app:layout_constraintStart_toStartOf="@+id/weaponMainItemName"
+            app:layout_constraintTop_toBottomOf="@+id/weaponMainItemScope"
+            tools:text="Tipo de daño"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/weaponMainItemTwoHand"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_x1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/weaponMainItemAction"
+            app:layout_constraintStart_toStartOf="@+id/weaponMainItemName"
+            app:layout_constraintTop_toBottomOf="@+id/weaponMainItemDamageType"
+            tools:text="A dos manos"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/weaponMainItemWeigth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_x1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/weaponMainItemAction"
+            app:layout_constraintStart_toStartOf="@+id/weaponMainItemName"
+            app:layout_constraintTop_toBottomOf="@+id/weaponMainItemTwoHand"
+            tools:text="Peso"
             tools:visibility="visible" />
 
         <ImageView

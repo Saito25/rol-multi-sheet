@@ -51,25 +51,27 @@ class ArmourMainListAdapter :
                 onItemClickListener?.onItemClick(adapterPosition)
             }
 
-            binding.armourMainItemAction.setOnClickListener {
-                if (binding.armourMainItemDescription.visibility == View.GONE) {
-                    binding.armourMainItemDescription.visibility = View.VISIBLE
-                    binding.imageArmourMainItemClass.visibility = View.VISIBLE
-                    binding.labelArmourMainItemClass.visibility = View.VISIBLE
-                    binding.armourMainItemMaxBonus.visibility = View.VISIBLE
-                    binding.armourMainItemRequiredStrength.visibility = View.VISIBLE
-                    binding.armourMainItemStealth.visibility = View.VISIBLE
-                    binding.armourMainItemWeight.visibility = View.VISIBLE
-                    binding.armourMainItemAction.setImageResource(R.drawable.ic_arrow_down_black_24dp)
-                } else {
-                    binding.armourMainItemDescription.visibility = View.GONE
-                    binding.labelArmourMainItemClass.visibility = View.GONE
-                    binding.imageArmourMainItemClass.visibility = View.GONE
-                    binding.armourMainItemMaxBonus.visibility = View.GONE
-                    binding.armourMainItemRequiredStrength.visibility = View.GONE
-                    binding.armourMainItemStealth.visibility = View.GONE
-                    binding.armourMainItemWeight.visibility = View.GONE
-                    binding.armourMainItemAction.setImageResource(R.drawable.ic_arrow_up_black_24dp)
+            binding.run {
+                armourMainItemAction.setOnClickListener {
+                    if (armourMainItemDescription.visibility == View.GONE) {
+                        armourMainItemDescription.visibility = View.VISIBLE
+                        imageArmourMainItemClass.visibility = View.VISIBLE
+                        labelArmourMainItemClass.visibility = View.VISIBLE
+                        armourMainItemMaxBonus.visibility = View.VISIBLE
+                        armourMainItemRequiredStrength.visibility = View.VISIBLE
+                        armourMainItemStealth.visibility = View.VISIBLE
+                        armourMainItemWeight.visibility = View.VISIBLE
+                        armourMainItemAction.setImageResource(R.drawable.ic_arrow_down_black_24dp)
+                    } else {
+                        armourMainItemDescription.visibility = View.GONE
+                        labelArmourMainItemClass.visibility = View.GONE
+                        imageArmourMainItemClass.visibility = View.GONE
+                        armourMainItemMaxBonus.visibility = View.GONE
+                        armourMainItemRequiredStrength.visibility = View.GONE
+                        armourMainItemStealth.visibility = View.GONE
+                        armourMainItemWeight.visibility = View.GONE
+                        armourMainItemAction.setImageResource(R.drawable.ic_arrow_up_black_24dp)
+                    }
                 }
             }
         }
@@ -88,24 +90,30 @@ class ArmourMainListAdapter :
                 )
                 armourMainItemWeight.text =
                     getString(item.armourWeight.toString(), R.string.armour_main_item_weight)
+                armourMainItemRequiredStrength.text = getString(
+                    item.armourRequiredMinStrength.toString(),
+                    R.string.armour_main_item_required_Strength
+                )
+                armourMainItemMaxBonus.text =
+                    getString(item.armourMaxBonus.toString(), R.string.armour_main_item_max_bonus)
             }
         }
 
         private fun getString(value: String?, @StringRes resource: Int): String =
             binding.root.context.applicationContext.getString(resource, value)
 
-
         private fun getStringByBoolean(value: Boolean): String =
-            if (value) binding.root.context.applicationContext.getString(R.string.armour_main_item_stealth_yes)
-            else binding.root.context.applicationContext.getString(R.string.armour_main_item_stealth_no)
+            if (value) getStringFromContext(R.string.armour_main_item_stealth_yes)
+            else getStringFromContext(R.string.armour_main_item_stealth_no)
 
+        private fun getStringFromContext(@StringRes stringResource: Int) =
+            binding.root.context.applicationContext.getString(stringResource)
 
         private fun addRippleEffectToView() {
             val outValue = TypedValue()
             binding.root.context.theme
                 .resolveAttribute(android.R.attr.selectableItemBackground, outValue, true)
             binding.armourMainItemSubRoot.setBackgroundResource(outValue.resourceId)
-
         }
     }
 }

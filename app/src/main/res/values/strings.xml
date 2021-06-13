@@ -143,6 +143,14 @@
     <string name="weapon_main_snackbar_title">Arma eliminada</string>
 
     <!--  Weapon main item -->
+    <string name="weapon_main_item_scope">Alcance: %1$s</string>
+    <string name="weapon_main_damage_type">Tipo de daño: %1$s</string>
+    <string name="weapon_main_two_hand">A dos manos: %1$s</string>
+    <string name="weapon_main_yes">Sí</string>
+    <string name="weapon_main_no">No</string>
+    <string name="weapon_main_price">Precio: %1$s</string>
+    <string name="weapon_main_weight">Peso: %1$s</string>
+    <string name="weapon_main_description">Description: %1$s</string>
 
     <!--  Weapon edit  -->
     <string name="weapon_edition_toolbar_title">Nueva arma</string>
