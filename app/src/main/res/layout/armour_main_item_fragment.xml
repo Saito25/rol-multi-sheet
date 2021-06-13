@@ -10,7 +10,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/armourMainItemSubRoot"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:animateLayoutChanges="true"
         android:paddingVertical="@dimen/padding_x2">
 
@@ -30,14 +30,65 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_x1"
-            android:layout_marginEnd="@dimen/padding_x1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/armourMainItemWeight"
+            app:layout_constraintStart_toStartOf="@+id/armourMainItemWeight"
+            app:layout_constraintTop_toBottomOf="@+id/armourMainItemWeight"
+            tools:text="Description"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/armourMainItemWeight"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_x1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/armourMainItemStealth"
+            app:layout_constraintStart_toStartOf="@+id/armourMainItemStealth"
+            app:layout_constraintTop_toBottomOf="@+id/armourMainItemStealth"
+            tools:text="Peso"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/armourMainItemStealth"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_x1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/imageArmourMainItemClass"
+            app:layout_constraintStart_toStartOf="@+id/armourMainItemRequiredStrength"
+            app:layout_constraintTop_toBottomOf="@+id/armourMainItemRequiredStrength"
+            tools:text="Desventaja sigilo:"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/armourMainItemRequiredStrength"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_x1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="@+id/armourMainItemMaxBonus"
+            app:layout_constraintStart_toStartOf="@+id/armourMainItemMaxBonus"
+            app:layout_constraintTop_toBottomOf="@+id/armourMainItemMaxBonus"
+            tools:text="Fuerza requerida"
+            tools:visibility="visible" />
+
+        <TextView
+            android:id="@+id/armourMainItemMaxBonus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_x1"
+            android:layout_marginEnd="@dimen/padding_x2"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:visibility="gone"
             app:layout_constraintEnd_toStartOf="@+id/labelArmourMainItemClass"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="@+id/armourMainItemName"
             app:layout_constraintTop_toBottomOf="@+id/armourMainItemName"
-            tools:text="Description"
+            tools:text="bono máximo:"
             tools:visibility="visible" />
 
         <ImageView

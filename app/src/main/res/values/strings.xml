@@ -118,6 +118,14 @@
 
     <!--  Armour main item -->
     <string name="armour_main_item_image_class_icon">Icono que representa que la clase de armadura</string>
+    <string name="armour_main_item_max_bonus">Bono máximo: %1$s</string>
+    <string name="armour_main_item_required_Strength">Fuerza requerida: %1$s</string>
+    <string name="armour_main_item_stealth">Desventaja sigilo: %1$s</string>
+    <string name="armour_main_item_stealth_yes">sí</string>
+    <string name="armour_main_item_stealth_no">no</string>
+    <string name="armour_main_item_price">Precio: %1$s</string>
+    <string name="armour_main_item_weight">Peso: %1$s</string>
+    <string name="armour_main_item_description">Description: %1$s</string>
 
     <!--  Armour edit-->
     <string name="armour_edition_toolbar_title">Nueva armadura</string>
@@ -170,12 +178,4 @@
     <string name="character_information_charisma">Carisma</string>
     <string name="character_information_gold">Oro</string>
     <string name="character_information_bonus">+%1$d</string>
-
-
-    <!--  Spell main  -->
-    <!--  Spell main  -->
-    <!--  Spell main  -->
-    <!--  Spell main  -->
-    <!--  Spell main  -->
-    <!--  Spell main  -->
 </resources>

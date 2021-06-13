@@ -4,6 +4,7 @@ import android.util.TypedValue
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.StringRes
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
@@ -53,13 +54,21 @@ class ArmourMainListAdapter :
             binding.armourMainItemAction.setOnClickListener {
                 if (binding.armourMainItemDescription.visibility == View.GONE) {
                     binding.armourMainItemDescription.visibility = View.VISIBLE
-                    binding.labelArmourMainItemClass.visibility = View.VISIBLE
                     binding.imageArmourMainItemClass.visibility = View.VISIBLE
+                    binding.labelArmourMainItemClass.visibility = View.VISIBLE
+                    binding.armourMainItemMaxBonus.visibility = View.VISIBLE
+                    binding.armourMainItemRequiredStrength.visibility = View.VISIBLE
+                    binding.armourMainItemStealth.visibility = View.VISIBLE
+                    binding.armourMainItemWeight.visibility = View.VISIBLE
                     binding.armourMainItemAction.setImageResource(R.drawable.ic_arrow_down_black_24dp)
                 } else {
                     binding.armourMainItemDescription.visibility = View.GONE
                     binding.labelArmourMainItemClass.visibility = View.GONE
                     binding.imageArmourMainItemClass.visibility = View.GONE
+                    binding.armourMainItemMaxBonus.visibility = View.GONE
+                    binding.armourMainItemRequiredStrength.visibility = View.GONE
+                    binding.armourMainItemStealth.visibility = View.GONE
+                    binding.armourMainItemWeight.visibility = View.GONE
                     binding.armourMainItemAction.setImageResource(R.drawable.ic_arrow_up_black_24dp)
                 }
             }
@@ -68,15 +77,28 @@ class ArmourMainListAdapter :
         fun bind(item: Armour) {
             binding.run {
                 armourMainItemName.text = item.armourName
-                armourMainItemDescription.text = item.armourDescription
+                armourMainItemDescription.text =
+                    getString(item.armourDescription, R.string.armour_main_item_description)
                 labelArmourMainItemPrice.text =
-                    binding.root.context.applicationContext.getString(
-                        R.string.item_main_item_price,
-                        item.armourPrice
-                    )
+                    getString(item.armourPrice.toString(), R.string.item_main_item_price)
                 labelArmourMainItemClass.text = item.armourClass.toString()
+                armourMainItemStealth.text = getString(
+                    getStringByBoolean(item.armourStealthDisadvantage),
+                    R.string.armour_main_item_stealth
+                )
+                armourMainItemWeight.text =
+                    getString(item.armourWeight.toString(), R.string.armour_main_item_weight)
             }
         }
+
+        private fun getString(value: String?, @StringRes resource: Int): String =
+            binding.root.context.applicationContext.getString(resource, value)
+
+
+        private fun getStringByBoolean(value: Boolean): String =
+            if (value) binding.root.context.applicationContext.getString(R.string.armour_main_item_stealth_yes)
+            else binding.root.context.applicationContext.getString(R.string.armour_main_item_stealth_no)
+
 
         private fun addRippleEffectToView() {
             val outValue = TypedValue()
