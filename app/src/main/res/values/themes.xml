@@ -17,6 +17,8 @@
         <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
 
         <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
+
+        <item name="android:textViewStyle">@style/FontStyle</item>
     </style>
 
     <!-- ToolBar -->
@@ -33,9 +35,15 @@
         <item name="iconTint">?attr/colorOnPrimary</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <item name="android:fontFamily">@font/arbutusslab_regular</item>
+    </style>
 
-    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox"></style>
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox" />
+
+    <style name="FontStyle" parent="android:Widget.TextView">
+        <item name="android:fontFamily">@font/arbutusslab_regular</item>
+    </style>
 
 
 </resources>

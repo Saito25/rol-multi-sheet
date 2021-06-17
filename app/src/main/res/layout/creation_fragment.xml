@@ -275,7 +275,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x1"
-                android:layout_marginBottom="@dimen/padding_x3"
+                android:layout_marginBottom="@dimen/padding_x4"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body1"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/textInputCreationJob"
