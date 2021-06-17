@@ -92,7 +92,6 @@ class CharacterItemAddFragment : Fragment(R.layout.shared_list_add_fragment) {
 
     private fun setupRecyclerView() {
         binding.listSharedAdd.run {
-            setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireContext())
             addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
             itemAnimator = DefaultItemAnimator()

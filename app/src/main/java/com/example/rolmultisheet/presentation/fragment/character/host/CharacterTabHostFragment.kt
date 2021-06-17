@@ -22,7 +22,9 @@ import com.example.rolmultisheet.presentation.util.tab.onAddTabSelectedListener
 import com.google.android.material.tabs.TabLayoutMediator
 import java.lang.ref.WeakReference
 
-class CharacterTabHostFragment : Fragment(R.layout.character_tab_host_fragment), PageContainer,
+class CharacterTabHostFragment :
+    Fragment(R.layout.character_tab_host_fragment),
+    PageContainer,
     ArgumentsOwner {
 
     private val binding: CharacterTabHostFragmentBinding by viewBinding {
@@ -83,7 +85,7 @@ class CharacterTabHostFragment : Fragment(R.layout.character_tab_host_fragment),
     }
 
     private fun setupFab() {
-        updateFab(0)
+        // updateFab(0)
         binding.fabCharacterTab.setOnClickListener { onFabClick() }
     }
 
@@ -114,15 +116,25 @@ class CharacterTabHostFragment : Fragment(R.layout.character_tab_host_fragment),
     }
 
     private fun updateFab(currentItem: Int) {
+        println("-------------------------------- Updated with value: $currentItem")
         if (currentItem != 0) {
-            binding.fabCharacterTab.visibility = View.VISIBLE
+            // binding.fabCharacterTab.visibility = View.VISIBLE
+            binding.fabCharacterTab.postDelayed(
+                Runnable {
+                    // updateFab(binding.pagerCharacterTab.currentItem)
+                    binding.fabCharacterTab.show()
+                },
+                100
+            )
+            println("-------------------------------- Updated VISIBLE")
         } else {
-            binding.fabCharacterTab.visibility = View.GONE
+            // binding.fabCharacterTab.visibility = View.GONE
+            binding.fabCharacterTab.hide()
+            println("-------------------------------- Updated INVISIBLE")
         }
     }
 
     private fun onFabClick() {
         currentPage?.get()?.onFabClick()
     }
-
 }

@@ -11,7 +11,6 @@ import com.example.rolmultisheet.R
 import com.example.rolmultisheet.databinding.ItemMainItemFragmentBinding
 import com.example.rolmultisheet.domain.model.Item
 
-
 object ItemDiffUtil : DiffUtil.ItemCallback<Item>() {
     override fun areItemsTheSame(oldItem: Item, newItem: Item): Boolean =
         oldItem.itemId == newItem.itemId

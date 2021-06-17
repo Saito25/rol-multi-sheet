@@ -47,6 +47,7 @@
         android:layout_marginStart="@dimen/padding_x3"
         android:layout_marginTop="@dimen/padding_x2"
         android:layout_marginEnd="@dimen/padding_x3"
+        android:hint="@string/health_modal_current"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/labelHealthModalTitle">
@@ -55,7 +56,7 @@
             android:id="@+id/inputHealthModalCurrent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/health_modal_current"
+
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -64,6 +65,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/padding_x2"
+        android:hint="@string/health_modal_max"
         app:layout_constraintEnd_toEndOf="@+id/inputLayoutHealthModalCurrent"
         app:layout_constraintStart_toStartOf="@+id/inputLayoutHealthModalCurrent"
         app:layout_constraintTop_toBottomOf="@+id/inputLayoutHealthModalCurrent">
@@ -72,7 +74,6 @@
             android:id="@+id/inputHealthModalMax"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/health_modal_max"
             android:inputType="number" />
     </com.google.android.material.textfield.TextInputLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

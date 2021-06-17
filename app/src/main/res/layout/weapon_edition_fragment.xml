@@ -32,7 +32,7 @@
                 android:id="@+id/inputDecoratorWeaponEditionName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:helperText="@string/weapon_edition_name"
+                android:hint="@string/weapon_edition_name"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
@@ -49,7 +49,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/weapon_edition_damage"
+                android:hint="@string/weapon_edition_damage"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorWeaponEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorWeaponEditionName"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorWeaponEditionName">
@@ -66,7 +66,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/weapon_edition_scope"
+                android:hint="@string/weapon_edition_scope"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorWeaponEditionDamage"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorWeaponEditionDamage"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorWeaponEditionDamage">
@@ -82,7 +82,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/weapon_edition_damage_type"
+                android:hint="@string/weapon_edition_damage_type"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorWeaponEditionScope"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorWeaponEditionScope"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorWeaponEditionScope">
@@ -111,7 +111,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/weapon_edition_price"
+                android:hint="@string/weapon_edition_price"
                 app:layout_constraintEnd_toEndOf="@+id/checkWeaponEditTwoHand"
                 app:layout_constraintStart_toStartOf="@+id/checkWeaponEditTwoHand"
                 app:layout_constraintTop_toBottomOf="@+id/checkWeaponEditTwoHand">
@@ -127,7 +127,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/weapon_edition_weight"
+                android:hint="@string/weapon_edition_weight"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorWeaponEditionPrice"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorWeaponEditionPrice"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorWeaponEditionPrice">
@@ -143,7 +143,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/weapon_edition_description"
+                android:hint="@string/weapon_edition_description"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorWeaponEditionWeight"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorWeaponEditionWeight"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorWeaponEditionWeight">

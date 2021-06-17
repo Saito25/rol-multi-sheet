@@ -56,4 +56,6 @@ data class Character(
     val characterCharisma: Int = 1,
     @ColumnInfo(name = "character_gold")
     val characterGold: Int = 0,
+    @ColumnInfo(name = "character_image")
+    val characterImage: String = ""
 )

@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/race_edition_name"
+                android:hint="@string/race_edition_name"
                 app:layout_constraintStart_toStartOf="@+id/cardRaceEditionBackground"
                 app:layout_constraintTop_toBottomOf="@+id/cardRaceEditionBackground">
 
@@ -68,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/race_edition_velocity"
+                android:hint="@string/race_edition_velocity"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorRaceEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorRaceEditionName"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorRaceEditionName">
@@ -85,7 +85,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/race_edition_length"
+                android:hint="@string/race_edition_length"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorRaceEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorRaceEditionName"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorRaceEditionVelocity">
@@ -102,7 +102,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/race_edition_age"
+                android:hint="@string/race_edition_age"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorRaceEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorRaceEditionName"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorRaceEditionHeight">

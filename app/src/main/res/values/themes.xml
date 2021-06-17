@@ -16,6 +16,7 @@
         <!-- ToolBar -->
         <item name="toolbarStyle">@style/Widget.App.Toolbar</item>
 
+        <item name="textInputStyle">@style/Widget.App.TextInputLayout</item>
     </style>
 
     <!-- ToolBar -->
@@ -32,6 +33,11 @@
         <item name="iconTint">?attr/colorOnPrimary</item>
     </style>
 
-    <style name="AppTheme.AppBarOverlay"
-        parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
+    <style name="Widget.App.TextInputLayout" parent="Widget.MaterialComponents.TextInputLayout.OutlinedBox"></style>
+
+
 </resources>
+
+

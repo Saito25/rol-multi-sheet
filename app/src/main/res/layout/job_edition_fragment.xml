@@ -53,7 +53,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/job_edition_name"
+                android:hint="@string/job_edition_name"
                 app:layout_constraintStart_toStartOf="@+id/cardJobEditionBackground"
                 app:layout_constraintTop_toBottomOf="@+id/cardJobEditionBackground">
 
@@ -68,7 +68,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/job_edition_velocity"
+                android:hint="@string/job_edition_velocity"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorJobEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorJobEditionName"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorJobEditionName">
@@ -84,7 +84,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/job_edition_length"
+                android:hint="@string/job_edition_length"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorJobEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorJobEditionName"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorJobEditionHitDice">
@@ -100,7 +100,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/job_edition_age"
+                android:hint="@string/job_edition_age"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorJobEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorJobEditionName"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorJobEditionFeature">

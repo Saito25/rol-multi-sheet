@@ -137,7 +137,7 @@
     <fragment
         android:id="@+id/characterItemAddFragmentDirection"
         android:name="com.example.rolmultisheet.presentation.fragment.character.item.add.CharacterItemAddFragment"
-        android:label="CharacterItemAddFragment">
+        android:label="@string/game_host_item_name">
         <argument
             android:name="itemIds"
             app:argType="long[]" />
@@ -148,7 +148,7 @@
     <fragment
         android:id="@+id/characterWeaponAddDirection"
         android:name="com.example.rolmultisheet.presentation.fragment.character.weapon.add.CharacterWeaponAddFragment"
-        android:label="CharacterWeaponAddFragment">
+        android:label="@string/game_host_weapon_name">
         <argument
             android:name="weaponsId"
             app:argType="long[]" />
@@ -159,7 +159,7 @@
     <fragment
         android:id="@+id/characterArmourAddDirection"
         android:name="com.example.rolmultisheet.presentation.fragment.character.armour.add.CharacterArmourAddFragment"
-        android:label="CharacterArmourAddFragment">
+        android:label="@string/game_host_armour_name">
         <argument
             android:name="armoursId"
             app:argType="long[]" />

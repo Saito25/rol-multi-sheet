@@ -42,9 +42,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="end|bottom"
         android:layout_margin="@dimen/padding_x3"
-        android:visibility="gone"
-        app:tint="@color/white"
         android:src="@drawable/ic_add_black_24dp"
+        android:visibility="visible"
+        app:tint="@color/white"
         tools:visibility="visible" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

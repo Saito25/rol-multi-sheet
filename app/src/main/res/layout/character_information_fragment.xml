@@ -214,6 +214,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/padding_x3"
+            android:hint="@string/character_information_strength"
             app:layout_constraintEnd_toEndOf="@+id/imageCharacterInformationArmour"
             app:layout_constraintStart_toStartOf="@+id/imageCharacterInformationSubtractArmour"
             app:layout_constraintTop_toBottomOf="@+id/imageCharacterInformationArmour">
@@ -222,7 +223,6 @@
                 android:id="@+id/inputTextCharacterInformationStrength"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/character_information_strength"
                 android:inputType="number" />
         </com.google.android.material.textfield.TextInputLayout>
 

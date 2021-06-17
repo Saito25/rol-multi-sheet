@@ -51,13 +51,13 @@ class CharacterItemListFragment : PageFragment(R.layout.common_list_fragment) {
 
     private fun setupRecyclerView() {
         binding.listCommonRoot.run {
-            setHasFixedSize(true)
             layoutManager = LinearLayoutManager(requireContext())
             addItemDecoration(DividerItemDecoration(requireContext(), RecyclerView.VERTICAL))
             itemAnimator = DefaultItemAnimator()
             adapter = listAdapter
             doOnSwiped(swipeDirs = ItemTouchHelper.RIGHT) { viewHolder, _ ->
-                viewModel.deleteItemFromCharacter(listAdapter.currentList[viewHolder.adapterPosition])
+                viewModel
+                    .deleteItemFromCharacter(listAdapter.currentList[viewHolder.adapterPosition])
             }
         }
     }

@@ -33,7 +33,7 @@
                 android:id="@+id/inputDecoratorSpellEditionName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:helperText="@string/spell_edition_name"
+                android:hint="@string/spell_edition_name"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent">
 
@@ -48,7 +48,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/spell_edition_duration"
+                android:hint="@string/spell_edition_duration"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorSpellEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorSpellEditionName"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorSpellEditionName">
@@ -64,7 +64,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/spell_edition_cast_time"
+                android:hint="@string/spell_edition_cast_time"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorSpellEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorSpellEditionName"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorSpellEditionDuration">
@@ -80,7 +80,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/spell_edition_scope"
+                android:hint="@string/spell_edition_scope"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorSpellEditionName"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorSpellEditionName"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorSpellEditionCastTime">
@@ -96,7 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/padding_x2"
-                app:helperText="@string/spell_edition_description"
+                android:hint="@string/spell_edition_description"
                 app:layout_constraintEnd_toEndOf="@+id/inputDecoratorSpellEditionScope"
                 app:layout_constraintStart_toStartOf="@+id/inputDecoratorSpellEditionScope"
                 app:layout_constraintTop_toBottomOf="@+id/inputDecoratorSpellEditionScope">
