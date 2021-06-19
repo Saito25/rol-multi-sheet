@@ -3,7 +3,7 @@ package com.example.rolmultisheet.presentation.fragment.character.host.modal
 import android.os.Bundle
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
+import android.widget.ImageView
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
 import com.example.rolmultisheet.R
@@ -29,6 +29,7 @@ class DiceDialogFragment : DialogFragment(R.layout.dice_dialog_fragment) {
         dialog!!.window?.setBackgroundDrawableResource(R.drawable.dr_rounded_background)
         setupViews()
         observeViewModel()
+        isCancelable = false
     }
 
     private fun setupViews() {
@@ -67,7 +68,7 @@ class DiceDialogFragment : DialogFragment(R.layout.dice_dialog_fragment) {
         observeCurrentResult()
     }
 
-    private fun setupDiceViewOnClickListener(textView: TextView, diceValue: Int) {
+    private fun setupDiceViewOnClickListener(textView: ImageView, diceValue: Int) {
         textView.setOnClickListener { viewModel.addDice(diceValue) }
     }
 
@@ -82,7 +83,6 @@ class DiceDialogFragment : DialogFragment(R.layout.dice_dialog_fragment) {
             binding.labelDiceDialogResult.text = it
         }
     }
-
 
     companion object {
         const val path = "/dice_dialog"

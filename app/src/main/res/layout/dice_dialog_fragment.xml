@@ -13,166 +13,6 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/padding_x2">
 
-        <TextView
-            android:id="@+id/labelDiceDialogD100"
-            android:layout_width="@dimen/dice_dialog_dices"
-            android:layout_height="@dimen/dice_dialog_dices"
-            android:layout_marginTop="@dimen/padding_x2"
-            android:background="@drawable/border"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/dice_dialog_d100"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/labelDiceDialogD20"
-            app:layout_constraintTop_toBottomOf="@+id/labelDiceDialogD10" />
-
-        <TextView
-            android:id="@+id/labelDiceDialogD20"
-            android:layout_width="@dimen/dice_dialog_dices"
-            android:layout_height="@dimen/dice_dialog_dices"
-            android:layout_marginTop="@dimen/padding_x2"
-            android:background="@drawable/border"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/dice_dialog_d20"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toStartOf="@+id/labelDiceDialogD100"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/labelDiceDialogD12"
-            app:layout_constraintTop_toBottomOf="@+id/labelDiceDialogD8" />
-
-        <TextView
-            android:id="@+id/labelDiceDialogD12"
-            android:layout_width="@dimen/dice_dialog_dices"
-            android:layout_height="@dimen/dice_dialog_dices"
-            android:layout_marginTop="@dimen/padding_x2"
-            android:background="@drawable/border"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/dice_dialog_d12"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toStartOf="@+id/labelDiceDialogD20"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/labelDiceDialogD6" />
-
-        <TextView
-            android:id="@+id/labelDiceDialogD10"
-            android:layout_width="@dimen/dice_dialog_dices"
-            android:layout_height="@dimen/dice_dialog_dices"
-            android:layout_marginTop="@dimen/padding_x2"
-            android:background="@drawable/border"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/dice_dialog_d10"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/labelDiceDialogD8"
-            app:layout_constraintTop_toBottomOf="@+id/labelDiceDialogD4" />
-
-        <TextView
-            android:id="@+id/labelDiceDialogD8"
-            android:layout_width="@dimen/dice_dialog_dices"
-            android:layout_height="@dimen/dice_dialog_dices"
-            android:layout_marginTop="@dimen/padding_x2"
-            android:background="@drawable/border"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/dice_dialog_d8"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toStartOf="@+id/labelDiceDialogD10"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/labelDiceDialogD6"
-            app:layout_constraintTop_toBottomOf="@+id/labelDiceDialogD3" />
-
-        <TextView
-            android:id="@+id/labelDiceDialogD6"
-            android:layout_width="@dimen/dice_dialog_dices"
-            android:layout_height="@dimen/dice_dialog_dices"
-            android:layout_marginTop="@dimen/padding_x2"
-            android:background="@drawable/border"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/dice_dialog_d6"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toStartOf="@+id/labelDiceDialogD8"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/labelDiceDialogD2" />
-
-        <TextView
-            android:id="@+id/labelDiceDialogD4"
-            android:layout_width="@dimen/dice_dialog_dices"
-            android:layout_height="@dimen/dice_dialog_dices"
-            android:background="@drawable/border"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/dice_dialog_d4"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/labelDiceDialogD3"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/labelDiceDialogD3"
-            android:layout_width="@dimen/dice_dialog_dices"
-            android:layout_height="@dimen/dice_dialog_dices"
-            android:background="@drawable/border"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/dice_dialog_d3"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toStartOf="@+id/labelDiceDialogD4"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@+id/labelDiceDialogD2"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/labelDiceDialogD2"
-            android:layout_width="@dimen/dice_dialog_dices"
-            android:layout_height="@dimen/dice_dialog_dices"
-            android:background="@drawable/border"
-            android:clickable="true"
-            android:focusable="true"
-            android:gravity="center"
-            android:text="@string/dice_dialog_d2"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            app:layout_constraintEnd_toStartOf="@+id/labelDiceDialogD3"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintHorizontal_chainStyle="spread_inside"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/labelDiceDialogCurrentDices"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="@dimen/padding_x4"
-            android:gravity="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            app:autoSizeMaxTextSize="100sp"
-            app:autoSizeMinTextSize="12sp"
-            app:autoSizeStepGranularity="2sp"
-            app:autoSizeTextType="uniform"
-            app:layout_constraintEnd_toEndOf="@+id/labelDiceDialogD100"
-            app:layout_constraintStart_toStartOf="@+id/labelDiceDialogD12"
-            app:layout_constraintTop_toBottomOf="@+id/labelDiceDialogD20"
-            tools:text="2d4 + 1d8 + 2d4" />
-
         <View
             android:id="@+id/viewDicedialogElevationEfect"
             android:layout_width="wrap_content"
@@ -234,6 +74,124 @@
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toEndOf="@+id/buttonDiceDialogCancel"
             app:layout_constraintTop_toBottomOf="@+id/labelDiceDialogResult" />
+
+        <ImageView
+            android:id="@+id/labelDiceDialogD2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/labelDiceDialogD3"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/labelDiceDialogD3"
+            app:srcCompat="@drawable/ic_dice_two"
+            app:tint="@color/black" />
+
+        <TextView
+            android:id="@+id/labelDiceDialogCurrentDices"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="@dimen/padding_x3"
+            android:gravity="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+            app:autoSizeMaxTextSize="100sp"
+            app:autoSizeMinTextSize="12sp"
+            app:autoSizeStepGranularity="2sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/labelDiceDialogD20"
+            tools:text="2d4 + 1d8 + 2d4" />
+
+        <ImageView
+            android:id="@+id/labelDiceDialogD4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/labelDiceDialogD3"
+            app:layout_constraintTop_toTopOf="@+id/labelDiceDialogD3"
+            app:srcCompat="@drawable/ic_dice_four"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/labelDiceDialogD10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/labelDiceDialogD8"
+            app:layout_constraintTop_toTopOf="@+id/labelDiceDialogD8"
+            app:srcCompat="@drawable/ic_dice_ten"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/labelDiceDialogD8"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_x2"
+            app:layout_constraintEnd_toStartOf="@+id/labelDiceDialogD10"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/labelDiceDialogD6"
+            app:layout_constraintTop_toBottomOf="@+id/labelDiceDialogD3"
+            app:srcCompat="@drawable/ic_dice_eight"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/labelDiceDialogD6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/labelDiceDialogD8"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/labelDiceDialogD8"
+            app:srcCompat="@drawable/ic_dice_six"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/labelDiceDialogD12"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/labelDiceDialogD20"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/labelDiceDialogD20"
+            app:srcCompat="@drawable/ic_dice_twelve"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/labelDiceDialogD20"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/padding_x2"
+            app:layout_constraintEnd_toStartOf="@+id/labelDiceDialogD100"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/labelDiceDialogD12"
+            app:layout_constraintTop_toBottomOf="@+id/labelDiceDialogD8"
+            app:srcCompat="@drawable/ic_dice_twenty"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/labelDiceDialogD100"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/labelDiceDialogD20"
+            app:layout_constraintTop_toTopOf="@+id/labelDiceDialogD20"
+            app:srcCompat="@drawable/ic_dice_one"
+            app:tint="@color/black" />
+
+        <ImageView
+            android:id="@+id/labelDiceDialogD3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toStartOf="@+id/labelDiceDialogD4"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/labelDiceDialogD2"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/ic_dice_three"
+            app:tint="@color/black" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

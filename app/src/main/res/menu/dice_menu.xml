@@ -4,6 +4,6 @@
     <item
         android:id="@+id/menuDice"
         android:title="@string/dice_menu_item"
-        android:icon="@drawable/ic_dice_black_24dp"
+        android:icon="@drawable/ic_rolling_dices"
         app:showAsAction="ifRoom" />
 </menu>
