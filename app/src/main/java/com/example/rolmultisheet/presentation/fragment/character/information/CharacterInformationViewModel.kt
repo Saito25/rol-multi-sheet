@@ -54,7 +54,6 @@ class CharacterInformationViewModel(
             characterCurrentLife = character.value!!.characterCurrentLife + 1,
         )
         updateCharacter(updatedCharacter)
-
     }
 
     fun incrementArmourClass() {
@@ -115,11 +114,9 @@ class CharacterInformationViewModel(
         updateCharacter(updatedCharacter)
     }
 
-
     private fun updateCharacter(character: Character) {
         viewModelScope.launch {
             appRepository.updateCharacter(character)
         }
     }
-
 }

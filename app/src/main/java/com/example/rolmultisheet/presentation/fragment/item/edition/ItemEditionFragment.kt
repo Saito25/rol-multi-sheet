@@ -81,7 +81,6 @@ class ItemEditionFragment : Fragment(R.layout.item_edition_fragment) {
 
     }
 
-
     private fun observeViewModelEvent() {
         observeItemEvent()
         observeOnInvalidNameEvent()
@@ -104,7 +103,6 @@ class ItemEditionFragment : Fragment(R.layout.item_edition_fragment) {
             inputItemEditionPrice.setText(item.itemPrice.toString())
             inputItemEditionWeight.setText(item.itemWeight.toString())
             inputItemEditionDescription.setText(item.itemDescription)
-
         }
     }
 

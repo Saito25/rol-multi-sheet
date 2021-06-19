@@ -77,6 +77,8 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
                 editText as EditText
                 if (!editText.text.isNullOrBlank()) {
                     viewModel.updateGold(editText.text.toString().toInt())
+                } else {
+                    viewModel.updateGold(0)
                 }
             }
         }
@@ -203,7 +205,6 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
                 updateAttributesBonus(it)
             }
         }
-
     }
 
     private fun observeRace() {
@@ -223,7 +224,9 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
     }
 
     private fun updateGold(characterGold: Int) {
-        binding.editCharacterInformationGold.setText(characterGold.toString())
+        if (binding.editCharacterInformationGold.text.toString().toIntOrNull() != characterGold) {
+            binding.editCharacterInformationGold.setText(characterGold.toString())
+        }
     }
 
     private fun updateHealth(characterCurrentLife: Int, characterMaxLife: Int) {
@@ -239,12 +242,41 @@ class CharacterInformationFragment : Fragment(R.layout.character_information_fra
 
     private fun updateAttributes(character: Character) {
         binding.run {
-            inputTextCharacterInformationStrength.setText(character.characterStrength.toString())
-            inputTextCharacterInformationDexterity.setText(character.characterDexterity.toString())
-            inputTextCharacterInformationConstitution.setText(character.characterConstitution.toString())
-            inputTextCharacterInformationIntelligence.setText(character.characterIntelligence.toString())
-            inputTextCharacterInformationWisdom.setText(character.characterWisdom.toString())
-            inputTextCharacterInformationCharisma.setText(character.characterCharisma.toString())
+            if (inputTextCharacterInformationStrength.text.toString()
+                .toIntOrNull() != character.characterStrength
+            ) {
+                inputTextCharacterInformationStrength.setText(character.characterStrength.toString()) // ktlint-disable max-line-length
+            }
+
+            if (inputTextCharacterInformationDexterity.text.toString()
+                .toIntOrNull() != character.characterDexterity
+            ) {
+                inputTextCharacterInformationDexterity.setText(character.characterDexterity.toString()) // ktlint-disable max-line-length
+            }
+
+            if (inputTextCharacterInformationConstitution.toString()
+                .toIntOrNull() != character.characterConstitution
+            ) {
+                inputTextCharacterInformationConstitution.setText(character.characterConstitution.toString()) // ktlint-disable max-line-length
+            }
+
+            if (inputTextCharacterInformationIntelligence.text.toString()
+                .toIntOrNull() != character.characterIntelligence
+            ) {
+                inputTextCharacterInformationIntelligence.setText(character.characterIntelligence.toString()) // ktlint-disable max-line-length
+            }
+
+            if (inputTextCharacterInformationWisdom.text.toString()
+                .toIntOrNull() != character.characterWisdom
+            ) {
+                inputTextCharacterInformationWisdom.setText(character.characterWisdom.toString())
+            }
+
+            if (inputTextCharacterInformationCharisma.toString()
+                .toIntOrNull() != character.characterCharisma
+            ) {
+                inputTextCharacterInformationCharisma.setText(character.characterCharisma.toString()) // ktlint-disable max-line-length
+            }
         }
     }
 

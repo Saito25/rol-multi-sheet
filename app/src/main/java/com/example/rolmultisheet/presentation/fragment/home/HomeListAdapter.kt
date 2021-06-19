@@ -6,6 +6,9 @@ import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.bumptech.glide.load.resource.bitmap.CenterCrop
+import com.bumptech.glide.load.resource.bitmap.RoundedCorners
+import com.bumptech.glide.request.RequestOptions
 import com.example.rolmultisheet.databinding.CommonFragmentItemBinding
 import com.example.rolmultisheet.domain.model.Character
 import com.example.rolmultisheet.presentation.util.recycler.OnItemClickListener
@@ -63,7 +66,9 @@ class HomeListAdapter : ListAdapter<Character, HomeListAdapter.ViewHolder>(Chara
             binding.run {
                 labelCommonItemName.text = item.characterName
                 if (item.characterImage.isNotBlank()) {
-                    Glide.with(binding.root).load(item.characterImage)
+                    var requestOptions = RequestOptions()
+                    requestOptions = requestOptions.transforms(CenterCrop(), RoundedCorners(16))
+                    Glide.with(binding.root).load(item.characterImage).apply(requestOptions)
                         .into(binding.imageCommonItemAvatar)
                 }
             }

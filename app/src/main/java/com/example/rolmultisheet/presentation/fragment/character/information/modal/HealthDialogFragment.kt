@@ -35,6 +35,7 @@ class HealthDialogFragment : DialogFragment(R.layout.health_dialog_fragment) {
         super.onViewCreated(view, savedInstanceState)
         dialog!!.window?.setBackgroundDrawableResource(R.drawable.dr_rounded_background)
         setupViews()
+        isCancelable = false
     }
 
     private fun setupViews() {
@@ -74,7 +75,6 @@ class HealthDialogFragment : DialogFragment(R.layout.health_dialog_fragment) {
 
     private fun getValueOrZero(editable: Editable?): Int =
         if (editable.isNullOrBlank()) 0 else editable.toString().toInt()
-
 
     companion object {
         const val path: String = "/health_dialog"
